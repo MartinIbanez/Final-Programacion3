@@ -12,9 +12,9 @@
         /* Banner */
         .banner {
             text-align: center;
-            background: url('https://via.placeholder.com/1200x400') no-repeat center center;
+            background: url('imagenes/Run.jpg') no-repeat center center;
             background-size: cover;
-            color: white;
+            color: black;
             padding: 50px 20px;
         }
         .banner h1 {
@@ -84,7 +84,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Banner -->
     <div class="banner">
-        <h1>¡Bienvenido a nuestro Ecommerce Deportivo!</h1>
+        <h1>¡Bienvenidos al UTN!</h1>
         <p>Encuentra los mejores productos para tu deporte favorito.</p>
     </div>
 

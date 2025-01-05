@@ -28,7 +28,7 @@
                 </nav>
                 <div class="flex items-center space-x-4">
                     <input type="text" placeholder="Buscar productos..." class="hidden md:block w-48 p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <a href="../InicioSesion.aspx" class="text-gray-200 hover:text-white transition">
+                    <a href="Login.aspx" class="text-gray-200 hover:text-white transition">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16a4 4 0 01-8 0M12 4v4m0 0l2-2m-2 2l-2-2" />
                         </svg>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center text-xs text-gray-300">
-                &copy; 2023 Ropa Deportiva. Todos los derechos reservados.
+                &copy; TP FINAL PROGRAMACION III - 2025 - MARTIN IBAÑEZ
             </div>
         </footer>
 

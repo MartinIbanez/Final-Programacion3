@@ -9,7 +9,7 @@ namespace negocio
 {
     public class Conexion
     {
-        private string RutaBase = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=ECOMMERCE; Integrated Security=true ";
+        private string RutaBase = "Data Source=MARTIN\\SQLEXPRESS; Initial Catalog=ECOMMERCE; Integrated Security=true ";
 
         public SqlConnection ObtenerConexion()
         {
