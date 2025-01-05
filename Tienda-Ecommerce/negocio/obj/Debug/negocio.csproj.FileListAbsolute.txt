@@ -1,0 +1,9 @@
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\obj\Debug\negocio.csproj.AssemblyReference.cache
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\bin\Debug\negocio.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\bin\Debug\negocio.pdb
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\bin\Debug\dominio.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\bin\Debug\dominio.pdb
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\obj\Debug\negocio.csproj.Up2Date
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\obj\Debug\negocio.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\negocio\obj\Debug\negocio.pdb

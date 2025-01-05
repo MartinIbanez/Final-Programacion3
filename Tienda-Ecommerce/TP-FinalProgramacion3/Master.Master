@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TP_FinalProgramacion3.Master" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <title>Carrito de Compras - Ropa Deportiva</title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    
+    <form id="form1" runat="server">
+
+        <!-- Header -->
+        <header class="bg-blue-800 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center py-4 px-6">
+                <a href="#" class="text-white text-2xl font-bold">
+                    Ropa Deportiva
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../Inicio.aspx" class="text-gray-200 hover:text-white transition">Inicio</a>
+                    <a href="../Default.aspx" class="text-gray-200 hover:text-white transition">Productos</a>
+                    <a href="../Nosotros.aspx" class="text-gray-200 hover:text-white transition">Nosotros</a>
+                    <a href="../Carrito.aspx" class="text-gray-200 hover:text-white transition">Carrito</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <input type="text" placeholder="Buscar productos..." class="hidden md:block w-48 p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <a href="../InicioSesion.aspx" class="text-gray-200 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16a4 4 0 01-8 0M12 4v4m0 0l2-2m-2 2l-2-2" />
+                        </svg>
+                    </a>
+                    <a href="../Carrito.aspx" class="text-gray-200 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.34 2M7 16a4 4 0 108 0m5.34-6H7M5.34 6l1.6 8h9.08l1.6-8" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto py-8 px-6">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-blue-800 text-white py-8">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between">
+                <div>
+                    <h2 class="text-xl font-bold">Ropa Deportiva</h2>
+                    <p class="mt-4 text-sm text-gray-300">
+                        La mejor tienda online para ropa deportiva. Calidad y diseño al mejor precio.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 md:gap-8">
+                    <div>
+                        <h3 class="font-bold">Compañía</h3>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-gray-300">Sobre nosotros</a></li>
+                            <li><a href="#" class="hover:text-gray-300">Nuestro equipo</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold">Enlaces útiles</h3>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-gray-300">Preguntas frecuentes</a></li>
+                            <li><a href="#" class="hover:text-gray-300">Política de privacidad</a></li>
+                            <li><a href="#" class="hover:text-gray-300">Términos y condiciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-xs text-gray-300">
+                &copy; 2023 Ropa Deportiva. Todos los derechos reservados.
+            </div>
+        </footer>
+
+    </form>
+    
+</body>
+</html>

@@ -41,16 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticuloNegocio.cs" />
+    <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">
       <Project>{c0c2018a-9373-4594-b8f2-9c9cf85aadd7}</Project>
       <Name>dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TP-FinalProgramacion3\TP-FinalProgramacion3.csproj">
-      <Project>{086d4cfe-22ac-4acc-a6fb-01b6873cf69a}</Project>
-      <Name>TP-FinalProgramacion3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

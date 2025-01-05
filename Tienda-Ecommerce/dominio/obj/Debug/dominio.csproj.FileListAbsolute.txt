@@ -1,0 +1,6 @@
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\bin\Debug\dominio.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\bin\Debug\dominio.pdb
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\obj\Debug\dominio.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\dominio\obj\Debug\dominio.pdb

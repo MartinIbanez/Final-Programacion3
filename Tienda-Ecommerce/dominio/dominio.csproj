@@ -50,11 +50,5 @@
     <Compile Include="Proveedores.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TP-FinalProgramacion3\TP-FinalProgramacion3.csproj">
-      <Project>{086d4cfe-22ac-4acc-a6fb-01b6873cf69a}</Project>
-      <Name>TP-FinalProgramacion3</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
