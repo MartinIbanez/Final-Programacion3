@@ -10,35 +10,20 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body class="bg-gray-100">
-
-    
-    <form id="form1" runat="server">
-
+  
         <!-- Header -->
         <header class="bg-blue-800 shadow-lg">
             <div class="container mx-auto flex justify-between items-center py-4 px-6">
-                <a href="#" class="text-white text-2xl font-bold">
-                    Ropa Deportiva
+                <a href="Default.aspx" class="text-white text-2xl font-bold">
+                    UTN - ECOMMERCE DEPORTES
                 </a>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="../Inicio.aspx" class="text-gray-200 hover:text-white transition">Inicio</a>
-                    <a href="../Default.aspx" class="text-gray-200 hover:text-white transition">Productos</a>
-                    <a href="../Nosotros.aspx" class="text-gray-200 hover:text-white transition">Nosotros</a>
-                    <a href="../Carrito.aspx" class="text-gray-200 hover:text-white transition">Carrito</a>
+                    <!-- Opción Login con ícono -->
+                    <a href="Login.aspx" class="flex items-center space-x-2 text-gray-200 hover:text-white transition">
+                        <img src="imagenes/login.jpg" alt="Usuario" class="w-6 h-6 rounded-full" />
+                        <span>Iniciar sesión</span>
+                    </a>
                 </nav>
-                <div class="flex items-center space-x-4">
-                    <input type="text" placeholder="Buscar productos..." class="hidden md:block w-48 p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <a href="Login.aspx" class="text-gray-200 hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16a4 4 0 01-8 0M12 4v4m0 0l2-2m-2 2l-2-2" />
-                        </svg>
-                    </a>
-                    <a href="../Carrito.aspx" class="text-gray-200 hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.34 2M7 16a4 4 0 108 0m5.34-6H7M5.34 6l1.6 8h9.08l1.6-8" />
-                        </svg>
-                    </a>
-                </div>
             </div>
         </header>
 
@@ -78,8 +63,7 @@
                 &copy; TP FINAL PROGRAMACION III - 2025 - MARTIN IBAÑEZ
             </div>
         </footer>
+   
 
-    </form>
-    
 </body>
 </html>

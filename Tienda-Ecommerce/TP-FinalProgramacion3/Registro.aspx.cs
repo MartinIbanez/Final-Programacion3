@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace TP_FinalProgramacion3
 {
@@ -11,51 +13,42 @@ namespace TP_FinalProgramacion3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Aquí puedes manejar eventos de carga de la página si es necesario.
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // Aquí puedes procesar los datos del formulario
-            string dni = txtDNI.Text;
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            string direccion = txtDireccion.Text;
-            string provincia = ddlProvincia.SelectedValue;
-            string codigoPostal = txtCodigoPostal.Text;
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
+            // Validar campos obligatorios
+            if (string.IsNullOrWhiteSpace(txtDNI.Text) ||
+                string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
+                string.IsNullOrWhiteSpace(ddlProvincia.SelectedValue) ||
+                string.IsNullOrWhiteSpace(txtCodigoPostal.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                // Mostrar un mensaje de error si algún campo está vacío
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Por favor, complete todos los campos.');", true);
+                return;
+            }
 
-            // Aquí puedes agregar la lógica para guardar en la base de datos
-            try
-            {
-                // Simulación de guardado (reemplazar con lógica real)
-                bool isSaved = GuardarEnBaseDeDatos(dni, nombre, apellido, direccion, provincia, codigoPostal, email, password);
-                if (isSaved)
-                {
-                    Session["Msg_ok"] = "Registro exitoso.";
-                }
-                else
-                {
-                    Session["Msg_error"] = "Ocurrió un error al registrar.";
-                }
-            }
-            catch (Exception ex)
-            {
-                Session["Msg_error"] = "Error: " + ex.Message;
-            }
-            finally
-            {
-                Response.Redirect("Registro.aspx");
-            }
-        }
+            // Simulación de registro exitoso (aquí podrías guardar los datos en la base de datos)
+            // Ejemplo: Guardar en una base de datos o llamar a un servicio
+            // Código para guardar en la base de datos aquí...
 
-        private bool GuardarEnBaseDeDatos(string dni, string nombre, string apellido, string direccion, string provincia, string codigoPostal, string email, string password)
-        {
-            // Implementa aquí la lógica para conectar y guardar en la base de datos
-            // Retorna true si se guarda correctamente, false si hay algún error
-            return true;
+            // Redirigir al usuario o mostrar un mensaje de éxito
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Registro exitoso.');", true);
+
+            // Limpiar campos después del registro
+            txtDNI.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+            ddlProvincia.SelectedIndex = 0;
+            txtCodigoPostal.Text = "";
+            txtEmail.Text = "";
+            txtPassword.Text = "";
         }
     }
 }
-    

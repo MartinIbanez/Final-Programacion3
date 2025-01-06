@@ -1,125 +1,121 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Registro.aspx.cs" Inherits="TP_FinalProgramacion3.Registro" %>
+﻿<%@ Page Title="Registro de Clientes" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Registro.aspx.cs" Inherits="TP_FinalProgramacion3.Registro" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  <section class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-blue-800 text-center">Registro de Clientes</h2>
 
-<section class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div class="w-full max-w-2xl bg-slate-800 rounded-lg shadow-lg p-8">
-    <h2 class="text-3xl font-bold text-white text-center">Registro</h2>
+      <!-- Formulario de registro -->
+      <form id="formRegistro" runat="server" method="post" class="mt-6 space-y-6">
 
-    <% if (Session["Msg_error"] != null) { %>
-      <div class="bg-red-500 text-white text-sm font-medium rounded-md p-3 mt-4">
-        <%= Session["Msg_error"] %>
-        <% Session["Msg_error"] = null; %>
-      </div>
-    <% } %>
-    
-    <% if (Session["Msg_ok"] != null) { %>
-      <div class="bg-green-500 text-white text-sm font-medium rounded-md p-3 mt-4">
-        <%= Session["Msg_ok"] %>
-        <% Session["Msg_ok"] = null; %>
-      </div>
-    <% } %>
+        <!-- Campo de DNI -->
+        <div>
+          <label for="txtDNI" class="block text-sm font-medium text-slate-600">DNI</label>
+          <asp:TextBox 
+            ID="txtDNI" 
+            runat="server" 
+            placeholder="Ingrese su DNI" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-    <!-- Campos del formulario -->
-    <div class="mt-6 grid grid-cols-2 gap-6">
-      <!-- DNI -->
-      <div>
-        <label for="DNI" class="block text-sm font-medium text-slate-400">DNI</label>
-        <asp:TextBox 
-          ID="txtDNI" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su DNI"></asp:TextBox>
-      </div>
+        <!-- Campo de Nombre -->
+        <div>
+          <label for="txtNombre" class="block text-sm font-medium text-slate-600">Nombre</label>
+          <asp:TextBox 
+            ID="txtNombre" 
+            runat="server" 
+            placeholder="Ingrese su nombre" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Nombre -->
-      <div>
-        <label for="Nombre" class="block text-sm font-medium text-slate-400">Nombre</label>
-        <asp:TextBox 
-          ID="txtNombre" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su nombre"></asp:TextBox>
-      </div>
+        <!-- Campo de Apellido -->
+        <div>
+          <label for="txtApellido" class="block text-sm font-medium text-slate-600">Apellido</label>
+          <asp:TextBox 
+            ID="txtApellido" 
+            runat="server" 
+            placeholder="Ingrese su apellido" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Apellido -->
-      <div>
-        <label for="Apellido" class="block text-sm font-medium text-slate-400">Apellido</label>
-        <asp:TextBox 
-          ID="txtApellido" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su apellido"></asp:TextBox>
-      </div>
+        <!-- Campo de Dirección -->
+        <div>
+          <label for="txtDireccion" class="block text-sm font-medium text-slate-600">Dirección</label>
+          <asp:TextBox 
+            ID="txtDireccion" 
+            runat="server" 
+            placeholder="Ingrese su dirección" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Dirección -->
-      <div>
-        <label for="Direccion" class="block text-sm font-medium text-slate-400">Dirección</label>
-        <asp:TextBox 
-          ID="txtDireccion" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su dirección"></asp:TextBox>
-      </div>
+        <!-- Campo de Provincia -->
+        <div>
+          <label for="ddlProvincia" class="block text-sm font-medium text-slate-600">Provincia</label>
+          <asp:DropDownList 
+            ID="ddlProvincia" 
+            runat="server" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <asp:ListItem Text="Seleccione una provincia" Value="" />
+            <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
+            <asp:ListItem Text="Córdoba" Value="Córdoba" />
+            <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
+            <asp:ListItem Text="Mendoza" Value="Mendoza" />
+            <asp:ListItem Text="Salta" Value="Salta" />
+          </asp:DropDownList>
+        </div>
 
-      <!-- Provincia -->
-      <div>
-        <label for="Provincia" class="block text-sm font-medium text-slate-400">Provincia</label>
-        <asp:DropDownList 
-          ID="ddlProvincia" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <asp:ListItem Text="Seleccione una provincia" Value="" />
-          <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
-          <asp:ListItem Text="Córdoba" Value="Córdoba" />
-          <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
-         
-        </asp:DropDownList>
-      </div>
+        <!-- Campo de Código Postal -->
+        <div>
+          <label for="txtCodigoPostal" class="block text-sm font-medium text-slate-600">Código Postal</label>
+          <asp:TextBox 
+            ID="txtCodigoPostal" 
+            runat="server" 
+            placeholder="Ingrese su código postal" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Código Postal -->
-      <div>
-        <label for="CodigoPostal" class="block text-sm font-medium text-slate-400">Código Postal</label>
-        <asp:TextBox 
-          ID="txtCodigoPostal" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su código postal"></asp:TextBox>
-      </div>
+        <!-- Campo de Email -->
+        <div>
+          <label for="txtEmail" class="block text-sm font-medium text-slate-600">Email</label>
+          <asp:TextBox 
+            ID="txtEmail" 
+            runat="server" 
+            TextMode="Email" 
+            placeholder="Ingrese su email" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Email -->
-      <div>
-        <label for="Email" class="block text-sm font-medium text-slate-400">Email</label>
-        <asp:TextBox 
-          ID="txtEmail" 
-          runat="server" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su email"></asp:TextBox>
-      </div>
+        <!-- Campo de Contraseña -->
+        <div>
+          <label for="txtPassword" class="block text-sm font-medium text-slate-600">Contraseña</label>
+          <asp:TextBox 
+            ID="txtPassword" 
+            runat="server" 
+            TextMode="Password" 
+            placeholder="Ingrese su contraseña" 
+            CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
-      <!-- Contraseña -->
-      <div>
-        <label for="Password" class="block text-sm font-medium text-slate-400">Contraseña</label>
-        <asp:TextBox 
-          ID="txtPassword" 
-          runat="server" 
-          TextMode="Password" 
-          CssClass="w-full mt-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-md text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-          placeholder="Ingrese su contraseña"></asp:TextBox>
-      </div>
+        <!-- Botón de Registrar -->
+        <div>
+          <asp:Button 
+            ID="btnRegistrar" 
+            runat="server" 
+            Text="Registrar" 
+            CssClass="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition" 
+            OnClick="btnRegistrar_Click" />
+        </div>
+      </form>
 
-      <!-- Botón Registrar -->
-      <div class="col-span-2">
-        <asp:Button 
-          ID="btnRegistrar" 
-          runat="server" 
-          CssClass="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition" 
-          Text="Registrarse" 
-          OnClick="btnRegistrar_Click" />
-      </div>
+      <!-- Enlace para iniciar sesión -->
+      <p class="mt-4 text-center text-sm text-slate-600">
+        ¿Ya tienes una cuenta? 
+        <a href="Login.aspx" class="text-blue-600 hover:underline">Inicia sesión</a>.
+      </p>
     </div>
-  </div>
-</section>
-
+  </section>
 </asp:Content>
+
