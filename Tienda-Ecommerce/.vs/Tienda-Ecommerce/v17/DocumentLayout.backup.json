@@ -3,28 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\productos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\clientenegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\productos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\accesodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\master.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\master.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{C0C2018A-9373-4594-B8F2-9C9CF85AADD7}|dominio\\dominio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0C2018A-9373-4594-B8F2-9C9CF85AADD7}|dominio\\dominio.csproj|solutionrelative:dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\registro.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\tp-finalprogramacion3\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\registro.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\tp-finalprogramacion3\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\storeprocedure.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\storeprocedure.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\sql_basedatos.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\sql_basedatos.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\error.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\error.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\articulonegocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\tp-finalprogramacion3\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{086D4CFE-22AC-4ACC-A6FB-01B6873CF69A}|TP-FinalProgramacion3\\TP-FinalProgramacion3.csproj|solutionrelative:tp-finalprogramacion3\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\sql_basedatos.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\sql_basedatos.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|c:\\users\\marti\\desktop\\final-programacion3\\tienda-ecommerce\\negocio\\script_db\\storeprocedure.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{F39E5F53-A64E-4A32-9CC3-F0DB3500E00C}|negocio\\negocio.csproj|solutionrelative:negocio\\script_db\\storeprocedure.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,63 +82,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Productos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Productos.aspx.cs",
-              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Productos.aspx.cs",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Productos.aspx.cs*",
-              "RelativeToolTip": "TP-FinalProgramacion3\\Productos.aspx.cs*",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwCAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T00:15:49.361Z",
+              "DocumentIndex": 8,
+              "Title": "SQL_BaseDatos.sql ",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\SQL_BaseDatos.sql",
+              "RelativeDocumentMoniker": "negocio\\script_db\\SQL_BaseDatos.sql",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\SQL_BaseDatos.sql",
+              "RelativeToolTip": "negocio\\script_db\\SQL_BaseDatos.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-01-06T23:57:28.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Productos.aspx",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Productos.aspx",
-              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Productos.aspx",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Productos.aspx*",
-              "RelativeToolTip": "TP-FinalProgramacion3\\Productos.aspx*",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-01-06T00:10:48.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Master.Master",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Master.Master",
-              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Master.Master",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Master.Master",
-              "RelativeToolTip": "TP-FinalProgramacion3\\Master.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-01-05T23:49:23.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Registro.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Registro.aspx.cs",
-              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Registro.aspx.cs",
-              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Registro.aspx.cs",
-              "RelativeToolTip": "TP-FinalProgramacion3\\Registro.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T23:37:47.565Z",
+              "DocumentIndex": 9,
+              "Title": "Insert.sql ",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\Insert.sql",
+              "RelativeDocumentMoniker": "negocio\\script_db\\Insert.sql",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\Insert.sql",
+              "RelativeToolTip": "negocio\\script_db\\Insert.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-01-06T23:57:45.062Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Registro.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Registro.aspx.cs",
+              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Registro.aspx.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Registro.aspx.cs",
+              "RelativeToolTip": "TP-FinalProgramacion3\\Registro.aspx.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T23:19:09.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Registro.aspx",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Registro.aspx",
               "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Registro.aspx",
@@ -98,12 +131,25 @@
               "RelativeToolTip": "TP-FinalProgramacion3\\Registro.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-01-05T23:34:57.806Z",
+              "WhenOpened": "2025-01-06T23:17:14.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
+              "Title": "Error.aspx",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Error.aspx",
+              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Error.aspx",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Error.aspx",
+              "RelativeToolTip": "TP-FinalProgramacion3\\Error.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-01-06T03:03:37.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Login.aspx",
               "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Login.aspx",
               "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Login.aspx",
@@ -111,7 +157,123 @@
               "RelativeToolTip": "TP-FinalProgramacion3\\Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-01-05T23:32:06.621Z",
+              "WhenOpened": "2025-01-06T02:45:00.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Login.aspx.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Login.aspx.cs",
+              "RelativeToolTip": "TP-FinalProgramacion3\\Login.aspx.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAkwEAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:14:22.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\ClienteNegocio.cs",
+              "RelativeDocumentMoniker": "negocio\\ClienteNegocio.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\ClienteNegocio.cs*",
+              "RelativeToolTip": "negocio\\ClienteNegocio.cs*",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAYwIUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:13:41.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Default.aspx.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Default.aspx.cs",
+              "RelativeToolTip": "TP-FinalProgramacion3\\Default.aspx.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:03:29.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccesoDatos.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\AccesoDatos.cs",
+              "RelativeDocumentMoniker": "negocio\\AccesoDatos.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\AccesoDatos.cs",
+              "RelativeToolTip": "negocio\\AccesoDatos.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:01:45.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\dominio\\Cliente.cs",
+              "RelativeDocumentMoniker": "dominio\\Cliente.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\dominio\\Cliente.cs",
+              "RelativeToolTip": "dominio\\Cliente.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T03:04:49.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StoreProcedure.sql ",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\StoreProcedure.sql",
+              "RelativeDocumentMoniker": "negocio\\script_db\\StoreProcedure.sql",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\script_db\\StoreProcedure.sql",
+              "RelativeToolTip": "negocio\\script_db\\StoreProcedure.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-01-06T23:58:51.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Default.aspx",
+              "RelativeDocumentMoniker": "TP-FinalProgramacion3\\Default.aspx",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\TP-FinalProgramacion3\\Default.aspx",
+              "RelativeToolTip": "TP-FinalProgramacion3\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-01-06T02:02:27.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ArticuloNegocio.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\ArticuloNegocio.cs",
+              "RelativeDocumentMoniker": "negocio\\ArticuloNegocio.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\ArticuloNegocio.cs",
+              "RelativeToolTip": "negocio\\ArticuloNegocio.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:01:53.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\Conexion.cs",
+              "RelativeDocumentMoniker": "negocio\\Conexion.cs",
+              "ToolTip": "C:\\Users\\marti\\Desktop\\Final-Programacion3\\Tienda-Ecommerce\\negocio\\Conexion.cs",
+              "RelativeToolTip": "negocio\\Conexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T02:01:49.106Z",
               "EditorCaption": ""
             }
           ]

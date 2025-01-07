@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,6 +12,8 @@ namespace TP_FinalProgramacion3
 {
     public partial class Login : System.Web.UI.Page
     {
+        private const string Url = "Productos.aspx";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Si el usuario ya está autenticado, lo redirigimos al inicio
@@ -19,38 +23,78 @@ namespace TP_FinalProgramacion3
             }
         }
 
+        public static class Validacion
+        {
+            public static bool validaTextoVacio(object control)
+            {
+                if (control is TextBox texto)
+                {
+                    if (string.IsNullOrEmpty(texto.Text))
+                        return true;
+                    else
+                        return false;
+                }
+                return false;
+            }
+        }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            // Recuperamos el correo y la contraseña ingresados por el usuario
             string email = UserEmail.Text;
             string password = Password.Text;
 
-            // Llamamos al método Login de ClienteNegocio
-            ClienteNegocio clienteNegocio = new ClienteNegocio();
-            Cliente cliente = ClienteNegocio.Login(email,password); // Verificamos las credenciales
+            ClienteNegocio negocio = new ClienteNegocio();
+            Cliente cliente = new Cliente();
 
-            if (cliente != null)
+            try
             {
-                // Si el cliente fue autenticado correctamente, guardamos la información del cliente en la sesión
-                Session["Cliente"] = cliente; // Guardamos el objeto cliente en la sesión
-
-                // Autenticamos al usuario con FormsAuthentication
-                FormsAuthentication.SetAuthCookie(cliente.Email, false);
-
-                // Redirigimos según el tipo de usuario
-                if (cliente.Tipo) // Si es admin
+                // Verificamos que ambos campos estén completos
+                if (Validacion.validaTextoVacio(UserEmail) || Validacion.validaTextoVacio(Password))
                 {
-                    Response.Redirect("~/Admin/Dashboard.aspx");
+                    // Si algún campo está vacío, mostramos un mensaje de error
+                    Session.Add("error", "Debes completar ambos campos...");
+                    Response.Redirect("Error.aspx");
                 }
-                else // Si es un cliente normal
+
+                // Asignamos los valores ingresados por el usuario a las propiedades del cliente
+                cliente.Email = email;
+                cliente.Password = password;
+
+                // Verificamos si las credenciales del cliente son correctas
+                Cliente clienteAutenticado = negocio.Login(cliente.Email, cliente.Password);
+
+                if (clienteAutenticado != null)
                 {
-                    Response.Redirect("~/Default.aspx");
+                    // Si la autenticación es exitosa, guardamos al cliente en la sesión
+                    Session.Add("cliente", clienteAutenticado);
+
+                    // Redirigimos al usuario dependiendo de su tipo
+                    if (clienteAutenticado.Tipo) // Si es un administrador
+                    {
+                        Response.Redirect("~/Admin/Dashboard.aspx", false); // Página de administrador
+                    }
+                    else // Si es un cliente normal
+                    {
+                        Response.Redirect("~/Default.aspx", false); // Página principal del cliente
+                    }
+                }
+                else
+                {
+                    // Si las credenciales son incorrectas, mostramos un mensaje de error
+                    Session.Add("error", "Usuario o contraseña incorrectos.");
+                    Response.Redirect("Error.aspx", false);
                 }
             }
-            else
+            catch (System.Threading.ThreadAbortException ex)
             {
-                // Si la autenticación falla, mostramos un mensaje de error
-                Session["Msg_error"] = "Credenciales incorrectas. Por favor, intente de nuevo.";
-                Response.Redirect(Request.RawUrl); // Recarga la página para mostrar el error
+                // Excepción que ocurre al hacer redirecciones, se ignora
+            }
+            catch (Exception ex)
+            {
+                // En caso de error inesperado, lo registramos y redirigimos a la página de error
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
     }

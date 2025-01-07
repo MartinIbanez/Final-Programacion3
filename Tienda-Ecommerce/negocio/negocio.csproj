@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos.cs" />
     <Compile Include="ArticuloNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="Conexion.cs" />
@@ -51,6 +52,11 @@
       <Project>{c0c2018a-9373-4594-b8f2-9c9cf85aadd7}</Project>
       <Name>dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="script_db\Insert.sql" />
+    <Content Include="script_db\StoreProcedure.sql" />
+    <Content Include="script_db\SQL_BaseDatos.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

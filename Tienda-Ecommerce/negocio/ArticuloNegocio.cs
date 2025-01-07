@@ -11,28 +11,28 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        Conexion cn=new Conexion();
+        //AccesoDatos cn=new AccesoDatos();
+        //Conexion cn=new Conexion();
         public List<Articulo> ArticulosDestacados()
-        {
-
-            string Consulta = "SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()";
-
+        {     
+            //string Consulta = "SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()";
             List<Articulo> ListaArtDestacados=new List<Articulo>();
+            AccesoDatos cn = new AccesoDatos();
 
-            try
+            try              
             {
-                SqlDataAdapter Adapter = cn.ObtenerAdaptador(Consulta);
-                DataTable ArticulosDest = new DataTable();
+                cn.setearConsulta("SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()");
+                cn.ejecutarLectura();
 
-                Adapter.Fill( ArticulosDest );
-
-                foreach(DataRow fila in ArticulosDest.Rows)
+                while (cn.Lector.Read())
                 {
-                   Articulo ArtDest = new Articulo();
-                   ArtDest.IdArticulo=Convert.ToInt32(fila["IdArticulo"]);
-                    ArtDest.Nombre = fila["Art_Nombre"].ToString();
-                    ArtDest.UrlImagen = fila["Art_UrlImagen"].ToString();
-                    ArtDest.Precio = Convert.ToDecimal(fila["Art_Precio"]);
+                    Articulo ArtDest = new Articulo();
+
+                    ArtDest.IdArticulo = (int)cn.Lector["IdArticulo"];                  
+                    ArtDest.Nombre = cn.Lector["Art_Nombre"].ToString();
+                    ArtDest.UrlImagen = cn.Lector["Art_UrlImagen"].ToString();
+                    ArtDest.Precio = cn.Lector["Art_Precio"] != DBNull.Value ? Convert.ToDecimal(cn.Lector["Art_Precio"]) : 0;
+
 
                     ListaArtDestacados.Add( ArtDest );
                     
@@ -41,7 +41,11 @@ namespace negocio
             }
 
             catch (Exception ex) {
-                throw new Exception($"Error en ArticulosDestacados: {ex.Message}");
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
             }
         }
     }

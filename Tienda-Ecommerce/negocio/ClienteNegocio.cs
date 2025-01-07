@@ -7,95 +7,98 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace negocio
 {
     public class ClienteNegocio
     {
-        Conexion cn = new Conexion();
+       // Conexion cn = new Conexion();
 
         public List<Cliente> ClientesListado()
         {
             string consulta = "SELECT CL_DNI, CL_Nombre,CL_Apellido,CL_Direccion,CL_Provincia,CL_CodPostal, CL_Email,CL_Password,CL_Estado,CL_Tipo FROM CLIENTES ORDER BY CL_Apellido";
 
             List<Cliente> ListarClientes = new List<Cliente>();
+            AccesoDatos datos= new AccesoDatos();
 
             try
             {
-                SqlDataAdapter Adapter = cn.ObtenerAdaptador(consulta);
-                DataTable Clientes = new DataTable();
+                datos.setearConsulta( consulta );
+                datos.ejecutarLectura();
 
-                Adapter.Fill(Clientes);
-
-                foreach (DataRow fila in Clientes.Rows)
+                while (datos.Lector.Read()) 
                 {
                     Cliente ClientesAux = new Cliente();
 
-                    ClientesAux.Dni = fila["CL_DNI"].ToString();
-                    ClientesAux.Nombre = fila["CL_Nombre"].ToString();
-                    ClientesAux.Apellido = fila["CL_Apellido"].ToString();
-                    ClientesAux.Direccion = fila["CL_Direccion"].ToString();
-                    ClientesAux.Provincia = fila["CL_Provincia"].ToString();
-                    ClientesAux.CodPostal = fila["CL_CodPostal"].ToString();
-                    ClientesAux.Email = fila["CL_Email"].ToString();
-                    ClientesAux.Password = fila["CL_Password"].ToString();
-                    ClientesAux.Estado = (bool)fila["CL_Estado"];
-                    ClientesAux.Tipo = (bool)fila["CL_Tipo"];
-                    
+                    ClientesAux.Dni = (string)datos.Lector["CL_DNI"];
+                    ClientesAux.Nombre = (string)datos.Lector["CL_Nombre"];
+                    ClientesAux.Apellido = (string)datos.Lector["CL_Apellido"];
+                    ClientesAux.Direccion = (string)datos.Lector["CL_Direccion"];
+                    ClientesAux.Provincia = (string)datos.Lector["CL_Provincia"];
+                    ClientesAux.CodPostal = (string)datos.Lector["CL_CodPostal"];
+                    ClientesAux.Email = (string)datos.Lector["CL_Email"];
+                    ClientesAux.Password = (string)datos.Lector["CL_Password"];
+                    // campos booleanos
+                    ClientesAux.Estado = (bool)datos.Lector["CL_Estado"];
+                    ClientesAux.Tipo = (bool)datos.Lector["CL_Tipo"];
+
                     ListarClientes.Add(ClientesAux);
                 }
                 return ListarClientes;
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error en Listado de Clientes {ex.Message}");
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
         // Método para autenticar al cliente con email y contraseña
-        public static Cliente Login(string mail, string password)
+        public Cliente Login(string mail, string password)
         {
             // Consulta para obtener los datos del cliente que coinciden con el email proporcionado
             string consulta = "SELECT CL_DNI, CL_Nombre, CL_Apellido, CL_Direccion, CL_Provincia, CL_CodPostal, CL_Email, CL_Password, CL_Estado, CL_Tipo FROM CLIENTES WHERE CL_Email = @Email";
 
-            // Creamos una instancia de Conexion
-            Conexion cn = new Conexion();
+            // Creamos una instancia de AccesoDatos
+            AccesoDatos cn = new AccesoDatos();
 
-            // Obtenemos un adaptador con la consulta
-            SqlDataAdapter adapter = cn.ObtenerAdaptador(consulta);
+            // Establecemos la consulta
+            cn.setearConsulta(consulta);
 
-            // Usamos la conexión obtenida a través del adaptador
-            SqlCommand command = new SqlCommand(consulta, cn.ObtenerConexion());
-            command.Parameters.AddWithValue("@Email", mail);
+            // Agregamos el parámetro para la consulta
+            cn.setearParametro("@Email", mail);
 
             try
             {
-                // Ejecutar la consulta y leer los datos
-                SqlDataReader reader = command.ExecuteReader();
+                // Ejecutamos la lectura de datos
+                cn.ejecutarLectura();
 
                 // Si se encontró un cliente con ese email
-                if (reader.HasRows)
+                if (cn.Lector.Read())
                 {
-                    reader.Read(); // Lee el primer (y único) registro que debe coincidir con el email
-                    string storedPassword = reader["CL_Password"].ToString(); // Obtén la contraseña almacenada
+                    string storedPassword = cn.Lector["CL_Password"].ToString(); // Obtén la contraseña almacenada
 
                     // Aquí debes verificar si la contraseña ingresada coincide con la almacenada en la base de datos
-                    // Si estás usando hash para las contraseñas, debes encriptar `password` antes de compararlo
-                    if (storedPassword == password) // Deberías usar encriptación de contraseñas en un escenario real
+                    // Si estás usando hash para las contraseñas, deberías comparar el hash en vez de la contraseña en texto claro
+                    if (storedPassword == password) // Comparación sin encriptación (en escenarios reales deberías usar un hash)
                     {
                         // Crear un objeto Cliente con los datos recuperados
                         Cliente cliente = new Cliente
                         {
-                            Dni = reader["CL_DNI"].ToString(),
-                            Nombre = reader["CL_Nombre"].ToString(),
-                            Apellido = reader["CL_Apellido"].ToString(),
-                            Direccion = reader["CL_Direccion"].ToString(),
-                            Provincia = reader["CL_Provincia"].ToString(),
-                            CodPostal = reader["CL_CodPostal"].ToString(),
-                            Email = reader["CL_Email"].ToString(),
+                            Dni = cn.Lector["CL_DNI"].ToString(),
+                            Nombre = cn.Lector["CL_Nombre"].ToString(),
+                            Apellido = cn.Lector["CL_Apellido"].ToString(),
+                            Direccion = cn.Lector["CL_Direccion"].ToString(),
+                            Provincia = cn.Lector["CL_Provincia"].ToString(),
+                            CodPostal = cn.Lector["CL_CodPostal"].ToString(),
+                            Email = cn.Lector["CL_Email"].ToString(),
                             Password = storedPassword, // Aunque es una mala práctica, por ahora usaremos el password directamente
-                            Estado = (bool)reader["CL_Estado"],
-                            Tipo = (bool)reader["CL_Tipo"]
+                            Estado = (bool)cn.Lector["CL_Estado"],
+                            Tipo = (bool)cn.Lector["CL_Tipo"]
                         };
 
                         return cliente; // Devuelve el cliente autenticado
@@ -111,9 +114,36 @@ namespace negocio
             finally
             {
                 // Asegurarse de que la conexión se cierre
-                cn.ObtenerConexion().Close();
+                cn.cerrarConexion();
             }
         }
-    }
-    }
 
+        public char NuevoCliente(Cliente nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("NuevoCliente");
+                datos.setearParametro("@Dni", nuevo.Dni);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Apellido", nuevo.Apellido);
+                datos.setearParametro("@Direccion", nuevo.Direccion);
+                datos.setearParametro("@Provincia", nuevo.Provincia);
+                datos.setearParametro("@CodPostal", nuevo.CodPostal);
+                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Pass", nuevo.Password);
+                return datos.ejecutarAccionScalar();
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+    }
+}
