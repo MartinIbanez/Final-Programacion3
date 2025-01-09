@@ -6,9 +6,23 @@
     <title>Carrito de Compras - Ropa Deportiva</title>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWLkZ2Wt33Vp95pL+GQZB+9lsoU00mOcrunT8tMm/Wg8AUxEZmI1UQoZd4Sh4c4I" crossorigin="anonymous">
+
+    <!-- jQuery (ya incluido en tu proyecto) -->
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Popper.js (requerido para Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-pkUrfpLF8IjUAohtsY+mbtYHaXj8Of4+7IVbJw/TCn6Un4N/n69IChYm7PZTta8c" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-ZcvTYgQEi1bBqCXz6pk/Za+2Dq9JdiFxDsspu9n5eWZfRe2HuDJMQJWaMqiEFSww" crossorigin="anonymous"></script>
 </head>
+
 <body class="bg-gray-100">
   
         <!-- Header -->
@@ -18,6 +32,10 @@
                     UTN - ECOMMERCE DEPORTES
                 </a>
                 <nav class="hidden md:flex space-x-8">
+                    <!-- Opción Productos -->
+                    <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
+                    <!-- Opción Administrador -->
+                    <a href="MenuAdmin.aspx" class="text-gray-200 hover:text-white transition">Administrador</a>
                     <!-- Opción Login con ícono -->
                     <a href="Login.aspx" class="flex items-center space-x-2 text-gray-200 hover:text-white transition">
                         <img src="imagenes/login.jpg" alt="Usuario" class="w-6 h-6 rounded-full" />
@@ -63,7 +81,6 @@
                 &copy; TP FINAL PROGRAMACION III - 2025 - MARTIN IBAÑEZ
             </div>
         </footer>
-   
 
 </body>
 </html>

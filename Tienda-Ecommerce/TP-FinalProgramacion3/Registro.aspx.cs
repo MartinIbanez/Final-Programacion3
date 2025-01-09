@@ -32,13 +32,14 @@ namespace TP_FinalProgramacion3
                 user.Email = txtEmail.Text;
                 user.Password = txtPassword.Text;
 
-                char idDni=clienteAlta.NuevoCliente (user);
+                string idDni=clienteAlta.NuevoCliente (user);
 
 
             }
             catch (Exception ex) 
             {
                 Session.Add("error",ex.ToString());
+
             }
 
         }

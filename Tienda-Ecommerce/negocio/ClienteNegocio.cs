@@ -118,7 +118,7 @@ namespace negocio
             }
         }
 
-        public char NuevoCliente(Cliente nuevo)
+        public string NuevoCliente(Cliente nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -132,7 +132,8 @@ namespace negocio
                 datos.setearParametro("@CodPostal", nuevo.CodPostal);
                 datos.setearParametro("@Email", nuevo.Email);
                 datos.setearParametro("@Pass", nuevo.Password);
-                return datos.ejecutarAccionScalar();
+
+                return datos.ejecutarAccionScalar().ToString();
                 
             }
             catch (Exception ex)

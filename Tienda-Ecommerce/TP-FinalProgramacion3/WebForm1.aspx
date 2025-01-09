@@ -1,6 +1,11 @@
-﻿<%@ Page Title="Error" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="TP_FinalProgramacion3.Error" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="TP_FinalProgramacion3.WebForm1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>¡Error!</title>
     <style>
         .error-container {
             text-align: center;
@@ -42,17 +47,19 @@
             background-color: #3742fa;
         }
     </style>
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="error-container">
-        <img src="https://via.placeholder.com/150?text=Error" alt="Error Icon" />
-        <h1>¡Ups! Algo salió mal.</h1>
-        <h3>Error inesperado</h3>
-        <p>Lo sentimos, ha ocurrido un error mientras procesábamos tu solicitud.</p>
-        <p>
-            <asp:Label ID="lblError" runat="server" Text="Detalles del error aquí"></asp:Label>
-        </p>
-        <a href="Default.aspx">Volver a la página principal</a>
-    </div>
-</asp:Content>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="error-container">
+            <img src="https://via.placeholder.com/150?text=Error" alt="Error Icon" />
+            <h1>¡Ups! Algo salió mal.</h1>
+            <h3>Error inesperado</h3>
+            <p>Lo sentimos, ha ocurrido un error mientras procesábamos tu solicitud.</p>
+            <p>
+                <asp:Label ID="lblError" runat="server" Text="Detalles del error aquí"></asp:Label>
+            </p>
+            <a href="Default.aspx">Volver a la página principal</a>
+        </div>
+    </form>
+</body>
+</html>

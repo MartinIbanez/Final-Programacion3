@@ -17,8 +17,18 @@ namespace dominio
         public string Email { get; set; }
         public string Password { get; set; }
         public bool Estado { get; set; }
-        public bool Tipo { get; set; }
+        public bool Tipo { get; set; } //enum???   //(0  Admin) (1  cliente) 
+       
         public Cliente() { }
 
+        public Cliente(string user, string pass, bool admin)
+        {
+            Email = user;
+            Password = pass;
+            Tipo = admin;
+        }
+
+
     }
+
 }
