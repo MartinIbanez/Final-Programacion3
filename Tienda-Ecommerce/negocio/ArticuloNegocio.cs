@@ -14,12 +14,12 @@ namespace negocio
         //AccesoDatos cn=new AccesoDatos();
         //Conexion cn=new Conexion();
         public List<Articulo> ArticulosDestacados()
-        {     
+        {
             //string Consulta = "SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()";
-            List<Articulo> ListaArtDestacados=new List<Articulo>();
+            List<Articulo> ListaArtDestacados = new List<Articulo>();
             AccesoDatos cn = new AccesoDatos();
 
-            try              
+            try
             {
                 cn.setearConsulta("SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()");
                 cn.ejecutarLectura();
@@ -28,19 +28,20 @@ namespace negocio
                 {
                     Articulo ArtDest = new Articulo();
 
-                    ArtDest.IdArticulo = (int)cn.Lector["IdArticulo"];                  
+                    ArtDest.IdArticulo = (int)cn.Lector["IdArticulo"];
                     ArtDest.Nombre = cn.Lector["Art_Nombre"].ToString();
                     ArtDest.UrlImagen = cn.Lector["Art_UrlImagen"].ToString();
                     ArtDest.Precio = cn.Lector["Art_Precio"] != DBNull.Value ? Convert.ToDecimal(cn.Lector["Art_Precio"]) : 0;
 
 
-                    ListaArtDestacados.Add( ArtDest );
-                    
+                    ListaArtDestacados.Add(ArtDest);
+
                 }
-            return ListaArtDestacados;
+                return ListaArtDestacados;
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
@@ -48,5 +49,49 @@ namespace negocio
                 cn.cerrarConexion();
             }
         }
+
+        public List<Articulo> ListaArticulos()
+        {
+            List<Articulo> ListaArticulos = new List<Articulo>();
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta("SELECT IdArticulo,Art_Descripcion,Art_IdCategoria,Art_IdMarca,Art_Proveedor,Art_Nombre,Art_Stock,Art_UrlImagen,Art_Precio,Art_StockMinimo,Art_Estado FROM Articulos ORDER BY Art_IdCategoria");
+                cn.ejecutarLectura();
+
+                while (cn.Lector.Read())
+                {
+                    Articulo ArticuloAux = new Articulo();
+
+                    ArticuloAux.IdArticulo = (int)cn.Lector["IdArticulo"];
+                    ArticuloAux.Descripcion = cn.Lector["Art_Descripcion"].ToString();
+                    ArticuloAux.IdCategoria = (int)cn.Lector["Art_IdCategoria"];
+                    ArticuloAux.IdMarca = (int)cn.Lector["Art_IdMarca"];
+                    ArticuloAux.IdProveedor = (int)cn.Lector["Art_Proveedor"];
+                    ArticuloAux.Nombre = cn.Lector["Art_Nombre"].ToString();
+                    ArticuloAux.Stock = (int)cn.Lector["Art_Stock"];
+                    ArticuloAux.UrlImagen = cn.Lector["Art_UrlImagen"].ToString();
+                    ArticuloAux.Precio = cn.Lector["Art_Precio"] != DBNull.Value ? Convert.ToDecimal(cn.Lector["Art_Precio"]) : 0;
+                    ArticuloAux.StockMinimo = (int)cn.Lector["Art_StockMinimo"];
+                    ArticuloAux.Estado = (bool)cn.Lector["Art_Estado"];
+
+
+                    ListaArticulos.Add(ArticuloAux);
+
+                }
+                return ListaArticulos;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
     }
 }

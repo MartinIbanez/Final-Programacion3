@@ -79,7 +79,7 @@
                                     <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
                                 </td>
                             </tr>
-                            <!-- Agregar más filas aquí según sea necesario -->
+                           
                         </tbody>
                     </table>
                 </div>
