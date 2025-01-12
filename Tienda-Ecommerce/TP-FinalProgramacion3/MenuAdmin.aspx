@@ -17,7 +17,7 @@
             <h2 class="text-xl font-bold mb-6">ADMINISTRADOR</h2>
             <ul class="space-y-4">
                 <li>
-                    <a href="Productos.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PRODUCTOS
+                    <a href="/Admin/Articulos.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PRODUCTOS
                     </a>
                 </li>
                 <li>
