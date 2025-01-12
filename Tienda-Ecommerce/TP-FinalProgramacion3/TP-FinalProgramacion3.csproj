@@ -67,7 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\Articulos.aspx" />
+    <Content Include="Admin\AdminArticulos.aspx" />
+    <Content Include="Admin\AdminCategorias.aspx" />
+    <Content Include="Admin\AdminClientes.aspx" />
+    <Content Include="Admin\AdminMarcas.aspx" />
+    <Content Include="Admin\AdminProveedores.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
@@ -85,12 +89,40 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Articulos.aspx.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
+    <Compile Include="Admin\AdminArticulos.aspx.cs">
+      <DependentUpon>AdminArticulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Articulos.aspx.designer.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
+    <Compile Include="Admin\AdminArticulos.aspx.designer.cs">
+      <DependentUpon>AdminArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCategorias.aspx.cs">
+      <DependentUpon>AdminCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCategorias.aspx.designer.cs">
+      <DependentUpon>AdminCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminClientes.aspx.cs">
+      <DependentUpon>AdminClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminClientes.aspx.designer.cs">
+      <DependentUpon>AdminClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMarcas.aspx.cs">
+      <DependentUpon>AdminMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMarcas.aspx.designer.cs">
+      <DependentUpon>AdminMarcas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminProveedores.aspx.cs">
+      <DependentUpon>AdminProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminProveedores.aspx.designer.cs">
+      <DependentUpon>AdminProveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>

@@ -17,23 +17,23 @@
             <h2 class="text-xl font-bold mb-6">ADMINISTRADOR</h2>
             <ul class="space-y-4">
                 <li>
-                    <a href="/Admin/Articulos.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PRODUCTOS
+                    <a href="/Admin/AdminArticulos.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PRODUCTOS
                     </a>
                 </li>
                 <li>
-                    <a href="WebForm1.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CATEGORIAS
+                    <a href="/Admin/AdminCategorias.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CATEGORIAS
                     </a>
                 </li>
                 <li>
-                    <a href="Clientes.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">MARCAS
+                    <a href="/Admin/AdminMarcas.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">MARCAS
                     </a>
                 </li>
                 <li>
-                    <a href="Proveedores.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CLIENTES
+                    <a href="/Admin/AdminClientes.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CLIENTES
                     </a>
                 </li>
                 <li>
-                    <a href="Proveedores.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PROVEEDORES
+                    <a href="/Admin/AdminProveedores.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">PROVEEDORES
                     </a>
                 </li>
                 <li>
