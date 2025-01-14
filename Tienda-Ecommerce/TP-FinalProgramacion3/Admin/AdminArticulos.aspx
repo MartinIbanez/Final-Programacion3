@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminArticulos.aspx.cs" Inherits="TP_FinalProgramacion3.Admin.Productos" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminArticulos.aspx.cs" Inherits="TP_FinalProgramacion3.Admin.Productos" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

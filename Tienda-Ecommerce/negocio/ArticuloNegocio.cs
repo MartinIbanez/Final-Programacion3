@@ -14,8 +14,7 @@ namespace negocio
         //AccesoDatos cn=new AccesoDatos();
         //Conexion cn=new Conexion();
         public List<Articulo> ArticulosDestacados()
-        {
-            //string Consulta = "SELECT TOP 5 IdArticulo,Art_Nombre, Art_UrlImagen, Art_Precio FROM Articulos ORDER BY NEWID()";
+        {   
             List<Articulo> ListaArtDestacados = new List<Articulo>();
             AccesoDatos cn = new AccesoDatos();
 

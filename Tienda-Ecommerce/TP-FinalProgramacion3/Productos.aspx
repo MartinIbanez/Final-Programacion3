@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="TP_FinalProgramacion3.Productos" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,11 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="bg-light">
-
     <form id="form1" runat="server">
         <section class="container py-5">
             <div class="row">
-                <!-- Panel de Filtros (ubicado en la parte izquierda) -->
+                <!-- Panel de Filtros -->
                 <div class="col-lg-3 mb-4">
                     <div class="card p-4">
                         <h3 class="h5 text-primary mb-4">Filtros</h3>
@@ -46,7 +44,7 @@
 
                         <!-- Botón de Filtrar -->
                         <div>
-                            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-primary w-100" />
+                            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-primary w-100" OnClick="btnFiltrar_Click" />
                         </div>
                     </div>
                 </div>
@@ -55,43 +53,22 @@
                 <div class="col-lg-9">
                     <h2 class="h3 text-primary mb-4">Productos</h2>
                     <div id="productos" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <!-- Tarjetas de productos (sin backend por ahora) -->
-                        <div class="col">
-                            <div class="card shadow-sm border-light rounded-3">
-                                <img src="https://via.placeholder.com/300x200" alt="Producto 1" class="card-img-top" />
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Producto 1</h5>
-                                    <p class="card-text text-muted">Descripción breve del producto.</p>
-                                    <p class="text-secondary">Categoría 1</p>
-                                    <p class="fw-bold text-primary">$100</p>
-                                    <button class="btn btn-primary w-100">Comprar</button>
+                        <asp:Repeater ID="rptProductos" runat="server">
+                            <ItemTemplate>
+                                <div class="col">
+                                    <div class="card shadow-sm border-light rounded-3">
+                                        <img src="<%# Eval("UrlImagen") %>" alt="<%# Eval("Nombre") %>" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary"><%# Eval("Nombre") %></h5>
+                                            <p class="card-text text-muted"><%# Eval("Descripcion") %></p>
+                                            <p class="text-secondary"><%# Eval("IdCategoria") %></p>
+                                            <p class="fw-bold text-primary">$<%# Eval("Precio") %></p>
+                                            <button class="btn btn-primary w-100">Comprar</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm border-light rounded-3">
-                                <img src="https://via.placeholder.com/300x200" alt="Producto 2" class="card-img-top" />
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Producto 2</h5>
-                                    <p class="card-text text-muted">Descripción breve del producto.</p>
-                                    <p class="text-secondary">Categoría 2</p>
-                                    <p class="fw-bold text-primary">$150</p>
-                                    <button class="btn btn-primary w-100">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm border-light rounded-3">
-                                <img src="https://via.placeholder.com/300x200" alt="Producto 3" class="card-img-top" />
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Producto 3</h5>
-                                    <p class="card-text text-muted">Descripción breve del producto.</p>
-                                    <p class="text-secondary">Categoría 3</p>
-                                    <p class="fw-bold text-primary">$200</p>
-                                    <button class="btn btn-primary w-100">Comprar</button>
-                                </div>
-                            </div>
-                        </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
             </div>
