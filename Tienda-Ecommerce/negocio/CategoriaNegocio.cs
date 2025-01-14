@@ -22,8 +22,7 @@ namespace negocio
 
                 while (cn.Lector.Read())
                 {
-                    Categoria CategoriaAux = new Categoria();
-                    Articulo ArticuloAux = new Articulo();
+                    Categoria CategoriaAux = new Categoria();                   
 
                     CategoriaAux.IdCategoria = (int)cn.Lector["IdCategoria"];
                     CategoriaAux.NombreCategoria = cn.Lector["NombreCategoria"].ToString();

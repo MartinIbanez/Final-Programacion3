@@ -42,7 +42,7 @@
 
         <!-- Contenido principal -->
         <div class="flex-1 bg-gray-100">
-            <iframe id="iframeContent" name="iframeContent" src="Bienvenida.aspx"></iframe>
+            <iframe id="iframeContent" name="iframeContent" src="Productos.aspx"></iframe>
         </div>
     </div>
 </asp:Content>
