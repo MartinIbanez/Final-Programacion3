@@ -72,6 +72,9 @@
     <Content Include="Admin\AdminClientes.aspx" />
     <Content Include="Admin\AdminMarcas.aspx" />
     <Content Include="Admin\AdminProveedores.aspx" />
+    <Content Include="Admin\AgregarArticulo.aspx" />
+    <Content Include="Admin\AgregarCategoria.aspx" />
+    <Content Include="Admin\AgregarMarca.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
@@ -123,6 +126,27 @@
     </Compile>
     <Compile Include="Admin\AdminProveedores.aspx.designer.cs">
       <DependentUpon>AdminProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AgregarArticulo.aspx.cs">
+      <DependentUpon>AgregarArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AgregarArticulo.aspx.designer.cs">
+      <DependentUpon>AgregarArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AgregarCategoria.aspx.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AgregarCategoria.aspx.designer.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AgregarMarca.aspx.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AgregarMarca.aspx.designer.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carrito.aspx.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>

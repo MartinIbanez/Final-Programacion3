@@ -64,9 +64,13 @@ namespace negocio
             {
                 throw ex;
             }
+            finally
+            {
+                conexion.Close();
+            }
         }
 
-        
+
 
         public char ejecutarAccionScalar()
         {
@@ -94,8 +98,10 @@ namespace negocio
         public void cerrarConexion()
         {
             if (lector != null)
+            {
                 lector.Close();
-            conexion.Close();
+                conexion.Close();
+            }
         }
 
     }
