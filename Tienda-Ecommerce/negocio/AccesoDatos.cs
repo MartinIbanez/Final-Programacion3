@@ -20,7 +20,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-           
+
             conexion = new SqlConnection("server = MARTIN\\SQLEXPRESS; database = ECOMMERCE; integrated security = true");
             comando = new SqlCommand();
         }
@@ -65,6 +65,8 @@ namespace negocio
                 throw ex;
             }
         }
+
+        
 
         public char ejecutarAccionScalar()
         {
