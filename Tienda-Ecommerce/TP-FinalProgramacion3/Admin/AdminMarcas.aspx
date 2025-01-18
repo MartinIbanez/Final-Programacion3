@@ -14,6 +14,7 @@
             text-align: center;
             vertical-align: middle;
         }
+
         .table th {
             font-weight: bold;
         }
@@ -37,15 +38,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="rptMarcas" runat="server">
+                            <asp:Repeater ID="rptMarcas" runat="server" OnItemCommand="rptMarcas_ItemCommand">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("IdMarca") %></td>
                                         <td><%# Eval("Descripcion") %></td>
                                         <td><%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %></td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">Editar</button>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("IdMarca") %>' />
                                             <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                            
                                         </td>
                                     </tr>
                                 </ItemTemplate>

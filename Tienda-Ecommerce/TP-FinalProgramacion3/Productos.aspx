@@ -21,7 +21,7 @@
                         <div class="mb-3">
                             <label for="ddlMarca" class="form-label">Marca</label>
                             <asp:DropDownList ID="ddlMarca" runat="server" CssClass="form-select">
-                                <asp:ListItem Text="Seleccione una marca" Value="" />
+                                
                             </asp:DropDownList>
                         </div>
 

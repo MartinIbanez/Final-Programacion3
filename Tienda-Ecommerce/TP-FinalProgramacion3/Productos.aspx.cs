@@ -15,10 +15,12 @@ namespace TP_FinalProgramacion3
     public partial class Productos : System.Web.UI.Page
     {
         private ArticuloNegocio negocio;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             negocio = new ArticuloNegocio(); // Instancia de ArticuloNegocio
+            MarcaNegocio marcaNegocio=new MarcaNegocio();
 
             if (!IsPostBack)
             {
@@ -40,12 +42,25 @@ namespace TP_FinalProgramacion3
 
         private void CargarFiltros()
         {
-            // Simulación de datos para los filtros (puedes cargarlos desde la base de datos si es necesario)
-            ddlMarca.DataSource = new List<string> { "Marca 1", "Marca 2", "Marca 3" };
-            ddlMarca.DataBind();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            // obtengo listado desde db
+            List<Marca> listaMarcas=marcaNegocio.ListarMarcas();
+            List<Categoria> listaCategorias=categoriaNegocio.ListarCategorias();
 
-            ddlCategoria.DataSource = new List<string> { "Categoría 1", "Categoría 2", "Categoría 3" };
+            // DropDownList con las marcas
+            ddlMarca.DataSource = listaMarcas;
+            ddlMarca.DataTextField = "Descripcion";
+            ddlMarca.DataValueField = "IdMarca";
+            ddlMarca.DataBind();
+            ddlMarca.Items.Insert(0, new ListItem("Seleccione una marca"));
+
+            // DropDownList con las categorias
+            ddlCategoria.DataSource = listaCategorias;
+            ddlCategoria.DataTextField = "NombreCategoria";
+            ddlCategoria.DataValueField = "IdCategoria";
             ddlCategoria.DataBind();
+            ddlCategoria.Items.Insert(0, new ListItem("Seleccione Categoria"));
         }
 
         private List<Articulo> ObtenerProductosDesdeBaseDeDatos()

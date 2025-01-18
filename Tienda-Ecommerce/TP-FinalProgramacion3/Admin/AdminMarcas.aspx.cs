@@ -45,5 +45,17 @@ namespace TP_FinalProgramacion3.Admin
                 lblError.Visible = true;
             }
         }
+
+        protected void rptMarcas_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Editar")
+            {
+                // Obtiene el ID de la marca desde CommandArgument
+                string idMarca = e.CommandArgument.ToString();
+
+                // Redirige a AgregarMarca.aspx pasando el ID de la marca como parámetro
+                Response.Redirect($"AgregarMarca.aspx?id={idMarca}");
+            }
+        }
     }
 }
