@@ -76,7 +76,7 @@
     <Content Include="Admin\AgregarCategoria.aspx" />
     <Content Include="Admin\AgregarMarca.aspx" />
     <Content Include="Carrito.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="Defaul.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Login.jpg" />
@@ -155,12 +155,12 @@
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Defaul.aspx.cs">
+      <DependentUpon>Defaul.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Defaul.aspx.designer.cs">
+      <DependentUpon>Defaul.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

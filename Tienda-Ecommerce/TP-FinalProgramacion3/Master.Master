@@ -28,7 +28,7 @@
         <!-- Header -->
         <header class="bg-blue-800 shadow-lg">
             <div class="container mx-auto flex justify-between items-center py-4 px-6">
-                <a href="Default.aspx" class="text-white text-2xl font-bold">
+                <a href="Defaul.aspx" class="text-white text-2xl font-bold">
                     UTN - ECOMMERCE DEPORTES
                 </a>
                 <nav class="hidden md:flex space-x-8">

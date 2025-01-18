@@ -60,10 +60,28 @@
                         CssClass="w-full mt-1 px-4 py-2 bg-slate-200 border border-slate-300 rounded-md text-slate-700 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <asp:ListItem Text="Seleccione una provincia" Value="" />
                         <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
+                        <asp:ListItem Text="Catamarca" Value="Catamarca" />
+                        <asp:ListItem Text="Chaco" Value="Chaco" />
+                        <asp:ListItem Text="Chubut" Value="Chubut" />
                         <asp:ListItem Text="Córdoba" Value="Córdoba" />
-                        <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
+                        <asp:ListItem Text="Corrientes" Value="Corrientes" />
+                        <asp:ListItem Text="Entre Rios" Value="Entre Rios" />
+                        <asp:ListItem Text="Formosa" Value="Formosa" />
+                        <asp:ListItem Text="Jujuy" Value="Jujuy" />
+                        <asp:ListItem Text="La Pampa" Value="La Pampa" />
+                        <asp:ListItem Text="L Rioja" Value="La Rioja" />
                         <asp:ListItem Text="Mendoza" Value="Mendoza" />
+                        <asp:ListItem Text="Misiones" Value="Misiones" />
+                        <asp:ListItem Text="Neuquen" Value="Neuquen" />
+                        <asp:ListItem Text="Rio Negro" Value="Rio Negro" />
                         <asp:ListItem Text="Salta" Value="Salta" />
+                        <asp:ListItem Text="San Juan" Value="San Juan" />
+                        <asp:ListItem Text="San Luis" Value="San Luis" />
+                        <asp:ListItem Text="Santa Cruz" Value="Santa Cruz" />
+                        <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
+                        <asp:ListItem Text="Santiago del Estero" Value="Santiago del Estero" />
+                        <asp:ListItem Text="Tierra del Fuego" Value="Tierra del Fuego" />
+                        <asp:ListItem Text="Tucuman" Value="Tucuman" />
                     </asp:DropDownList>
                 </div>
 
