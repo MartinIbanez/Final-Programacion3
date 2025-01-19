@@ -44,7 +44,27 @@ namespace negocio
             }
         }
 
-        
+        public void AgregarCategoria(Categoria nuevaCategoria)
+        {
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearConsulta("INSERT INTO Categorias (NombreCategoria, EstadoCategoria) VALUES (@NombreCategoria, @EstadoCategoria)");
+                cn.setearParametro("@NombreCategoria", nuevaCategoria.NombreCategoria);
+                cn.setearParametro("@EstadoCategoria", nuevaCategoria.Estado);
+                cn.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
+
 
     }
 }
