@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace TP_FinalProgramacion3.Admin
 {
-    public partial class AdminClientes : System.Web.UI.Page
+    public partial class AgregarCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnAgregarCliente_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AgregarCliente.aspx");
+
         }
     }
 }

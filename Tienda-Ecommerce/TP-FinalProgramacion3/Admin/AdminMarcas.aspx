@@ -26,8 +26,9 @@
         <section class="container py-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-4">Listado de Marcas</h1>
+                    <h1 class="mb-4">LISTADO DE MARCAS</h1>
                     <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+                    
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
@@ -46,14 +47,18 @@
                                         <td><%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %></td>
                                         <td>
                                             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("IdMarca") %>' />
-                                            <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                                            
+                                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("IdMarca") %>' OnClientClick="return confirm('¿Está seguro que desea eliminar esta marca?');" />
                                         </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </tbody>
                     </table>
+                    
+                    
+                    <div class="d-flex justify-content-end mt-3">
+                        <asp:Button ID="btnAgregarMarca" runat="server" Text="+ Agregar Marca" CssClass="btn btn-success" OnClick="btnAgregarMarca_Click" />
+                    </div>
                 </div>
             </div>
         </section>

@@ -48,14 +48,36 @@ namespace TP_FinalProgramacion3.Admin
 
         protected void rptMarcas_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "Editar")
+            try
             {
-                // Obtiene el ID de la marca desde CommandArgument
-                string idMarca = e.CommandArgument.ToString();
+                int idMarca = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
 
-                // Redirige a AgregarMarca.aspx pasando el ID de la marca como parámetro
-                Response.Redirect($"AgregarMarca.aspx?id={idMarca}");
+                if (e.CommandName == "Editar")
+                {
+                    // Redirige a la página de agregar/modificar marca con el ID de la marca
+                    Response.Redirect("AgregarMarca.aspx?IdMarca=" + idMarca);
+                }
+                else if (e.CommandName == "Eliminar")
+                {
+                    // Elimina la marca
+                    MarcaNegocio marcaNegocio = new MarcaNegocio();
+                    marcaNegocio.EliminarMarca(idMarca);
+
+                    // Recargar la lista de marcas después de eliminar
+                    CargarMarcas();
+                }
             }
+            catch (Exception ex)
+            {
+                lblError.Text = "Ocurrió un error al procesar la acción: " + ex.Message;
+                lblError.Visible = true;
+            }
+        }
+
+        protected void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            // Redirige a la página para agregar una nueva marca
+            Response.Redirect("AgregarMarca.aspx");
         }
     }
 }

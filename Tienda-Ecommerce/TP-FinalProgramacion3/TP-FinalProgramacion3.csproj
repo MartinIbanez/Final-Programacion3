@@ -74,6 +74,7 @@
     <Content Include="Admin\AdminProveedores.aspx" />
     <Content Include="Admin\AgregarArticulo.aspx" />
     <Content Include="Admin\AgregarCategoria.aspx" />
+    <Content Include="Admin\AgregarCliente.aspx" />
     <Content Include="Admin\AgregarMarca.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Defaul.aspx" />
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="Admin\AgregarCategoria.aspx.designer.cs">
       <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AgregarCliente.aspx.cs">
+      <DependentUpon>AgregarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AgregarCliente.aspx.designer.cs">
+      <DependentUpon>AgregarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AgregarMarca.aspx.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>

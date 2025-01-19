@@ -1,4 +1,4 @@
-﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminArticulos.aspx.cs" Inherits="TP_FinalProgramacion3.Admin.Productos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminArticulos.aspx.cs" Inherits="TP_FinalProgramacion3.Admin.Productos" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,6 +24,7 @@
                 <div class="col-lg-12">
                     <h1 class="mb-4">Listado de Productos</h1>
                     <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+                    
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
@@ -69,6 +70,11 @@
                             </asp:Repeater>
                         </tbody>
                     </table>
+                    
+                   
+                    <div class="d-flex justify-content-end mt-3">
+                        <asp:Button ID="btnAgregarArticulo" runat="server" Text="+ Agregar Artículo" CssClass="btn btn-success" OnClick="btnAgregarArticulo_Click" />
+                    </div>
                 </div>
             </div>
         </section>

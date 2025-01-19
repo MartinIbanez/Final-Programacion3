@@ -13,6 +13,7 @@
             text-align: center;
             vertical-align: middle;
         }
+
         .table th {
             font-weight: bold;
         }
@@ -53,6 +54,11 @@
                             </asp:Repeater>
                         </tbody>
                     </table>
+
+                    <div class="d-flex justify-content-end mt-3">
+                        <asp:Button ID="btnAgregarCategoria" runat="server" Text="+ Agregar Categoria" CssClass="btn btn-success" OnClick="btnAgregarCategoria_Click" />
+                    </div>
+
                 </div>
             </div>
         </section>

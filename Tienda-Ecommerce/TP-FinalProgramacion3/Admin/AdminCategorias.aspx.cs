@@ -40,5 +40,10 @@ namespace TP_FinalProgramacion3.Admin
                 lblError.Visible = true;
             }
         }
+
+        protected void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarCategoria.aspx");
+        }
     }
 }
