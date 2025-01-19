@@ -53,18 +53,17 @@ namespace TP_FinalProgramacion3.Admin
                 int idMarca = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
 
                 if (e.CommandName == "Editar")
-                {
-                    // Redirige a la página de agregar/modificar marca con el ID de la marca
+                {                  
                     Response.Redirect("AgregarMarca.aspx?IdMarca=" + idMarca);
                 }
                 else if (e.CommandName == "Eliminar")
                 {
-                    // Elimina la marca
+                    
                     MarcaNegocio marcaNegocio = new MarcaNegocio();
                     marcaNegocio.EliminarMarca(idMarca);
 
-                    // Recargar la lista de marcas después de eliminar
-                    CargarMarcas();
+                    
+                    CargarMarcas(); //Para volver a cargar el listado de marcas
                 }
             }
             catch (Exception ex)
@@ -76,7 +75,6 @@ namespace TP_FinalProgramacion3.Admin
 
         protected void btnAgregarMarca_Click(object sender, EventArgs e)
         {
-            // Redirige a la página para agregar una nueva marca
             Response.Redirect("AgregarMarca.aspx");
         }
     }

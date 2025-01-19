@@ -89,7 +89,7 @@ namespace negocio
             AccesoDatos cn = new AccesoDatos();
             try
             {
-                cn.setearConsulta("DELETE FROM Marcas WHERE IdMarca = @IdMarca");
+                cn.setearConsulta("DELETE FROM Marcas WHERE IdMarca = @IdMarca"); //ver si es conveniente una baja logica
                 cn.setearParametro("@IdMarca", idMarca);
                 cn.ejecutarAccion();
             }
