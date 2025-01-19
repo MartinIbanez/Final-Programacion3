@@ -31,7 +31,7 @@
                             <!-- Categoría -->
                             <div class="mb-3">
                                 <label for="txtCategoria" class="form-label">Categoría</label>
-                                <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control" MaxLength="50" Placeholder="Ingrese el nombre de la categoría"></asp:TextBox>
+                                <asp:TextBox ID="txtNombreCategoria" runat="server" CssClass="form-control" MaxLength="50" Placeholder="Ingrese el nombre de la categoría"></asp:TextBox>
                             </div>
                             <!-- Estado -->
                             <div class="mb-3">
@@ -43,8 +43,8 @@
                             </div>
                             <!-- Botones -->
                             <div class="d-flex justify-content-end">
-                                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary me-2" />
-                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" />
+                                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary me-2" OnClick="btnGuardar_Click" />
+                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelar_Click" />
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ namespace negocio
 
             try
             {
-                cn.setearConsulta("SELECT IdCategoria, NombreCategoria, EstadoCategoria FROM Categorias ORDER BY NombreCategoria");
+                cn.setearConsulta("SELECT IdCategoria, NombreCategoria, EstadoCategoria FROM Categorias ORDER BY IdCategoria");
                 cn.ejecutarLectura();
 
                 while (cn.Lector.Read())
@@ -42,17 +42,19 @@ namespace negocio
             {
                 cn.cerrarConexion();
             }
-        }
-
-        public void AgregarCategoria(Categoria nuevaCategoria)
+        }      
+      
+        public string NuevaCategoria(Categoria nuevaCat)
         {
-            AccesoDatos cn = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                cn.setearConsulta("INSERT INTO Categorias (NombreCategoria, EstadoCategoria) VALUES (@NombreCategoria, @EstadoCategoria)");
-                cn.setearParametro("@NombreCategoria", nuevaCategoria.NombreCategoria);
-                cn.setearParametro("@EstadoCategoria", nuevaCategoria.Estado);
-                cn.ejecutarAccion();
+                datos.setearProcedimiento("NuevaCategoria");
+                datos.setearParametro("@NombreCategoria", nuevaCat.NombreCategoria);
+                datos.setearParametro("@EstadoCategoria", nuevaCat.Estado);
+                
+                return datos.ejecutarAccionScalar().ToString();
+
             }
             catch (Exception ex)
             {
@@ -60,8 +62,9 @@ namespace negocio
             }
             finally
             {
-                cn.cerrarConexion();
+                datos.cerrarConexion();
             }
+
         }
 
 
