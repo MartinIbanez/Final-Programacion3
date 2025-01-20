@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 namespace negocio
 {
     public class ArticuloNegocio
-    {
-        //AccesoDatos cn=new AccesoDatos();
-        //Conexion cn=new Conexion();
+    {      
         public List<Articulo> ArticulosDestacados()
         {   
             List<Articulo> ListaArtDestacados = new List<Articulo>();
@@ -85,6 +83,85 @@ namespace negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
+        public void NuevoArticulo(Articulo nuevoArt)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("NuevoArticulo");
+                datos.setearParametro("@Art_Descripcion", nuevoArt.Descripcion);
+                datos.setearParametro("@Art_IdCategoria", nuevoArt.IdCategoria);
+                datos.setearParametro("@Art_IdMarca", nuevoArt.IdMarca);
+                datos.setearParametro("@Art_Proveedor", nuevoArt.IdProveedor);
+                datos.setearParametro("@Art_Nombre", nuevoArt.Nombre);
+                datos.setearParametro("@Art_Stock", nuevoArt.Stock);
+                datos.setearParametro("@Art_UrlImagen", nuevoArt.UrlImagen);
+                datos.setearParametro("@Art_Precio", nuevoArt.Precio);
+                datos.setearParametro("@Art_StockMinimo", nuevoArt.StockMinimo);
+                datos.setearParametro("@Art_Estado", nuevoArt.Estado);
+                
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public void ModificarArticulo(Articulo editarArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("editarArticulo");
+                datos.setearParametro("@Art_Descripcion", editarArticulo.Descripcion);
+                datos.setearParametro("@Art_IdCategoria", editarArticulo.IdCategoria);
+                datos.setearParametro("@Art_IdMarca", editarArticulo.IdMarca);
+                datos.setearParametro("@Art_Proveedor", editarArticulo.IdProveedor);
+                datos.setearParametro("@Art_Nombre", editarArticulo.Nombre);
+                datos.setearParametro("@Art_Stock", editarArticulo.Stock);
+                datos.setearParametro("@Art_UrlImagen", editarArticulo.UrlImagen);
+                datos.setearParametro("@Art_Precio", editarArticulo.Precio);
+                datos.setearParametro("@Art_StockMinimo", editarArticulo.StockMinimo);
+                datos.setearParametro("@Art_Estado", editarArticulo.Estado);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void EliminarArticulo(int idArticulo)
+        {
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearProcedimiento("EliminarArticulo");
+                cn.setearParametro("@IdArticulo", idArticulo);
+                cn.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar Articulo", ex);
             }
             finally
             {

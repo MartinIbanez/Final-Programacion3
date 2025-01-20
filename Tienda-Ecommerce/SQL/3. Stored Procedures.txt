@@ -23,8 +23,23 @@ BEGIN
 END;
 
 --STORE PROCEDURE EDITAR CATEGORIAS
-CREATE PROCEDURE editarCategoria    
+CREATE PROCEDURE editarCategoria
+    @IdCategoria INT,
     @NombreCategoria VARCHAR(25),
     @EstadoCategoria BIT
 AS
-INSERT INTO Categorias (NombreCategoria, EstadoCategoria) VALUES (@NombreCategoria, @EstadoCategoria);
+BEGIN
+    UPDATE Categorias
+    SET NombreCategoria = @NombreCategoria, EstadoCategoria = @EstadoCategoria
+    WHERE IdCategoria = @IdCategoria
+END
+GO
+
+--STORE PROCEDURE ELIMINAR CATEGORIAS
+CREATE PROCEDURE EliminarCategoria
+@IdCategoria INT
+AS
+BEGIN
+    DELETE FROM Categorias WHERE IdCategoria = @IdCategoria
+END
+GO
