@@ -13,12 +13,12 @@ namespace TP_FinalProgramacion3.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtIdCategoria.Enabled = false; // El ID es de solo lectura
+            txtIdCategoria.Enabled = false; // El ID es solo lectura
+
             try
             {
                 if (!IsPostBack)
                 {
-                    // Verifico si se está editando una marca
                     if (Request.QueryString["IdCategoria"] != null)
                     {
                         int idCategoria = int.Parse(Request.QueryString["IdCategoria"]);
@@ -27,20 +27,18 @@ namespace TP_FinalProgramacion3.Admin
 
                         if (categoria != null)
                         {
-                            txtIdCategoria.Text = categoria.IdCategoria.ToString(); //Completo con los datos de la marca
+                            txtIdCategoria.Text = categoria.IdCategoria.ToString();
                             txtNombreCategoria.Text = categoria.NombreCategoria;
                             ddlEstado.SelectedValue = categoria.Estado.ToString();
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 Session.Add("Error", ex.Message);
                 Response.Redirect("Error.aspx");
             }
-
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -53,25 +51,23 @@ namespace TP_FinalProgramacion3.Admin
             try
             {
                 CategoriaNegocio categoriaNeg = new CategoriaNegocio();
-                Categoria alta = new Categoria
+                Categoria categoria = new Categoria
                 {
                     NombreCategoria = txtNombreCategoria.Text,
                     Estado = bool.Parse(ddlEstado.SelectedValue)
                 };
 
-                // Si no hay un ID, agrego una nueva categoría
-                if (string.IsNullOrEmpty(txtIdCategoria.Text))
+                if (string.IsNullOrEmpty(txtIdCategoria.Text)) // Si el ID está vacío, es una nueva categoría
                 {
-                    categoriaNeg.NuevaCategoria(alta);
+                    categoriaNeg.NuevaCategoria(categoria);
                 }
-                else
+                else // Si el ID tiene valor, se edita la categoría existente
                 {
-                    // Si hay un ID, actualizamos la categoría existente
-                    alta.IdCategoria = int.Parse(txtIdCategoria.Text);
-                    //categoriaNeg.ModificarCategoria(alta);
+                    categoria.IdCategoria = int.Parse(txtIdCategoria.Text);
+                    categoriaNeg.ModificarCategoria(categoria);
                 }
 
-                Response.Redirect("AdminCategorias.aspx");
+                Response.Redirect("AdminCategorias.aspx"); // Redirige a la lista de categorías
             }
             catch (Exception ex)
             {
@@ -79,6 +75,5 @@ namespace TP_FinalProgramacion3.Admin
                 lblError.Visible = true;
             }
         }
-
     }
 }

@@ -44,7 +44,7 @@ namespace negocio
             }
         }      
       
-        public string NuevaCategoria(Categoria nuevaCat)
+        public void NuevaCategoria(Categoria nuevaCat)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -52,8 +52,8 @@ namespace negocio
                 datos.setearProcedimiento("NuevaCategoria");
                 datos.setearParametro("@NombreCategoria", nuevaCat.NombreCategoria);
                 datos.setearParametro("@EstadoCategoria", nuevaCat.Estado);
-                
-                return datos.ejecutarAccionScalar().ToString();
+
+                datos.ejecutarAccion();
 
             }
             catch (Exception ex)
@@ -67,7 +67,46 @@ namespace negocio
 
         }
 
+        public void ModificarCategoria(Categoria editarCat)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {                
+                datos.setearProcedimiento("editarCategoria");
+                datos.setearParametro("@IdCategoria", editarCat.IdCategoria); 
+                datos.setearParametro("@NombreCategoria", editarCat.NombreCategoria);
+                datos.setearParametro("@EstadoCategoria", editarCat.Estado);
+                datos.ejecutarAccion(); 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
-
+        public void EliminarCategoria(int idCategoria)
+        {
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {               
+                cn.setearProcedimiento("EliminarCategoria");
+                cn.setearParametro("@IdCategoria", idCategoria);
+                cn.ejecutarAccion(); 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar la categoría", ex);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
     }
 }
+
+  

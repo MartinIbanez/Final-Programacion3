@@ -26,17 +26,40 @@ namespace TP_FinalProgramacion3.Admin
 
             try
             {
-                // Obtenemos la lista de categorías
                 List<Categoria> listaCategorias = categoriaNegocio.ListarCategorias();
 
-                // Enlazamos la lista al control repeater
                 rptCategorias.DataSource = listaCategorias;
                 rptCategorias.DataBind();
             }
             catch (Exception ex)
+            {             
+                lblError.Text = "Error al cargar las categorías: " + ex.Message;
+                lblError.Visible = true;
+            }
+        }
+        protected void rptCategorias_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            try
             {
-                // Manejo de errores
-                lblError.Text = "Ocurrió un error al cargar las categorías: " + ex.Message;
+                int idCategoria = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
+
+                if (e.CommandName == "Editar")
+                {
+                    Response.Redirect("AgregarCategoria.aspx?IdCategoria=" + idCategoria);
+                }
+                else if (e.CommandName == "Eliminar")
+                {
+                    CategoriaNegocio catNegocio= new CategoriaNegocio();
+                    
+                    catNegocio.EliminarCategoria(idCategoria);
+
+
+                    CargarCategorias(); 
+                }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al ejecutar la acción: " + ex.Message;
                 lblError.Visible = true;
             }
         }

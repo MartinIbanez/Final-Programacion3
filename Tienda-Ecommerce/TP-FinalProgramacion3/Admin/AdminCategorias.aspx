@@ -37,17 +37,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="rptCategorias" runat="server">
+                            <asp:Repeater ID="rptCategorias" runat="server" OnItemCommand="rptCategorias_ItemCommand">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("IdCategoria") %></td>
                                         <td><%# Eval("NombreCategoria") %></td>
                                         <td>
                                             <%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %>
-                                        </td>
+                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                            <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("IdCategoria") %>' />
+                                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("IdCategoria") %>' OnClientClick="return confirm('¿Eliminar esta Categoria?');" />
                                         </td>
                                     </tr>
                                 </ItemTemplate>

@@ -21,3 +21,10 @@ BEGIN
     INSERT INTO Categorias (NombreCategoria, EstadoCategoria)
     VALUES (@NombreCategoria, @EstadoCategoria);
 END;
+
+--STORE PROCEDURE EDITAR CATEGORIAS
+CREATE PROCEDURE editarCategoria    
+    @NombreCategoria VARCHAR(25),
+    @EstadoCategoria BIT
+AS
+INSERT INTO Categorias (NombreCategoria, EstadoCategoria) VALUES (@NombreCategoria, @EstadoCategoria);
