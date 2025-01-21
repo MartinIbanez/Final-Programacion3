@@ -16,6 +16,7 @@ namespace TP_FinalProgramacion3.Admin
             txtId.Enabled = false; // El ID es solo lectura
             CargarCategorias();
             CargarMarcas();
+            CargarProveedores();
             
 
             try
@@ -138,6 +139,27 @@ namespace TP_FinalProgramacion3.Admin
             }
         }
 
-        
+        private void CargarProveedores()
+        {
+            try
+            {
+                ProveedorNegocio provNegocio= new ProveedorNegocio();
+                List<Proveedores> proveedores = provNegocio.ProveedoresActivos();
+
+                ddlProveedor.DataSource = proveedores;
+                ddlProveedor.DataTextField = "Nombre";
+                ddlProveedor.DataValueField = "IdProveedor";
+                ddlProveedor.DataBind();
+
+                ddlProveedor.Items.Insert(0, new ListItem("Seleccione un proveedor", ""));
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al cargar los proveedores: " + ex.Message;
+                lblError.Visible = true;
+            }
+        }
+
+
     }
 }

@@ -50,5 +50,35 @@ namespace negocio
                 cn.cerrarConexion();
             }
         }
+
+        public List<Proveedores> ProveedoresActivos()
+        {
+            List<Proveedores> proveedores = new List<Proveedores>();
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearConsulta("SELECT Id_Proveedores,PR_Nombre FROM Proveedores WHERE PR_Estado=1");
+                cn.ejecutarLectura();
+                while (cn.Lector.Read())
+                {
+                    Proveedores provAct = new Proveedores
+                    {
+                        IdProveedor = (int)cn.Lector["Id_Proveedores"],
+                        Nombre = cn.Lector["PR_Nombre"].ToString()
+                    };
+
+                    proveedores.Add(provAct);
+                }
+                return proveedores;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
     }
 }
