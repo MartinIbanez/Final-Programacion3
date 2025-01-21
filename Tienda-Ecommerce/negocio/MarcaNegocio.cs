@@ -44,6 +44,36 @@ namespace negocio
 
         }
 
+        public List<Marca> MarcasActivas()
+        {
+            List<Marca> marcasAct = new List<Marca>();
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearConsulta("SELECT IdMarca, DescripcionMarca FROM Marcas WHERE EstadoMarca = 1");
+                cn.ejecutarLectura();
+                while (cn.Lector.Read())
+                {
+                    Marca marca = new Marca
+                    {
+                        IdMarca = (int)cn.Lector["IdMarca"],
+                        Descripcion = cn.Lector["DescripcionMarca"].ToString()
+                    };
+                    marcasAct.Add(marca);
+                }
+                return marcasAct;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
+
         public void AgregarMarca(Marca nuevaMarca)
         {
             AccesoDatos cn = new AccesoDatos();

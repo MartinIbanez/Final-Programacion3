@@ -40,6 +40,32 @@ namespace TP_FinalProgramacion3.Admin
                 lblError.Visible = true;
             }
         }
+
+        protected void rptArticulos_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            try
+            {
+                int idArticulo = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
+
+                if (e.CommandName == "Editar")
+                {
+                    Response.Redirect("AgregarArticulo.aspx?IdArticulo=" + idArticulo);
+                }
+                else if (e.CommandName == "Eliminar")
+                {
+                    ArticuloNegocio artNegocio= new ArticuloNegocio();
+                    artNegocio.EliminarArticulo(idArticulo);
+
+                    CargarArticulos();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error al ejecutar la acción: " + ex.Message;
+                lblError.Visible = true;
+            }
+        }
+
         protected void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
             Response.Redirect("AgregarArticulo.aspx");

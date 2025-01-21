@@ -12,6 +12,7 @@
             text-align: center;
             vertical-align: middle;
         }
+
         .table th {
             font-weight: bold;
         }
@@ -24,7 +25,7 @@
                 <div class="col-lg-12">
                     <h1 class="mb-4">Listado de Productos</h1>
                     <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
-                    
+
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
@@ -43,7 +44,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="rptArticulos" runat="server">
+                            <asp:Repeater ID="rptArticulos" runat="server" OnItemCommand="rptArticulos_ItemCommand">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("IdArticulo") %></td>
@@ -62,16 +63,17 @@
                                             <%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                            <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("IdArticulo") %>' />
+                                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("IdArticulo") %>' OnClientClick="return confirm('¿Eliminar este Articulo?');" />
+                                            
                                         </td>
                                     </tr>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </tbody>
                     </table>
-                    
-                   
+
+
                     <div class="d-flex justify-content-end mt-3">
                         <asp:Button ID="btnAgregarArticulo" runat="server" Text="+ Agregar Artículo" CssClass="btn btn-success" OnClick="btnAgregarArticulo_Click" />
                     </div>

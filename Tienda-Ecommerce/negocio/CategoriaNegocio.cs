@@ -42,8 +42,39 @@ namespace negocio
             {
                 cn.cerrarConexion();
             }
-        }      
-      
+        }
+
+        public List<Categoria> CategoriasActivas()
+        {
+            List<Categoria> catActivas = new List<Categoria>();
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearConsulta("SELECT IdCategoria, NombreCategoria FROM Categorias WHERE EstadoCategoria = 1");
+                cn.ejecutarLectura();
+                while (cn.Lector.Read())
+                {
+                    Categoria cat = new Categoria
+                    {
+                        IdCategoria = (int)cn.Lector["IdCategoria"],
+                        NombreCategoria = cn.Lector["NombreCategoria"].ToString()
+                        
+
+                    };
+                    catActivas.Add(cat);
+                }
+                return catActivas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
         public void NuevaCategoria(Categoria nuevaCat)
         {
             AccesoDatos datos = new AccesoDatos();
