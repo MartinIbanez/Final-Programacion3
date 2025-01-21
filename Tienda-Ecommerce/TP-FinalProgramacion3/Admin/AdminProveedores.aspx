@@ -15,6 +15,7 @@
             text-align: center;
             vertical-align: middle;
         }
+
         .table th {
             font-weight: bold;
         }
@@ -79,8 +80,10 @@
                             <!-- Agregar más filas aquí según sea necesario -->
                         </tbody>
                     </table>
-                </div>
-            </div>
+                    <div class="d-flex justify-content-end mt-3">
+                        <asp:Button ID="btnAgregarProveedor" runat="server" Text="+ Agregar Proveedor" CssClass="btn btn-success" OnClick="btnAgregarProveedor_Click" />
+                    </div>
+               
         </section>
     </form>
 

@@ -13,5 +13,10 @@ namespace TP_FinalProgramacion3.Admin
         {
 
         }
+
+        protected void btnAgregarProveedor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AgregarProveedor.aspx");
+        }
     }
 }

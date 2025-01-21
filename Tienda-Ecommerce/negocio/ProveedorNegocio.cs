@@ -80,5 +80,65 @@ namespace negocio
                 cn.cerrarConexion();
             }
         }
+
+        //Metodos para el ABM de Proveedores
+        public void NuevoProveedor(Proveedores nuevoProv)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("NuevoProveedor");
+                datos.setearParametro("@Cuit", nuevoProv.Cuit);
+                datos.setearParametro("@Nombre", nuevoProv.Nombre);
+                datos.setearParametro("@NombreContacto", nuevoProv.NombreContacto);
+                datos.setearParametro("@CargoContacto", nuevoProv.CargoContacto);
+                datos.setearParametro("@Direccion", nuevoProv.Direccion);
+                datos.setearParametro("@Ciudad", nuevoProv.Ciudad);
+                datos.setearParametro("@CodPostal", nuevoProv.CodPostal);
+                datos.setearParametro("@Telefono", nuevoProv.Telefono);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public void ModificarProveedor(Proveedores editarProv)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("ModificarProveedor");
+                datos.setearParametro("@idProveedor", editarProv.IdProveedor);
+                datos.setearParametro("@Cuit", editarProv.Cuit);
+                datos.setearParametro("@Nombre", editarProv.Nombre);
+                datos.setearParametro("@NombreContacto", editarProv.NombreContacto);
+                datos.setearParametro("@CargoContacto", editarProv.CargoContacto);
+                datos.setearParametro("@Direccion", editarProv.Direccion);
+                datos.setearParametro("@Ciudad", editarProv.Ciudad);
+                datos.setearParametro("@CodPostal", editarProv.CodPostal);
+                datos.setearParametro("@Telefono", editarProv.Telefono);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        
     }
 }
