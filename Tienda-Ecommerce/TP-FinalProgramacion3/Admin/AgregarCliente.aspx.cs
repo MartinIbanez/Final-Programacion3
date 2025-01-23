@@ -19,7 +19,7 @@ namespace TP_FinalProgramacion3.Admin
                 {
                     if (Request.QueryString["dni"] != null)
                     {
-                        string dniCliente = Request.QueryString["dni"]; // Mantener como string
+                        string dniCliente = Request.QueryString["dni"]; 
                         ClienteNegocio clienteNegocio = new ClienteNegocio();
                         Cliente cliente = clienteNegocio.ClientesListado().FirstOrDefault(c => c.Dni == dniCliente);
 
@@ -55,23 +55,26 @@ namespace TP_FinalProgramacion3.Admin
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
                 Cliente cliente = new Cliente
                 {
-                    Dni = txtDNI.Text, // Asignar DNI como string
+                    Dni = txtDNI.Text, 
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
                     Direccion = txtDireccion.Text,
                     Provincia = ddlProvincia.SelectedValue,
                     CodPostal = txtCodigoPostal.Text,
                     Email = txtEmail.Text,
-                    Password = txtPassword.Text
+                    Password = txtPassword.Text,
+                    Estado = bool.Parse(ddlEstado.SelectedValue),  
+                    Tipo = bool.Parse(ddlTipoCliente.SelectedValue)
+
                 };
 
-                if (Request.QueryString["dni"] == null) // Nuevo cliente
+                if (Request.QueryString["dni"] == null) // Nuevo 
                 {
                     clienteNegocio.NuevoCliente(cliente);
                 }
-                else // Modificar cliente existente
+                else // edito cliente
                 {
-                    cliente.Dni = Request.QueryString["dni"]; // Mantener como string
+                    cliente.Dni = Request.QueryString["dni"]; 
                     clienteNegocio.ModificarCliente(cliente);
                 }
 

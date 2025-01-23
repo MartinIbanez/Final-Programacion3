@@ -91,6 +91,26 @@
                                     <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" MaxLength="30" Placeholder="Ingrese la contraseña"></asp:TextBox>
                                 </div>
                             </div>
+                            <!-- Estado y Tipo de Cliente -->
+                            <div class="row mb-3">
+                                <!-- Estado -->
+                                <div class="col-md-6">
+                                    <label for="ddlEstado" class="form-label">Estado</label>
+                                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select">
+                                        <asp:ListItem Text="Activo" Value="true" ></asp:ListItem>
+                                        <asp:ListItem Text="Inactivo" Value="false"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+
+                                <!-- Tipo de Cliente -->
+                                <div class="col-md-6">
+                                    <label for="ddlTipoCliente" class="form-label">Tipo de Cliente</label>
+                                    <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
+                                        <asp:ListItem Text="Administrador" Value="true"></asp:ListItem>
+                                        <asp:ListItem Text="Cliente" Value="false" ></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
                             <!-- Botones -->
                             <div class="d-flex justify-content-end">
                                 <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary me-2" OnClick="btnGuardar_Click" />

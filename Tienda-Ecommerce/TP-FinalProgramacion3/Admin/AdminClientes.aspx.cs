@@ -41,7 +41,7 @@ namespace TP_FinalProgramacion3.Admin
         {
             try
             {
-                string dniCliente = e.CommandArgument.ToString(); // Obtener el DNI como string
+                string dniCliente = e.CommandArgument.ToString(); 
 
                 if (e.CommandName == "Editar")
                 {
@@ -51,7 +51,7 @@ namespace TP_FinalProgramacion3.Admin
                 {
                     ClienteNegocio clienteNegocio = new ClienteNegocio();
 
-                    clienteNegocio.EliminarCliente(dniCliente); // Pasar el DNI como string
+                    clienteNegocio.EliminarCliente(dniCliente); 
 
                     CargarClientes();
                 }
@@ -64,8 +64,7 @@ namespace TP_FinalProgramacion3.Admin
         }
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)
-        {
-            // Redirige a una página para agregar un nuevo cliente
+        {           
             Response.Redirect("AgregarCliente.aspx");
         }
     }

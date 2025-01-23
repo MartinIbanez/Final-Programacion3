@@ -60,7 +60,7 @@
                                             <%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %>
                                         </td>
                                         <td>
-                                            <%# (bool)Eval("Tipo") ? "Administrador" : "Usuario" %>
+                                            <%# (bool)Eval("Tipo") ? "Administrador" : "Cliente" %>
                                         </td>
                                         <td>
                                             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("Dni") %>' />

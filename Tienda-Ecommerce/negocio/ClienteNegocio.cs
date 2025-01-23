@@ -29,7 +29,7 @@ namespace negocio
                 {
                     Cliente ClientesAux = new Cliente
                     {
-                        Dni = (string)datos.Lector["CL_DNI"], // Leer DNI como string
+                        Dni = (string)datos.Lector["CL_DNI"],
                         Nombre = (string)datos.Lector["CL_Nombre"],
                         Apellido = (string)datos.Lector["CL_Apellido"],
                         Direccion = (string)datos.Lector["CL_Direccion"],
@@ -61,7 +61,7 @@ namespace negocio
             try
             {
                 datos.setearProcedimiento("NuevoCliente");
-                datos.setearParametro("@Dni", nuevo.Dni); // DNI como string
+                datos.setearParametro("@Dni", nuevo.Dni); 
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Apellido", nuevo.Apellido);
                 datos.setearParametro("@Direccion", nuevo.Direccion);
@@ -69,6 +69,8 @@ namespace negocio
                 datos.setearParametro("@CodPostal", nuevo.CodPostal);
                 datos.setearParametro("@Email", nuevo.Email);
                 datos.setearParametro("@Pass", nuevo.Password);
+                datos.setearParametro("@Estado", nuevo.Estado);
+                datos.setearParametro("@Tipo", nuevo.Tipo);
 
                 return datos.ejecutarAccionScalar().ToString();
             }
@@ -88,7 +90,7 @@ namespace negocio
             try
             {
                 datos.setearProcedimiento("editarCliente");
-                datos.setearParametro("@dni", editarCliente.Dni); // DNI como string
+                datos.setearParametro("@dni", editarCliente.Dni); 
                 datos.setearParametro("@nombre", editarCliente.Nombre);
                 datos.setearParametro("@apellido", editarCliente.Apellido);
                 datos.setearParametro("@direccion", editarCliente.Direccion);
@@ -111,13 +113,13 @@ namespace negocio
             }
         }
 
-        public void EliminarCliente(string dniCliente) // DNI como string
+        public void EliminarCliente(string dniCliente) 
         {
             AccesoDatos cn = new AccesoDatos();
             try
             {
                 cn.setearProcedimiento("EliminarCliente");
-                cn.setearParametro("@dni", dniCliente); // DNI como string
+                cn.setearParametro("@dni", dniCliente);
                 cn.ejecutarAccion();
             }
             catch (Exception ex)
