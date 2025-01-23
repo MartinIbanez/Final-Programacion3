@@ -35,7 +35,7 @@
                             </div>
                             <!-- Nombre -->
                             <div class="mb-3">
-                                <label for="txtNombre" class="form-label">Nombre</label>
+                                <label for="txtNombre" class="form-label">Nombre Proveedor</label>
                                 <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" MaxLength="25" Placeholder="Ingrese el nombre"></asp:TextBox>
                             </div>
                             <!-- Nombre Contacto -->

@@ -4,7 +4,7 @@
     <style>
         iframe {
             width: 100%;
-            height: calc(100vh - 64px); /* Ajusta la altura al contenido disponible, restando el header */
+            height: calc(100vh - 64px); 
             border: none;
         }
     </style>

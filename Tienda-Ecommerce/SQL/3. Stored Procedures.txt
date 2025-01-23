@@ -43,3 +43,54 @@ BEGIN
     DELETE FROM Categorias WHERE IdCategoria = @IdCategoria
 END
 GO
+
+--STORE PROCEDURE NUEVOS PROVEEDORES
+CREATE PROCEDURE NuevoProveedor 
+    @Cuit VARCHAR(25),
+    @Nombre VARCHAR(25),
+    @NombreContacto VARCHAR(25),
+    @CargoContacto VARCHAR(25),
+    @Direccion VARCHAR(25),
+    @Ciudad VARCHAR(25),
+    @CodPostal VARCHAR(5),
+    @Telefono VARCHAR(12)
+AS
+BEGIN
+    INSERT INTO Proveedores (PR_Cuit, PR_Nombre, PR_NombreContacto, PR_CargoContacto, PR_Direccion, PR_Ciudad, PR_CodPostal, PR_Telefono)
+    VALUES (@Cuit, @Nombre, @NombreContacto, @CargoContacto, @Direccion, @Ciudad, @CodPostal, @Telefono);
+END;
+
+--STORE PROCEDURE EDITAR PROVEEDORES
+CREATE PROCEDURE ModificarProveedor 
+	@idProveedor int,
+    @Cuit VARCHAR(25),
+    @Nombre VARCHAR(25),
+    @NombreContacto VARCHAR(25),
+    @CargoContacto VARCHAR(25),
+    @Direccion VARCHAR(25),
+    @Ciudad VARCHAR(25),
+    @CodPostal VARCHAR(5),
+    @Telefono VARCHAR(12),
+	@Estado bit
+AS
+BEGIN
+    UPDATE Proveedores
+    SET PR_Nombre = @Nombre,
+        PR_NombreContacto = @NombreContacto,
+        PR_CargoContacto = @CargoContacto,
+        PR_Direccion = @Direccion,
+        PR_Ciudad = @Ciudad,
+        PR_CodPostal = @CodPostal,
+        PR_Telefono = @Telefono,
+		PR_Estado = @Estado
+    WHERE Id_Proveedores = @idProveedor;
+END;
+
+--STORE PROCEDURE ELIMINAR PROVEEDORES
+CREATE PROCEDURE EliminarProveedor
+@IdProveedor INT
+AS
+BEGIN
+    DELETE FROM Proveedores WHERE Id_Proveedores = @Idproveedor
+END
+GO

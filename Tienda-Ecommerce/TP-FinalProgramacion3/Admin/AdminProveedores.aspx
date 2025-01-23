@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminProveedores.aspx.cs" Inherits="TP_FinalProgramacion3.Admin.AdminProveedores" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,7 +8,6 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        /* Ajustar el ancho de las columnas */
         .table th, .table td {
             white-space: nowrap;
             text-align: center;
@@ -19,6 +17,19 @@
         .table th {
             font-weight: bold;
         }
+
+        .d-flex {
+            margin-top: 20px;
+        }
+
+        .btn {
+            margin-right: 20px;
+        }
+
+        .table-footer {
+            text-align: right;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -26,64 +37,55 @@
     <form id="form1" runat="server">
         <section class="container py-5">
             <div class="row">
-                <!-- Proveedores -->
-                <div class="col-lg-12 mx-auto">
+                <div class="col-lg-12">
+                    <h1 class="mb-4">Listado de Proveedores</h1>
+                    <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-nowrap">ID</th>
-                                <th scope="col" class="text-nowrap">CUIT</th>
-                                <th scope="col" class="text-nowrap">Nombre</th>
-                                <th scope="col" class="text-nowrap">Contacto</th>
-                                <th scope="col" class="text-nowrap">Cargo</th>
-                                <th scope="col" class="text-nowrap">Dirección</th>
-                                <th scope="col" class="text-nowrap">Ciudad</th>
-                                <th scope="col" class="text-nowrap">Cod. Postal</th>
-                                <th scope="col" class="text-nowrap">Teléfono</th>
-                                <th scope="col" class="text-nowrap">Estado</th>
-                                <th scope="col" class="text-nowrap">Acciones</th>
+                                <th>ID</th>
+                                <th>CUIT</th>
+                                <th>Proveedor</th>
+                                <th>Contacto</th>
+                                <th>Cargo</th>
+                                <th>Dirección</th>
+                                <th>Ciudad</th>
+                                <th>Código Postal</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>20-12345678-9</td>
-                                <td>Proveedor A</td>
-                                <td>Juan Pérez</td>
-                                <td>Gerente</td>
-                                <td>Calle Falsa 123</td>
-                                <td>Buenos Aires</td>
-                                <td>1000</td>
-                                <td>011-1234-5678</td>
-                                <td>Activo</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>30-87654321-0</td>
-                                <td>Proveedor B</td>
-                                <td>María López</td>
-                                <td>Encargada</td>
-                                <td>Av. Siempre Viva 742</td>
-                                <td>Córdoba</td>
-                                <td>5000</td>
-                                <td>0351-5678-1234</td>
-                                <td>Inactivo</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                                </td>
-                            </tr>
-                            <!-- Agregar más filas aquí según sea necesario -->
+                            <asp:Repeater ID="rptProveedores" runat="server" OnItemCommand="rptProveedores_ItemCommand">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("IdProveedor") %></td>
+                                        <td><%# Eval("CUIT") %></td>
+                                        <td><%# Eval("Nombre") %></td>
+                                        <td><%# Eval("NombreContacto") %></td>
+                                        <td><%# Eval("CargoContacto") %></td>
+                                        <td><%# Eval("Direccion") %></td>
+                                        <td><%# Eval("Ciudad") %></td>
+                                        <td><%# Eval("CodPostal") %></td>
+                                        <td><%# Eval("Telefono") %></td>
+                                        <td><%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %></td>
+                                        <td>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("IdProveedor") %>' />
+                                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("IdProveedor") %>' OnClientClick="return confirm('¿Eliminar este proveedor?');" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end mt-3">
+
+                    <!-- Fila para el botón de agregar proveedor alineado a la derecha -->
+                    <div class="table-footer">
                         <asp:Button ID="btnAgregarProveedor" runat="server" Text="+ Agregar Proveedor" CssClass="btn btn-success" OnClick="btnAgregarProveedor_Click" />
                     </div>
-               
+                </div>
+            </div>
         </section>
     </form>
 

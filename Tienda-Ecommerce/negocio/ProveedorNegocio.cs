@@ -126,6 +126,8 @@ namespace negocio
                 datos.setearParametro("@Ciudad", editarProv.Ciudad);
                 datos.setearParametro("@CodPostal", editarProv.CodPostal);
                 datos.setearParametro("@Telefono", editarProv.Telefono);
+                datos.setearParametro("@Estado", editarProv.Estado);
+
 
                 datos.ejecutarAccion();
             }
@@ -139,6 +141,25 @@ namespace negocio
             }
         }
 
-        
+        public void EliminarProveedor(int idProveedor)
+        {
+            AccesoDatos cn = new AccesoDatos();
+            try
+            {
+                cn.setearProcedimiento("EliminarProveedor");
+                cn.setearParametro("@IdProveedor", idProveedor);
+                cn.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el Proveedor", ex);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
+
     }
 }
