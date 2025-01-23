@@ -9,7 +9,6 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        /* Ajustar el ancho de las columnas */
         .table th, .table td {
             white-space: nowrap;
             text-align: center;
@@ -26,58 +25,50 @@
     <form id="form1" runat="server">
         <section class="container py-5">
             <div class="row">
-                <!-- Clientes -->
                 <div class="col-lg-12">
+                    <h1 class="mb-4">Listado de Clientes</h1>
+                    <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-nowrap">DNI</th>
-                                <th scope="col" class="text-nowrap">Nombre</th>
-                                <th scope="col" class="text-nowrap">Apellido</th>
-                                <th scope="col" class="text-nowrap">Dirección</th>
-                                <th scope="col" class="text-nowrap">Provincia</th>
-                                <th scope="col" class="text-nowrap">CodPostal</th>
-                                <th scope="col" class="text-nowrap">Email</th>
-                                <th scope="col" class="text-nowrap">Password</th>
-                                <th scope="col" class="text-nowrap">Estado</th>
-                                <th scope="col" class="text-nowrap">Tipo</th>
-                                <th scope="col" class="text-nowrap">Acciones</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Provincia</th>
+                                <th scope="col">CodPostal</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>12345678</td>
-                                <td>Juan</td>
-                                <td>Pérez</td>
-                                <td>Calle Falsa 123</td>
-                                <td>Buenos Aires</td>
-                                <td>1000</td>
-                                <td>juan@example.com</td>
-                                <td>password123</td>
-                                <td>Activo</td>
-                                <td>Administrador</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>87654321</td>
-                                <td>Maria</td>
-                                <td>Gómez</td>
-                                <td>Avenida Siempre Viva 456</td>
-                                <td>Córdoba</td>
-                                <td>5000</td>
-                                <td>maria@example.com</td>
-                                <td>password456</td>
-                                <td>Inactivo</td>
-                                <td>Usuario</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm">Editar</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                                </td>
-                            </tr>
-                            <!-- Agregar más filas aquí según sea necesario -->
+                            <asp:Repeater ID="rptClientes" runat="server" OnItemCommand="rptClientes_ItemCommand">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("Dni") %></td>
+                                        <td><%# Eval("Nombre") %></td>
+                                        <td><%# Eval("Apellido") %></td>
+                                        <td><%# Eval("Direccion") %></td>
+                                        <td><%# Eval("Provincia") %></td>
+                                        <td><%# Eval("CodPostal") %></td>
+                                        <td><%# Eval("Email") %></td>
+                                        <td><%# Eval("Password") %></td>
+                                        <td>
+                                            <%# (bool)Eval("Estado") ? "Activo" : "Inactivo" %>
+                                        </td>
+                                        <td>
+                                            <%# (bool)Eval("Tipo") ? "Administrador" : "Usuario" %>
+                                        </td>
+                                        <td>
+                                            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-warning btn-sm" CommandName="Editar" CommandArgument='<%# Eval("Dni") %>' />
+                                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Eliminar" CommandArgument='<%# Eval("Dni") %>' OnClientClick="return confirm('¿Eliminar este cliente?');" />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </tbody>
                     </table>
 

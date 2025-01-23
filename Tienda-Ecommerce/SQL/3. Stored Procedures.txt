@@ -11,6 +11,42 @@ CREATE PROCEDURE NuevoCliente
 as
 insert into Clientes (CL_DNI,CL_Nombre,CL_Apellido,CL_Direccion,CL_Provincia,CL_CodPostal,CL_Email,CL_Password,CL_Estado, CL_Tipo) output inserted.CL_DNI values (@dni,@nombre,@apellido,@direccion,@provincia,@codPostal,@email,@pass, 1, 0)
 
+--STORE PROCEDURE EDITAR CLIENTES
+CREATE PROCEDURE editarCliente
+    @dni CHAR(8),
+    @nombre VARCHAR(25),
+    @apellido VARCHAR(25),
+    @direccion VARCHAR(50),
+    @provincia VARCHAR(25),
+    @codPostal CHAR(5),
+	@email VARCHAR(50),
+    @pass VARCHAR(50),
+    @estado BIT,
+    @tipo bit    
+AS
+BEGIN
+ UPDATE Clientes SET 
+        CL_Nombre = @nombre,
+        CL_Apellido = @apellido,
+        CL_Direccion = @direccion,
+        CL_Provincia = @provincia,
+        CL_CodPostal = @codPostal,
+        CL_Email = @email,
+        CL_Password = @pass,
+        CL_Estado = @estado,
+        CL_Tipo = @tipo
+    WHERE CL_DNI = @dni;
+END;
+
+--STORE PROCEDURE ELIMINAR CLIENTES
+CREATE PROCEDURE EliminarCliente
+@dni INT
+AS
+BEGIN
+    DELETE FROM Clientes WHERE CL_DNI = @dni
+END
+GO
+
 
 --STORE PROCEDURE NUEVAS CATEGORIAS
 CREATE PROCEDURE NuevaCategoria 

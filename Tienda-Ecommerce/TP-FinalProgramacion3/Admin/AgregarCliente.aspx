@@ -12,117 +12,127 @@
     <form id="formAgregarCliente" runat="server">
         <div class="container py-5">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="card shadow-lg">
                         <div class="card-header bg-primary text-white text-center">
                             <h3>Agregar Cliente</h3>
                         </div>
                         <div class="card-body">
-                            <!-- Campo de DNI -->
-                            <div class="mb-3">
-                                <label for="txtDNI" class="form-label">DNI</label>
-                                <asp:TextBox
-                                    ID="txtDNI"
-                                    runat="server"
-                                    placeholder="Ingrese el DNI"
-                                    CssClass="form-control" />
+                            <!-- Fila 1: DNI -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="txtDNI" class="form-label">DNI</label>
+                                    <asp:TextBox
+                                        ID="txtDNI"
+                                        runat="server"
+                                        MaxLength="8"
+                                        placeholder="Ingrese el DNI"
+                                        CssClass="form-control" />
+                                </div>
                             </div>
 
-                            <!-- Campo de Nombre -->
-                            <div class="mb-3">
-                                <label for="txtNombre" class="form-label">Nombre</label>
-                                <asp:TextBox
-                                    ID="txtNombre"
-                                    runat="server"
-                                    placeholder="Ingrese el nombre"
-                                    CssClass="form-control" />
+                            <!-- Fila 2: Nombre, Apellido -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="txtNombre" class="form-label">Nombre</label>
+                                    <asp:TextBox
+                                        ID="txtNombre"
+                                        runat="server"
+                                        MaxLength="25"
+                                        placeholder="Ingrese el nombre"
+                                        CssClass="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="txtApellido" class="form-label">Apellido</label>
+                                    <asp:TextBox
+                                        ID="txtApellido"
+                                        runat="server"
+                                        MaxLength="25"
+                                        placeholder="Ingrese el apellido"
+                                        CssClass="form-control" />
+                                </div>
                             </div>
 
-                            <!-- Campo de Apellido -->
-                            <div class="mb-3">
-                                <label for="txtApellido" class="form-label">Apellido</label>
-                                <asp:TextBox
-                                    ID="txtApellido"
-                                    runat="server"
-                                    placeholder="Ingrese el apellido"
-                                    CssClass="form-control" />
+                            <!-- Fila 3: Dirección -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="txtDireccion" class="form-label">Dirección</label>
+                                    <asp:TextBox
+                                        ID="txtDireccion"
+                                        runat="server"
+                                        MaxLength="25"
+                                        placeholder="Ingrese la dirección"
+                                        CssClass="form-control" />
+                                </div>
                             </div>
 
-                            <!-- Campo de Dirección -->
-                            <div class="mb-3">
-                                <label for="txtDireccion" class="form-label">Dirección</label>
-                                <asp:TextBox
-                                    ID="txtDireccion"
-                                    runat="server"
-                                    placeholder="Ingrese la dirección"
-                                    CssClass="form-control" />
+                            <!-- Fila 4: Provincia, Código Postal -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="ddlProvincia" class="form-label">Provincia</label>
+                                    <asp:DropDownList
+                                        ID="ddlProvincia"
+                                        runat="server"
+                                        CssClass="form-select">
+                                        <asp:ListItem Text="Seleccione una provincia" Value="" />
+                                        <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
+                                        <asp:ListItem Text="Catamarca" Value="Catamarca" />
+                                        <asp:ListItem Text="Chaco" Value="Chaco" />
+                                        <asp:ListItem Text="Chubut" Value="Chubut" />
+                                        <asp:ListItem Text="Córdoba" Value="Córdoba" />
+                                        <asp:ListItem Text="Corrientes" Value="Corrientes" />
+                                        <asp:ListItem Text="Entre Rios" Value="Entre Rios" />
+                                        <asp:ListItem Text="Formosa" Value="Formosa" />
+                                        <asp:ListItem Text="Jujuy" Value="Jujuy" />
+                                        <asp:ListItem Text="La Pampa" Value="La Pampa" />
+                                        <asp:ListItem Text="La Rioja" Value="La Rioja" />
+                                        <asp:ListItem Text="Mendoza" Value="Mendoza" />
+                                        <asp:ListItem Text="Misiones" Value="Misiones" />
+                                        <asp:ListItem Text="Neuquen" Value="Neuquen" />
+                                        <asp:ListItem Text="Rio Negro" Value="Rio Negro" />
+                                        <asp:ListItem Text="Salta" Value="Salta" />
+                                        <asp:ListItem Text="San Juan" Value="San Juan" />
+                                        <asp:ListItem Text="San Luis" Value="San Luis" />
+                                        <asp:ListItem Text="Santa Cruz" Value="Santa Cruz" />
+                                        <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
+                                        <asp:ListItem Text="Santiago del Estero" Value="Santiago del Estero" />
+                                        <asp:ListItem Text="Tierra del Fuego" Value="Tierra del Fuego" />
+                                        <asp:ListItem Text="Tucuman" Value="Tucuman" />
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="txtCodigoPostal" class="form-label">Código Postal</label>
+                                    <asp:TextBox
+                                        ID="txtCodigoPostal"
+                                        runat="server"
+                                        MaxLength="25"
+                                        placeholder="Ingrese el código postal"
+                                        CssClass="form-control" />
+                                </div>
                             </div>
 
-                            <!-- Campo de Provincia -->
-                            <div class="mb-3">
-                                <label for="ddlProvincia" class="form-label">Provincia</label>
-                                <asp:DropDownList
-                                    ID="ddlProvincia"
-                                    runat="server"
-                                    CssClass="form-select">
-                                    <asp:ListItem Text="Seleccione una provincia" Value="" />
-                                    <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
-                                    <asp:ListItem Text="Catamarca" Value="Catamarca" />
-                                    <asp:ListItem Text="Chaco" Value="Chaco" />
-                                    <asp:ListItem Text="Chubut" Value="Chubut" />
-                                    <asp:ListItem Text="Córdoba" Value="Córdoba" />
-                                    <asp:ListItem Text="Corrientes" Value="Corrientes" />
-                                    <asp:ListItem Text="Entre Rios" Value="Entre Rios" />
-                                    <asp:ListItem Text="Formosa" Value="Formosa" />
-                                    <asp:ListItem Text="Jujuy" Value="Jujuy" />
-                                    <asp:ListItem Text="La Pampa" Value="La Pampa" />
-                                    <asp:ListItem Text="L Rioja" Value="La Rioja" />
-                                    <asp:ListItem Text="Mendoza" Value="Mendoza" />
-                                    <asp:ListItem Text="Misiones" Value="Misiones" />
-                                    <asp:ListItem Text="Neuquen" Value="Neuquen" />
-                                    <asp:ListItem Text="Rio Negro" Value="Rio Negro" />
-                                    <asp:ListItem Text="Salta" Value="Salta" />
-                                    <asp:ListItem Text="San Juan" Value="San Juan" />
-                                    <asp:ListItem Text="San Luis" Value="San Luis" />
-                                    <asp:ListItem Text="Santa Cruz" Value="Santa Cruz" />
-                                    <asp:ListItem Text="Santa Fe" Value="Santa Fe" />
-                                    <asp:ListItem Text="Santiago del Estero" Value="Santiago del Estero" />
-                                    <asp:ListItem Text="Tierra del Fuego" Value="Tierra del Fuego" />
-                                    <asp:ListItem Text="Tucuman" Value="Tucuman" />
-
-                                </asp:DropDownList>
-                            </div>
-
-                            <!-- Campo de Código Postal -->
-                            <div class="mb-3">
-                                <label for="txtCodigoPostal" class="form-label">Código Postal</label>
-                                <asp:TextBox
-                                    ID="txtCodigoPostal"
-                                    runat="server"
-                                    placeholder="Ingrese el código postal"
-                                    CssClass="form-control" />
-                            </div>
-
-                            <!-- Campo de Email -->
-                            <div class="mb-3">
-                                <label for="txtEmail" class="form-label">Email</label>
-                                <asp:TextBox
-                                    ID="txtEmail"
-                                    runat="server"
-                                    TextMode="Email"
-                                    placeholder="Ingrese el email"
-                                    CssClass="form-control" />
-                            </div>
-
-                            <!-- Campo de Contraseña -->
-                            <div class="mb-3">
-                                <label for="txtPassword" class="form-label">Contraseña</label>
-                                <asp:TextBox
-                                    ID="txtPassword"
-                                    runat="server"
-                                    TextMode="Password"
-                                    placeholder="Ingrese la contraseña"
-                                    CssClass="form-control" />
+                            <!-- Fila 5: Email, Contraseña -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="txtEmail" class="form-label">Email</label>
+                                    <asp:TextBox
+                                        ID="txtEmail"
+                                        runat="server"
+                                        MaxLength="50"
+                                        TextMode="Email"
+                                        placeholder="Ingrese el email"
+                                        CssClass="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="txtPassword" class="form-label">Contraseña</label>
+                                    <asp:TextBox
+                                        ID="txtPassword"
+                                        runat="server"
+                                        MaxLength="30"
+                                        TextMode="Password"
+                                        placeholder="Ingrese la contraseña"
+                                        CssClass="form-control" />
+                                </div>
                             </div>
 
                             <!-- Botón de Agregar -->
