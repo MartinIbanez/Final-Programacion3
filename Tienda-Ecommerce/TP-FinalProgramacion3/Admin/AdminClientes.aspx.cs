@@ -41,18 +41,17 @@ namespace TP_FinalProgramacion3.Admin
         {
             try
             {
-   
-                int dniCliente = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
+                string dniCliente = e.CommandArgument.ToString(); // Obtener el DNI como string
 
                 if (e.CommandName == "Editar")
                 {
-                    Response.Redirect("AgregarCliente.aspx?dniCLiente=" + dniCliente);
+                    Response.Redirect("AgregarCliente.aspx?dni=" + dniCliente);
                 }
                 else if (e.CommandName == "Eliminar")
                 {
-                    ClienteNegocio clienteNegocio = new ClienteNegocio();        
+                    ClienteNegocio clienteNegocio = new ClienteNegocio();
 
-                    clienteNegocio.EliminarCliente(dniCliente);
+                    clienteNegocio.EliminarCliente(dniCliente); // Pasar el DNI como string
 
                     CargarClientes();
                 }

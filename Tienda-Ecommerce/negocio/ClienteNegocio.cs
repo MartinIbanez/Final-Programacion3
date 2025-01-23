@@ -12,34 +12,34 @@ using System.Net.Http.Headers;
 namespace negocio
 {
     public class ClienteNegocio
-    {     
+    {
         public List<Cliente> ClientesListado()
         {
-            string consulta = "SELECT CL_DNI, CL_Nombre,CL_Apellido,CL_Direccion,CL_Provincia,CL_CodPostal, CL_Email,CL_Password,CL_Estado,CL_Tipo FROM CLIENTES ORDER BY CL_Apellido";
+            string consulta = "SELECT CL_DNI, CL_Nombre, CL_Apellido, CL_Direccion, CL_Provincia, CL_CodPostal, CL_Email, CL_Password, CL_Estado, CL_Tipo FROM CLIENTES ORDER BY CL_Apellido";
 
             List<Cliente> ListarClientes = new List<Cliente>();
-            AccesoDatos datos= new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta( consulta );
+                datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
-                while (datos.Lector.Read()) 
+                while (datos.Lector.Read())
                 {
-                    Cliente ClientesAux = new Cliente();
-
-                    ClientesAux.Dni = (string)datos.Lector["CL_DNI"];
-                    ClientesAux.Nombre = (string)datos.Lector["CL_Nombre"];
-                    ClientesAux.Apellido = (string)datos.Lector["CL_Apellido"];
-                    ClientesAux.Direccion = (string)datos.Lector["CL_Direccion"];
-                    ClientesAux.Provincia = (string)datos.Lector["CL_Provincia"];
-                    ClientesAux.CodPostal = (string)datos.Lector["CL_CodPostal"];
-                    ClientesAux.Email = (string)datos.Lector["CL_Email"];
-                    ClientesAux.Password = (string)datos.Lector["CL_Password"];
-                    
-                    ClientesAux.Estado = (bool)datos.Lector["CL_Estado"];
-                    ClientesAux.Tipo = (bool)datos.Lector["CL_Tipo"];
+                    Cliente ClientesAux = new Cliente
+                    {
+                        Dni = (string)datos.Lector["CL_DNI"], // Leer DNI como string
+                        Nombre = (string)datos.Lector["CL_Nombre"],
+                        Apellido = (string)datos.Lector["CL_Apellido"],
+                        Direccion = (string)datos.Lector["CL_Direccion"],
+                        Provincia = (string)datos.Lector["CL_Provincia"],
+                        CodPostal = (string)datos.Lector["CL_CodPostal"],
+                        Email = (string)datos.Lector["CL_Email"],
+                        Password = (string)datos.Lector["CL_Password"],
+                        Estado = (bool)datos.Lector["CL_Estado"],
+                        Tipo = (bool)datos.Lector["CL_Tipo"]
+                    };
 
                     ListarClientes.Add(ClientesAux);
                 }
@@ -54,14 +54,14 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-     
+
         public string NuevoCliente(Cliente nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setearProcedimiento("NuevoCliente");
-                datos.setearParametro("@Dni", nuevo.Dni);
+                datos.setearParametro("@Dni", nuevo.Dni); // DNI como string
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Apellido", nuevo.Apellido);
                 datos.setearParametro("@Direccion", nuevo.Direccion);
@@ -71,7 +71,6 @@ namespace negocio
                 datos.setearParametro("@Pass", nuevo.Password);
 
                 return datos.ejecutarAccionScalar().ToString();
-                
             }
             catch (Exception ex)
             {
@@ -81,7 +80,6 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
-
         }
 
         public void ModificarCliente(Cliente editarCliente)
@@ -90,7 +88,7 @@ namespace negocio
             try
             {
                 datos.setearProcedimiento("editarCliente");
-                datos.setearParametro("@dni", editarCliente.Dni);
+                datos.setearParametro("@dni", editarCliente.Dni); // DNI como string
                 datos.setearParametro("@nombre", editarCliente.Nombre);
                 datos.setearParametro("@apellido", editarCliente.Apellido);
                 datos.setearParametro("@direccion", editarCliente.Direccion);
@@ -100,7 +98,6 @@ namespace negocio
                 datos.setearParametro("@pass", editarCliente.Password);
                 datos.setearParametro("@estado", editarCliente.Estado);
                 datos.setearParametro("@tipo", editarCliente.Tipo);
-
 
                 datos.ejecutarAccion();
             }
@@ -113,13 +110,14 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        public void EliminarCliente(int dniCliente)
+
+        public void EliminarCliente(string dniCliente) // DNI como string
         {
             AccesoDatos cn = new AccesoDatos();
             try
             {
                 cn.setearProcedimiento("EliminarCliente");
-                cn.setearParametro("@dni", dniCliente);
+                cn.setearParametro("@dni", dniCliente); // DNI como string
                 cn.ejecutarAccion();
             }
             catch (Exception ex)

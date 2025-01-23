@@ -5,75 +5,50 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <title>Agregar Cliente</title>
+    <title>Agregar/Modificar Cliente</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body class="bg-light">
-    <form id="formAgregarCliente" runat="server">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card shadow-lg">
-                        <div class="card-header bg-primary text-white text-center">
-                            <h3>Agregar Cliente</h3>
-                        </div>
+    <form id="form1" runat="server">
+        <section class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="mb-4 text-center">Agregar/Modificar Cliente</h2>
+                    <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+                    <div class="card shadow">
                         <div class="card-body">
-                            <!-- Fila 1: DNI -->
-                            <div class="row mb-3">
-                                <div class="col-12">
-                                    <label for="txtDNI" class="form-label">DNI</label>
-                                    <asp:TextBox
-                                        ID="txtDNI"
-                                        runat="server"
-                                        MaxLength="8"
-                                        placeholder="Ingrese el DNI"
-                                        CssClass="form-control" />
-                                </div>
+                            <!-- DNI -->
+                            <div class="mb-3">
+                                <label for="txtDNI" class="form-label">DNI</label>
+                                <asp:TextBox ID="txtDNI" runat="server" CssClass="form-control" MaxLength="8" Placeholder="Ingrese el DNI"></asp:TextBox>
                             </div>
-
-                            <!-- Fila 2: Nombre, Apellido -->
+                            <!-- Nombre y Apellido -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="txtNombre" class="form-label">Nombre</label>
-                                    <asp:TextBox
-                                        ID="txtNombre"
-                                        runat="server"
-                                        MaxLength="25"
-                                        placeholder="Ingrese el nombre"
-                                        CssClass="form-control" />
+                                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" MaxLength="25" Placeholder="Ingrese el nombre"></asp:TextBox>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtApellido" class="form-label">Apellido</label>
-                                    <asp:TextBox
-                                        ID="txtApellido"
-                                        runat="server"
-                                        MaxLength="25"
-                                        placeholder="Ingrese el apellido"
-                                        CssClass="form-control" />
+                                    <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" MaxLength="25" Placeholder="Ingrese el apellido"></asp:TextBox>
                                 </div>
                             </div>
-
-                            <!-- Fila 3: Dirección -->
-                            <div class="row mb-3">
-                                <div class="col-12">
-                                    <label for="txtDireccion" class="form-label">Dirección</label>
-                                    <asp:TextBox
-                                        ID="txtDireccion"
-                                        runat="server"
-                                        MaxLength="25"
-                                        placeholder="Ingrese la dirección"
-                                        CssClass="form-control" />
-                                </div>
+                            <!-- Dirección -->
+                            <div class="mb-3">
+                                <label for="txtDireccion" class="form-label">Dirección</label>
+                                <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" MaxLength="50" Placeholder="Ingrese la dirección"></asp:TextBox>
                             </div>
-
-                            <!-- Fila 4: Provincia, Código Postal -->
+                            <!-- Provincia y Código Postal -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="ddlProvincia" class="form-label">Provincia</label>
-                                    <asp:DropDownList
-                                        ID="ddlProvincia"
-                                        runat="server"
-                                        CssClass="form-select">
+                                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="form-select">
                                         <asp:ListItem Text="Seleccione una provincia" Value="" />
                                         <asp:ListItem Text="Buenos Aires" Value="Buenos Aires" />
                                         <asp:ListItem Text="Catamarca" Value="Catamarca" />
@@ -102,55 +77,32 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtCodigoPostal" class="form-label">Código Postal</label>
-                                    <asp:TextBox
-                                        ID="txtCodigoPostal"
-                                        runat="server"
-                                        MaxLength="25"
-                                        placeholder="Ingrese el código postal"
-                                        CssClass="form-control" />
+                                    <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="form-control" MaxLength="10" Placeholder="Ingrese el código postal"></asp:TextBox>
                                 </div>
                             </div>
-
-                            <!-- Fila 5: Email, Contraseña -->
+                            <!-- Email y Contraseña -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="txtEmail" class="form-label">Email</label>
-                                    <asp:TextBox
-                                        ID="txtEmail"
-                                        runat="server"
-                                        MaxLength="50"
-                                        TextMode="Email"
-                                        placeholder="Ingrese el email"
-                                        CssClass="form-control" />
+                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" MaxLength="50" Placeholder="Ingrese el email"></asp:TextBox>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="txtPassword" class="form-label">Contraseña</label>
-                                    <asp:TextBox
-                                        ID="txtPassword"
-                                        runat="server"
-                                        MaxLength="30"
-                                        TextMode="Password"
-                                        placeholder="Ingrese la contraseña"
-                                        CssClass="form-control" />
+                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" MaxLength="30" Placeholder="Ingrese la contraseña"></asp:TextBox>
                                 </div>
                             </div>
-
-                            <!-- Botón de Agregar -->
-                            <div class="d-grid">
-                                <asp:Button
-                                    ID="btnAgregar"
-                                    runat="server"
-                                    Text="Agregar Cliente"
-                                    CssClass="btn btn-primary"
-                                    OnClick="btnAgregar_Click" />
+                            <!-- Botones -->
+                            <div class="d-flex justify-content-end">
+                                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary me-2" OnClick="btnGuardar_Click" />
+                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelar_Click" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </form>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
