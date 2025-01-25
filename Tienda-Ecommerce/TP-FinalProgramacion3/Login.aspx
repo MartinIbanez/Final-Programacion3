@@ -46,11 +46,11 @@
             <p class="mt-4 text-center text-sm text-slate-600">
                 ¿No tienes una cuenta? 
        
-                <a href="Registro.aspx" class="text-blue-600 hover:underline">Regístrate como cliente</a>.
+                <a href="Registro.aspx" class="text-blue-600 font-bold hover:underline">Regístrate como cliente</a>.
      
             </p>
             
-            <asp:Label ID="MensajeLogin" runat="server" class="mt-4 text-center text-sm text-slate-600" Text=""></asp:Label>
+            <asp:Label ID="MensajeLogin" runat="server" class="mt-4 text-center text-l text-red-600 font-bold" Text=""></asp:Label>
 
         </div>
     </section>

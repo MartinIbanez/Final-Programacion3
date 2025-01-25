@@ -16,7 +16,7 @@ namespace TP_FinalProgramacion3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Si el usuario ya está autenticado, lo redirigimos al inicio
+            // Si el usuario esta logueado, lo redirigimos al inicio
             if (User.Identity.IsAuthenticated)
             {
                 Response.Redirect("~/Default.aspx");
