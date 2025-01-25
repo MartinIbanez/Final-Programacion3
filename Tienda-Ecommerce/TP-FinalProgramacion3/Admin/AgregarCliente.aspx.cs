@@ -13,10 +13,12 @@ namespace TP_FinalProgramacion3.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 if (!IsPostBack)
                 {
+                    
                     if (Request.QueryString["dni"] != null)
                     {
                         string dniCliente = Request.QueryString["dni"]; 
@@ -32,6 +34,7 @@ namespace TP_FinalProgramacion3.Admin
                             ddlProvincia.SelectedValue = cliente.Provincia;
                             txtCodigoPostal.Text = cliente.CodPostal;
                             txtEmail.Text = cliente.Email;
+                            txtPassword.Text = cliente.Password;
                         }
                     }
                 }

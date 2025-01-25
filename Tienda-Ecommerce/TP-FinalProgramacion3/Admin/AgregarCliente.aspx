@@ -97,7 +97,7 @@
                                 <div class="col-md-6">
                                     <label for="ddlEstado" class="form-label">Estado</label>
                                     <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="Activo" Value="true" ></asp:ListItem>
+                                        <asp:ListItem Text="Activo" Value="true"></asp:ListItem>
                                         <asp:ListItem Text="Inactivo" Value="false"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
@@ -107,7 +107,7 @@
                                     <label for="ddlTipoCliente" class="form-label">Tipo de Cliente</label>
                                     <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
                                         <asp:ListItem Text="Administrador" Value="true"></asp:ListItem>
-                                        <asp:ListItem Text="Cliente" Value="false" ></asp:ListItem>
+                                        <asp:ListItem Text="Cliente" Value="false"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -124,5 +124,6 @@
     </form>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+   
 </body>
 </html>

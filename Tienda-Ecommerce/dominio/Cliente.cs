@@ -21,9 +21,9 @@ namespace dominio
        
         public Cliente() { }
 
-        public Cliente(string user, string pass, bool admin)
+        public Cliente(string email, string pass, bool admin)
         {
-            Email = user;
+            Email = email;
             Password = pass;
             Tipo = admin;
         }

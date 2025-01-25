@@ -131,5 +131,85 @@ namespace negocio
                 cn.cerrarConexion();
             }
         }
+         // Retorna -1 si no existe, 0 si existe y es cliente y 1 si existe y es admin
+        public int verifarLogin(string email, string pass) 
+        {
+            string consulta = $"SELECT CL_Tipo FROM Clientes WHERE CL_Email='{email}' AND CL_Password='{pass}' AND CL_Estado=1";
+          
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    bool esAdmin = (bool)datos.Lector["CL_Tipo"];
+
+                    if (esAdmin)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+
+                }
+                return -1 ;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public Cliente buscarClienteEmail(string email, string pass)
+        {
+            string consulta = $"SELECT CL_DNI, CL_Nombre, CL_Apellido, CL_Direccion, CL_Provincia, CL_CodPostal, CL_Email, CL_Password, CL_Estado, CL_Tipo FROM CLIENTES WHERE CL_Email='{email}' AND CL_Password='{pass}' AND CL_Estado=1";
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Cliente ClienteAux = new Cliente
+                    {
+                        Dni = (string)datos.Lector["CL_DNI"],
+                        Nombre = (string)datos.Lector["CL_Nombre"],
+                        Apellido = (string)datos.Lector["CL_Apellido"],
+                        Direccion = (string)datos.Lector["CL_Direccion"],
+                        Provincia = (string)datos.Lector["CL_Provincia"],
+                        CodPostal = (string)datos.Lector["CL_CodPostal"],
+                        Email = (string)datos.Lector["CL_Email"],
+                        Password = (string)datos.Lector["CL_Password"],
+                        Estado = (bool)datos.Lector["CL_Estado"],
+                        Tipo = (bool)datos.Lector["CL_Tipo"]
+                    };
+                    return ClienteAux;
+                    
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
 }

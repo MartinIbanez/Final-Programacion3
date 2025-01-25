@@ -24,63 +24,80 @@
 </head>
 
 <body class="bg-gray-100">
-  
-        <!-- Header -->
-        <header class="bg-blue-800 shadow-lg">
-            <div class="container mx-auto flex justify-between items-center py-4 px-6">
-                <a href="Defaul.aspx" class="text-white text-2xl font-bold">
-                    UTN - ECOMMERCE DEPORTES
+
+    <!-- Header -->
+    <header class="bg-blue-800 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a href="Defaul.aspx" class="text-white text-2xl font-bold">UTN - ECOMMERCE DEPORTES
                 </a>
-                <nav class="hidden md:flex space-x-8">
-                    <!-- Opción Productos -->
-                    <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
-                    <!-- Opción Administrador -->
-                    <a href="MenuAdmin.aspx" class="text-gray-200 hover:text-white transition">Administrador</a>
-                    <!-- Opción Login con ícono -->
-                    <a href="Login.aspx" class="flex items-center space-x-2 text-gray-200 hover:text-white transition">
-                        <img src="imagenes/login.jpg" alt="Usuario" class="w-6 h-6 rounded-full" />
-                        <span>Iniciar sesión</span>
-                    </a>
-                </nav>
+            <nav class="hidden md:flex space-x-8">
+                <!-- Opción Productos -->
+                <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
+                <!-- Opción Administrador -->
+                <a href="MenuAdmin.aspx" class="text-gray-200 hover:text-white transition">Administrador</a>
+                <!-- Opción Login con ícono -->
+                <%if (Session["usuarioLogin"] != null)
+                    {
+                        dominio.Cliente usuarioLogin = (dominio.Cliente)Session["usuarioLogin"];
+   
+                    
+
+                %>
+                   <p> <%=usuarioLogin.Nombre %></p>
+
+                <%}
+                    else
+                    {
+
+                     %>
+                <a href="Login.aspx" class="flex items-center space-x-2 text-gray-200 hover:text-white transition">
+                    <img src="imagenes/login.jpg" alt="Usuario" class="w-6 h-6 rounded-full" />
+                    <span>Iniciar sesión</span>
+                </a>
+                <%}%>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8 px-6">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between">
+            <div>
+                <h2 class="text-xl font-bold">Ropa Deportiva</h2>
+                <p class="mt-4 text-sm text-gray-300">
+                    La mejor tienda online para ropa deportiva. Calidad y diseño al mejor precio.
+                   
+                </p>
             </div>
-        </header>
-
-        <!-- Main Content -->
-        <main class="container mx-auto py-8 px-6">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-        </main>
-
-        <!-- Footer -->
-        <footer class="bg-blue-800 text-white py-8">
-            <div class="container mx-auto flex flex-col md:flex-row justify-between">
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
                 <div>
-                    <h2 class="text-xl font-bold">Ropa Deportiva</h2>
-                    <p class="mt-4 text-sm text-gray-300">
-                        La mejor tienda online para ropa deportiva. Calidad y diseño al mejor precio.
-                    </p>
+                    <h3 class="font-bold">Compañía</h3>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Sobre nosotros</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Nuestro equipo</a></li>
+                    </ul>
                 </div>
-                <div class="grid grid-cols-2 gap-4 md:gap-8">
-                    <div>
-                        <h3 class="font-bold">Compañía</h3>
-                        <ul class="mt-4 space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-gray-300">Sobre nosotros</a></li>
-                            <li><a href="#" class="hover:text-gray-300">Nuestro equipo</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-bold">Enlaces útiles</h3>
-                        <ul class="mt-4 space-y-2 text-sm">
-                            <li><a href="#" class="hover:text-gray-300">Preguntas frecuentes</a></li>
-                            <li><a href="#" class="hover:text-gray-300">Política de privacidad</a></li>
-                            <li><a href="#" class="hover:text-gray-300">Términos y condiciones</a></li>
-                        </ul>
-                    </div>
+                <div>
+                    <h3 class="font-bold">Enlaces útiles</h3>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Preguntas frecuentes</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Política de privacidad</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Términos y condiciones</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8 text-center text-xs text-gray-300">
-                &copy; TP FINAL PROGRAMACION III - 2025 - MARTIN IBAÑEZ
-            </div>
-        </footer>
+        </div>
+        <div class="mt-8 text-center text-xs text-gray-300">
+            &copy; TP FINAL PROGRAMACION III - 2025 - MARTIN IBAÑEZ
+           
+        </div>
+    </footer>
 
 </body>
 </html>

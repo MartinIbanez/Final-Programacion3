@@ -22,14 +22,37 @@ namespace TP_FinalProgramacion3
                 Response.Redirect("~/Default.aspx");
             }
         }
-
-        public static class Validacion
-        {
-            
-        }
-
+     
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            ClienteNegocio cliNego = new ClienteNegocio();
+
+            string mail= UserEmail.Text;
+            string pass= Password.Text;
+
+            int Login= cliNego.verifarLogin(mail, pass);
+            
+            if (Login == -1)
+            {
+                MensajeLogin.Text = "Email o contraseña incorrecto. Vuelva a intentarlo";
+                UserEmail.Text = "";
+                Password.Text = "";
+            }
+            else
+            {
+                Cliente usuarioLogin = cliNego.buscarClienteEmail(mail, pass);
+                Session["usuarioLogin"]= usuarioLogin;
+                 if (Login == 0)
+                {
+                    Response.Redirect("~/MenuCliente.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/MenuAdmin.aspx");
+                }
+            }
+
+          
         }
     }
 }
