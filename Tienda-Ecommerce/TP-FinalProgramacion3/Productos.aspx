@@ -21,7 +21,6 @@
                         <div class="mb-3">
                             <label for="ddlMarca" class="form-label">Marca</label>
                             <asp:DropDownList ID="ddlMarca" runat="server" CssClass="form-select">
-                                
                             </asp:DropDownList>
                         </div>
 
@@ -57,13 +56,23 @@
                             <ItemTemplate>
                                 <div class="col">
                                     <div class="card shadow-sm border-light rounded-3">
-                                        <img src="<%# Eval("UrlImagen") %>" alt="<%# Eval("Nombre") %>" class="card-img-top" />
+                                        <img src='<%# Eval("UrlImagen") %>' alt='<%# Eval("Nombre") %>' class="card-img-top" />
                                         <div class="card-body">
                                             <h5 class="card-title text-primary"><%# Eval("Nombre") %></h5>
-                                            <p class="card-text text-muted"><%# Eval("Descripcion") %></p>
-                                            <p class="text-secondary"><%# Eval("IdCategoria") %></p>
+                                            <p class="card-text text-muted"><%# Eval("NombreMarca") %></p>
+                                            <p class="text-secondary d-flex">
+                                                <span class="me-3"><%# Eval("NombreCategoria")+ " - " %></span>
+                                                <span><%# Eval("Descripcion") %></span>
+                                            </p>
+
                                             <p class="fw-bold text-primary">$<%# Eval("Precio") %></p>
-                                            <button class="btn btn-primary w-100">Comprar</button>
+
+                                            <asp:Button runat="server"
+                                                Text="Comprar"
+                                                CssClass="btn btn-primary w-100"
+                                                CommandName="AgregarCarrito"
+                                                CommandArgument='<%# Eval("IdArticulo") %>'
+                                                OnCommand="ComprarProducto" />
                                         </div>
                                     </div>
                                 </div>

@@ -29,7 +29,7 @@
     <header class="bg-blue-800 shadow-lg">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
             <a href="Defaul.aspx" class="text-white text-2xl font-bold">UTN - ECOMMERCE DEPORTES
-                </a>
+            </a>
             <nav class="hidden md:flex space-x-8">
                 <!-- Opción Productos -->
                 <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
@@ -39,23 +39,20 @@
                 <%if (Session["usuarioLogin"] != null)
                     {
                         dominio.Cliente usuarioLogin = (dominio.Cliente)Session["usuarioLogin"];
-   
-                    
 
                 %>
-                   <p> <%=usuarioLogin.Nombre %></p>
+                <p><%=usuarioLogin.Nombre + " " + usuarioLogin.Apellido %></p>
 
                 <%}
                     else
                     {
 
-                     %>
+                %>
                 <a href="Login.aspx" class="flex items-center space-x-2 text-gray-200 hover:text-white transition">
                     <img src="imagenes/login.jpg" alt="Usuario" class="w-6 h-6 rounded-full" />
                     <span>Iniciar sesión</span>
                 </a>
                 <%}%>
-
             </nav>
         </div>
     </header>
@@ -79,8 +76,8 @@
                 <div>
                     <h3 class="font-bold">Compañía</h3>
                     <ul class="mt-4 space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-gray-300">Sobre nosotros</a></li>
-                        <li><a href="#" class="hover:text-gray-300">Nuestro equipo</a></li>
+                        <li><a href="https://github.com/MartinIbanez" class="hover:text-gray-300">GitHub</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Contacto</a></li>
                     </ul>
                 </div>
                 <div>

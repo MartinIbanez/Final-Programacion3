@@ -73,13 +73,20 @@ namespace negocio
                     ArticuloAux.StockMinimo = (int)cn.Lector["Art_StockMinimo"];
                     ArticuloAux.Estado = (bool)cn.Lector["Art_Estado"];
 
+                    // Busco el nombre de la categoria y marca 
+                    int idCategoria = ArticuloAux.IdCategoria;
+                    string nombreCategoria = BuscarNombreCat(idCategoria);
+                    ArticuloAux.NombreCategoria = nombreCategoria;
+
+                    int idMarca = ArticuloAux.IdMarca;
+                    string nombreMarca = BuscarNombreMarca(idMarca);
+                    ArticuloAux.NombreMarca = nombreMarca;
 
                     ListaArticulos.Add(ArticuloAux);
-
                 }
+
                 return ListaArticulos;
             }
-
             catch (Exception ex)
             {
                 throw ex;
@@ -90,6 +97,59 @@ namespace negocio
             }
         }
 
+        private string BuscarNombreCat(int idCategoria)
+        {
+            string nombreCategoria = "";
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta($"SELECT NombreCategoria FROM Categorias WHERE IdCategoria = {idCategoria}");
+                cn.ejecutarLectura();
+
+                if (cn.Lector.Read())
+                {
+                    nombreCategoria = cn.Lector["NombreCategoria"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return nombreCategoria;
+        }
+
+        private string BuscarNombreMarca(int idMarca)
+        {
+            string nombreMarca = "";
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta($"SELECT DescripcionMarca FROM Marcas WHERE IdMarca = {idMarca}");
+                cn.ejecutarLectura();
+
+                if (cn.Lector.Read())
+                {
+                    nombreMarca = cn.Lector["DescripcionMarca"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return nombreMarca;
+        }
         public void NuevoArticulo(Articulo nuevoArt)
         {
             AccesoDatos datos = new AccesoDatos();

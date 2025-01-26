@@ -14,87 +14,107 @@ namespace TP_FinalProgramacion3
 {
     public partial class Productos : System.Web.UI.Page
     {
-        private ArticuloNegocio negocio;
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            negocio = new ArticuloNegocio(); // Instancia de ArticuloNegocio
-            MarcaNegocio marcaNegocio=new MarcaNegocio();
-
             if (!IsPostBack)
             {
                 CargarFiltros();
                 CargarProductos();
-                
             }
         }
 
         private void CargarProductos()
         {
-            // Obtener productos desde la base de datos
-            var productos = ObtenerProductosDesdeBaseDeDatos();
+            List<Articulo> Productos = CatalogoArticulos();
 
-            // Enlazar productos al Repeater
-            rptProductos.DataSource = productos;
+            rptProductos.DataSource = Productos;
             rptProductos.DataBind();
         }
 
         private void CargarFiltros()
         {
+            // Crear instancias de las clases de negocio
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            // obtengo listado desde db
-            List<Marca> listaMarcas=marcaNegocio.ListarMarcas();
-            List<Categoria> listaCategorias=categoriaNegocio.ListarCategorias();
 
-            // DropDownList con las marcas
+            // Obtener las listas desde la base de datos
+            List<Marca> listaMarcas = marcaNegocio.ListarMarcas();
+            List<Categoria> listaCategorias = categoriaNegocio.ListarCategorias();
+
+            // Enlazar marcas al DropDownList
             ddlMarca.DataSource = listaMarcas;
-            ddlMarca.DataTextField = "Descripcion";
-            ddlMarca.DataValueField = "IdMarca";
+            ddlMarca.DataTextField = "Descripcion"; // Nombre de la propiedad que se mostrará
+            ddlMarca.DataValueField = "IdMarca";   // Valor que se usará como `SelectedValue`
             ddlMarca.DataBind();
-            ddlMarca.Items.Insert(0, new ListItem("Seleccione una marca"));
+            ddlMarca.Items.Insert(0, new ListItem("Seleccione una marca", ""));
 
-            // DropDownList con las categorias
+            // Enlazar categorías al DropDownList
             ddlCategoria.DataSource = listaCategorias;
-            ddlCategoria.DataTextField = "NombreCategoria";
-            ddlCategoria.DataValueField = "IdCategoria";
+            ddlCategoria.DataTextField = "NombreCategoria"; // Nombre de la propiedad que se mostrará
+            ddlCategoria.DataValueField = "IdCategoria";    // Valor que se usará como `SelectedValue`
             ddlCategoria.DataBind();
-            ddlCategoria.Items.Insert(0, new ListItem("Seleccione Categoria"));
+            ddlCategoria.Items.Insert(0, new ListItem("Seleccione una categoría", ""));
         }
 
-        private List<Articulo> ObtenerProductosDesdeBaseDeDatos()
+        private List<Articulo> CatalogoArticulos()
         {
-            // Llamar al método ListaArticulos de ArticuloNegocio
-            return negocio.ListaArticulos();
+            ArticuloNegocio articulosNeg = new ArticuloNegocio();
+            return articulosNeg.ListaArticulos();
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            // Obtener valores de los filtros
-            string marca = ddlMarca.SelectedValue;
-            string categoria = ddlCategoria.SelectedValue;
-            decimal precioMin = string.IsNullOrEmpty(txtPrecioMin.Text) ? 0 : Convert.ToDecimal(txtPrecioMin.Text);
-            decimal precioMax = string.IsNullOrEmpty(txtPrecioMax.Text) ? decimal.MaxValue : Convert.ToDecimal(txtPrecioMax.Text);
+            try
+            {
+                // Obtener los valores seleccionados en los filtros
+                string marca = ddlMarca.SelectedValue;
+                string categoria = ddlCategoria.SelectedValue;
 
-            // Filtrar productos
-            var productosFiltrados = FiltrarProductos(marca, categoria, precioMin, precioMax);
+                decimal precioMin = string.IsNullOrEmpty(txtPrecioMin.Text) ? 0 : Convert.ToDecimal(txtPrecioMin.Text);
+                decimal precioMax = string.IsNullOrEmpty(txtPrecioMax.Text) ? decimal.MaxValue : Convert.ToDecimal(txtPrecioMax.Text);
 
-            // Enlazar productos filtrados al Repeater
-            rptProductos.DataSource = productosFiltrados;
-            rptProductos.DataBind();
+                // Filtrar los productos con los valores seleccionados
+                List<Articulo> productosFiltrados = FiltrarProductos(marca, categoria, precioMin, precioMax);
+
+                // Enlazar la lista filtrada al Repeater
+                rptProductos.DataSource = productosFiltrados;
+                rptProductos.DataBind();
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores y mostrar un mensaje si es necesario
+                // Puedes agregar un Label o control para mostrar errores al usuario
+                Console.WriteLine($"Error al filtrar productos: {ex.Message}");
+            }
         }
 
         private List<Articulo> FiltrarProductos(string marca, string categoria, decimal precioMin, decimal precioMax)
         {
-            // Filtrar usando ListaArticulos
-            var todosLosProductos = ObtenerProductosDesdeBaseDeDatos();
+            // Obtener la lista completa de productos
+            List<Articulo> todosLosProductos = CatalogoArticulos();
 
+            // Filtrar los productos según los criterios seleccionados
             return todosLosProductos.FindAll(p =>
                 (string.IsNullOrEmpty(marca) || p.IdMarca.ToString() == marca) &&
                 (string.IsNullOrEmpty(categoria) || p.IdCategoria.ToString() == categoria) &&
                 p.Precio >= precioMin &&
-                p.Precio <= precioMax);
+                p.Precio <= precioMax
+            );
+        }
+
+        protected void ComprarProducto(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "AgregarCarrito")
+            {
+                // Obtener el ID del producto desde CommandArgument
+                int idArticulo = Convert.ToInt32(e.CommandArgument);
+
+                // Lógica para agregar el producto al carrito
+                // Ejemplo: Guardar en la sesión, base de datos, etc.
+                Console.WriteLine($"Producto con ID {idArticulo} agregado al carrito.");
+
+                Response.Redirect("~/Carrito.aspx");
+            }
         }
     }
 }
