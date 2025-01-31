@@ -54,7 +54,7 @@ namespace negocio
 
             try
             {
-                cn.setearConsulta("SELECT IdArticulo,Art_Descripcion,Art_IdCategoria,Art_IdMarca,Art_Proveedor,Art_Nombre,Art_Stock,Art_UrlImagen,Art_Precio,Art_StockMinimo,Art_Estado FROM Articulos ORDER BY Art_IdCategoria");
+                cn.setearConsulta("SELECT IdArticulo,Art_Descripcion,Art_IdCategoria,Art_IdMarca,Art_Proveedor,Art_Nombre,Art_Stock,Art_UrlImagen,Art_Precio,Art_StockMinimo,Art_Estado FROM Articulos ORDER BY IdArticulo");
                 cn.ejecutarLectura();
 
                 while (cn.Lector.Read())
@@ -73,7 +73,7 @@ namespace negocio
                     ArticuloAux.StockMinimo = (int)cn.Lector["Art_StockMinimo"];
                     ArticuloAux.Estado = (bool)cn.Lector["Art_Estado"];
 
-                    // Busco el nombre de la categoria y marca 
+                    // Busco el nombre de la categoria y de la marca 
                     int idCategoria = ArticuloAux.IdCategoria;
                     string nombreCategoria = BuscarNombreCat(idCategoria);
                     ArticuloAux.NombreCategoria = nombreCategoria;
@@ -150,6 +150,52 @@ namespace negocio
 
             return nombreMarca;
         }
+
+        public Articulo BuscarArticuloPorId(int idArticulo)
+        {
+            string consulta = $"SELECT IdArticulo, Art_Descripcion, Art_IdCategoria, Art_IdMarca, Art_Proveedor, Art_Nombre, Art_Stock, Art_UrlImagen, Art_Precio, Art_StockMinimo, Art_Estado FROM Articulos WHERE IdArticulo = '{idArticulo}'";
+            Articulo articulo = null;
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta(consulta);                
+                cn.ejecutarLectura();
+
+                if (cn.Lector.Read())
+                {
+                    articulo = new Articulo
+                    {
+                        IdArticulo = (int)cn.Lector["IdArticulo"],
+                        Descripcion = cn.Lector["Art_Descripcion"].ToString(),
+                        IdCategoria = (int)cn.Lector["Art_IdCategoria"],
+                        IdMarca = (int)cn.Lector["Art_IdMarca"],
+                        IdProveedor = (int)cn.Lector["Art_Proveedor"],
+                        Nombre = cn.Lector["Art_Nombre"].ToString(),
+                        Stock = (int)cn.Lector["Art_Stock"],
+                        UrlImagen = cn.Lector["Art_UrlImagen"].ToString(),
+                        Precio = cn.Lector["Art_Precio"] != DBNull.Value ? Convert.ToDecimal(cn.Lector["Art_Precio"]) : 0,
+                        StockMinimo = (int)cn.Lector["Art_StockMinimo"],
+                        Estado = (bool)cn.Lector["Art_Estado"]
+                    };
+
+                    articulo.NombreCategoria = BuscarNombreCat(articulo.IdCategoria);
+                    articulo.NombreMarca = BuscarNombreMarca(articulo.IdMarca);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar el artículo por ID", ex);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return articulo;
+        }
+
+        //Metodos para el ABM de Articulos
         public void NuevoArticulo(Articulo nuevoArt)
         {
             AccesoDatos datos = new AccesoDatos();

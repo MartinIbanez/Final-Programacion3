@@ -22,6 +22,7 @@ namespace dominio
         public int StockMinimo { get; set; }
         public bool Estado {  get; set; }
 
+        public int Cantidad { get; set; }
         public Articulo() { }
     }
 }

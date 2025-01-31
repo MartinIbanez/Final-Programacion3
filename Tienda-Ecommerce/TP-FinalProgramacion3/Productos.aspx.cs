@@ -14,6 +14,8 @@ namespace TP_FinalProgramacion3
 {
     public partial class Productos : System.Web.UI.Page
     {
+        private ArticuloNegocio articuloNegocio = new ArticuloNegocio(); // Instanciar ArticuloNegocio
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,9 +27,8 @@ namespace TP_FinalProgramacion3
 
         private void CargarProductos()
         {
-            List<Articulo> Productos = CatalogoArticulos();
-
-            rptProductos.DataSource = Productos;
+            List<Articulo> productos = CatalogoArticulos();
+            rptProductos.DataSource = productos;
             rptProductos.DataBind();
         }
 
@@ -38,8 +39,8 @@ namespace TP_FinalProgramacion3
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             // Obtener las listas desde la base de datos
-            List<Marca> listaMarcas = marcaNegocio.ListarMarcas();
-            List<Categoria> listaCategorias = categoriaNegocio.ListarCategorias();
+            List<Marca> listaMarcas = marcaNegocio.MarcasActivas();
+            List<Categoria> listaCategorias = categoriaNegocio.CategoriasActivas();
 
             // Enlazar marcas al DropDownList
             ddlMarca.DataSource = listaMarcas;
@@ -58,8 +59,7 @@ namespace TP_FinalProgramacion3
 
         private List<Articulo> CatalogoArticulos()
         {
-            ArticuloNegocio articulosNeg = new ArticuloNegocio();
-            return articulosNeg.ListaArticulos();
+            return articuloNegocio.ListaArticulos();
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -102,19 +102,46 @@ namespace TP_FinalProgramacion3
             );
         }
 
-        protected void ComprarProducto(object sender, CommandEventArgs e)
+        protected void ComprarProducto(object sender, System.Web.UI.WebControls.CommandEventArgs e)
         {
             if (e.CommandName == "AgregarCarrito")
             {
-                // Obtener el ID del producto desde CommandArgument
-                int idArticulo = Convert.ToInt32(e.CommandArgument);
+                int idArticulo = int.Parse(e.CommandArgument.ToString());
 
-                // Lógica para agregar el producto al carrito
-                // Ejemplo: Guardar en la sesión, base de datos, etc.
-                Console.WriteLine($"Producto con ID {idArticulo} agregado al carrito.");
+                // Obtener la lista del carrito de la sesión
+                List<Articulo> carrito = Session["Carrito"] as List<Articulo> ?? new List<Articulo>();
 
+                // Buscar si ya existe el artículo en el carrito
+                Articulo articuloExistente = carrito.FirstOrDefault(a => a.IdArticulo == idArticulo);
+                
+                if (articuloExistente != null)
+                {
+                    // Incrementar cantidad si ya existe
+                    articuloExistente.Cantidad++;
+                }
+                else
+                {
+                    // Agregar nuevo artículo
+                    Articulo nuevoArticulo = ObtenerArticuloPorId(idArticulo);
+                    if (nuevoArticulo != null)
+                    {
+                        nuevoArticulo.Cantidad = 1;
+                        carrito.Add(nuevoArticulo);
+                    }
+                }
+
+                // Guardar el carrito actualizado en la sesión
+                Session["Carrito"] = carrito;
+
+                // Redirigir al carrito (opcional)
                 Response.Redirect("~/Carrito.aspx");
             }
+        }
+
+        private Articulo ObtenerArticuloPorId(int idArticulo)
+        {
+            // Llamamos al método BuscarArticuloPorId de ArticuloNegocio
+            return articuloNegocio.BuscarArticuloPorId(idArticulo);
         }
     }
 }

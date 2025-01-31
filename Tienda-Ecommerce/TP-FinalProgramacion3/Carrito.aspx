@@ -5,6 +5,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Carrito de Compras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         .cart-container {
             max-width: 1200px;
@@ -57,17 +58,18 @@
         <div class="cart-container">
             <h2 class="cart-header">Tu Carrito</h2>
             <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
-            <asp:Repeater ID="rptCarrito" runat="server">
+
+            <asp:Repeater ID="rptCarrito" runat="server" OnItemCommand="rptCarrito_ItemCommand">
                 <HeaderTemplate>
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Imagen</th>
-                                <th>Descripción</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Total</th>
-                                <th>Acciones</th>
+                                <th>PRODUCTO</th>
+                                <th>DESCRIPCION</th>
+                                <th>CANTIDAD</th>
+                                <th>PRECIO</th>
+                                <th>TOTAL</th>
+                                <th>ACCION</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,26 +77,26 @@
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <img src="<%# Eval("ImagenUrl", "imagenes/{0}") %>" alt="Producto" class="cart-img" />
+                            <img src='<%# Eval("UrlImagen") %>' alt="Producto" class="cart-img" />
                         </td>
                         <td><%# Eval("Descripcion") %></td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a href="Carrito.aspx?id=<%# Eval("Id") %>&accion=decrementar" class="quantity-btn">-</a>
+                                <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=decrementar" class="quantity-btn">-</a>
                                 <input type="text" value="<%# Eval("Cantidad") %>" readonly class="form-control text-center mx-2" style="width: 60px;" />
-                                <a href="Carrito.aspx?id=<%# Eval("Id") %>&accion=incrementar" class="quantity-btn">+</a>
+                                <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=incrementar" class="quantity-btn">+</a>
                             </div>
                         </td>
                         <td>$<%# Eval("Precio", "{0:F2}") %></td>
-                        <td>$<%# Eval("Total", "{0:F2}") %></td>
-                        <td class="cart-actions">
-                            <a href="Carrito.aspx?id=<%# Eval("Id") %>&accion=eliminar" class="btn btn-danger btn-sm">Eliminar</a>
+                        <td>$<%# Eval("Precio", "{0:F2}") %></td>
+                        <td>
+                            <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=eliminar" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
                 </FooterTemplate>
             </asp:Repeater>
 
@@ -115,7 +117,7 @@
                             <asp:Label ID="lblTotal" runat="server" Text="$0.00" CssClass="cart-summary"></asp:Label>
                         </div>
                         <div class="text-end">
-                            <a href="Comprar.aspx" class="btn btn-primary">Proceder al Pago</a>
+                            <button type="button" class="btn btn-success" onclick="window.location.href='Comprar.aspx';">FINALIZAR COMPRA</button>
                         </div>
                     </div>
                 </div>
@@ -123,7 +125,7 @@
 
             <!-- Botones de acción -->
             <div class="mt-4">
-                <a href="Productos.aspx" class="btn btn-secondary">Seguir Comprando</a>
+                <button type="button" class="btn btn-warning" onclick="window.location.href='Productos.aspx';">Seguir Comprando</button>
             </div>
         </div>
     </form>
