@@ -51,16 +51,16 @@ namespace TP_FinalProgramacion3
 
         private void CargarCliente()
         {
-          // Verificar si existe un usuario logueado en la sesión
+        
             Cliente usuarioLogin = Session["usuarioLogin"] as Cliente;
 
             if (usuarioLogin != null)
             {
                 txtNombre.Text = usuarioLogin.Nombre;
                 txtApellido.Text = usuarioLogin.Apellido;
-                txtDireccion.Text = usuarioLogin.Email;
-                txtProvincia.Text = usuarioLogin.Dni;
-                txtCodigoPostal.Text = usuarioLogin.Direccion;
+                txtDireccion.Text = usuarioLogin.Direccion;
+                txtProvincia.Text = usuarioLogin.Provincia;
+                txtCodigoPostal.Text = usuarioLogin.CodPostal;
             }
             else
             {
@@ -71,8 +71,8 @@ namespace TP_FinalProgramacion3
 
         protected void btnConfirmarCompra_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('COMPRA REALIZADA CON EXITO');</script>");
-            Response.Redirect("VerCompras.aspx");
+            Session["MensajeCompra"] = "COMPRA REALIZADA CON EXITO. MUCHAS GRACIAS";
+            Response.Redirect("FacturaElectronica.aspx");
         }
     }
 }

@@ -81,6 +81,7 @@
     <Content Include="Comprar.aspx" />
     <Content Include="Defaul.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="FacturaElectronica.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Login.jpg" />
     <Content Include="Imagenes\Runn.jpg" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacturaElectronica.aspx.cs">
+      <DependentUpon>FacturaElectronica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturaElectronica.aspx.designer.cs">
+      <DependentUpon>FacturaElectronica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
