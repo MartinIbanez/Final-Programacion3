@@ -11,6 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container mt-5">
+
             <!-- Card de la factura -->
             <div class="card">
                 <div class="card-header">
@@ -18,6 +19,7 @@
                     <p class="mb-0">Fecha de compra: <%= DateTime.Now.ToString("dd/MM/yyyy") %></p>
                 </div>
                 <div class="card-body">
+
                     <!-- Datos del comprador y vendedor -->
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -32,14 +34,13 @@
                             <h5>UTN DEPORTES</h5>
                             <ul class="list-unstyled">
                                 <li><strong>Nombre:</strong> UTN - Tienda Online</li>
-                                <li><strong>Direccion:</strong> Av. Hipólito Yrigoyen 288</li>
+                                <li><strong>Dirección:</strong> Av. Hipólito Yrigoyen 288</li>
                                 <li><strong>Email:</strong> martin.ibanez@alumnos.frgp.utn.edu.ar</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Detalle de la venta -->
-
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -51,27 +52,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- agregar los detalles dinámicamente desde el código-behind -->
-                            <tr>
-                                <td>001</td>
-                                <td>Camiseta Deportiva</td>
-                                <td>2</td>
-                                <td>$25.00</td>
-                                <td>$50.00</td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>Pantalón Deportivo</td>
-                                <td>1</td>
-                                <td>$30.00</td>
-                                <td>$30.00</td>
-                            </tr>
+                            <asp:Repeater ID="rptFactura" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("IdArticulo") %></td>
+                                        <td><%# Eval("Descripcion") %></td>
+                                        <td><%# Eval("Cantidad") %></td>
+                                        <td><%# String.Format("{0:C2}", Eval("Precio")) %></td>
+                                        <td><%# String.Format("{0:C2}", Eval("Total")) %></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </tbody>
                     </table>
 
                     <!-- Total de la compra -->
                     <div class="text-right">
-                        <h4>Total: $80.00</h4>
+                        <h4>TOTAL: <asp:Label ID="lblTotalFactura" runat="server" Text="$ 0.00"></asp:Label></h4>
                     </div>
                 </div>
             </div>

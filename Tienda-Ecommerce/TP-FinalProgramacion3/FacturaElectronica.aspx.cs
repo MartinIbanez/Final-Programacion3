@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,19 +12,50 @@ namespace TP_FinalProgramacion3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verificar si el mensaje está almacenado en la sesión y mostrarlo
-            if (Session["MensajeCompra"] != null)
+            if (Session["MensajeCompra"] != null) //muestro mensaje de compra exitosa, que guardamos al confirmar compra
             {
                 string mensajeCompra = Session["MensajeCompra"].ToString();
-
-                // Usar JavaScript para mostrar la alerta en la página
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('" + mensajeCompra + "');", true);
-
-                // Limpiar el mensaje de la sesión para que no se repita
                 Session.Remove("MensajeCompra");
             }
 
-           
+            if (!IsPostBack)
+            {
+                CargarFactura();
+            }
+        }
+
+        private void CargarFactura()
+        {
+            List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
+
+            if (carrito != null && carrito.Count > 0)
+            {
+                decimal totalFactura = 0;
+
+                // Crear lista con detalles de los artículos para el Repeater
+                var detallesFactura = new List<dynamic>();
+
+                foreach (var articulo in carrito)
+                {
+                    decimal totalArticulo = articulo.Precio * articulo.Cantidad;
+                    totalFactura += totalArticulo;
+
+                    detallesFactura.Add(new
+                    {
+                        articulo.IdArticulo,
+                        articulo.Descripcion,
+                        articulo.Cantidad,
+                        Precio = articulo.Precio,
+                        Total = totalArticulo
+                    });
+                }
+
+                rptFactura.DataSource = detallesFactura;
+                rptFactura.DataBind();
+
+                lblTotalFactura.Text = $" $ {totalFactura: F2} "; //total de la venta $
+            }
         }
     }
 }
