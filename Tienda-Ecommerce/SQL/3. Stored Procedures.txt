@@ -130,3 +130,21 @@ BEGIN
     DELETE FROM Proveedores WHERE Id_Proveedores = @Idproveedor
 END
 GO
+
+--STORE PROCEDURE ALTA ARTICULOS
+CREATE PROCEDURE NuevoArticulo
+    @Art_Descripcion VARCHAR(25),
+    @Art_IdCategoria INT,
+    @Art_IdMarca INT,
+    @Art_Proveedor INT,
+    @Art_Nombre VARCHAR(25),
+    @Art_Stock INT,
+    @Art_UrlImagen VARCHAR(800),
+    @Art_Precio DECIMAL(8, 2),
+    @Art_StockMinimo INT,
+    @Art_Estado BIT
+AS
+BEGIN
+    INSERT INTO Articulos (Art_Descripcion, Art_IdCategoria, Art_IdMarca, Art_Proveedor, Art_Nombre, Art_Stock, Art_UrlImagen, Art_Precio, Art_StockMinimo, Art_Estado)
+    VALUES (@Art_Descripcion, @Art_IdCategoria, @Art_IdMarca, @Art_Proveedor, @Art_Nombre, @Art_Stock, @Art_UrlImagen, @Art_Precio, @Art_StockMinimo, @Art_Estado)
+END

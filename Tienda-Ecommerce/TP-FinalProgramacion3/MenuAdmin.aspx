@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/Admin/AdminClientes.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CLIENTES
+                    <a href="/Admin/AdminClientes.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">USUARIOS
                     </a>
                 </li>
                 <li>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Proveedores.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">DETALLE DE VENTAS
+                    <a href="/Admin/AdminVentas.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">DETALLE DE VENTAS
                     </a>
                 </li>
             </ul>

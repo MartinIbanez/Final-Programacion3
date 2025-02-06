@@ -26,7 +26,7 @@
         <section class="container py-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-4">Listado de Clientes</h1>
+                    <h1 class="mb-4">Listado de Usuarios</h1>
                     <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
                     <table class="table table-dark table-hover table-bordered">
                         <thead>
