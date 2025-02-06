@@ -54,7 +54,7 @@ namespace TP_FinalProgramacion3
                 rptFactura.DataSource = detallesFactura;
                 rptFactura.DataBind();
 
-                lblTotalFactura.Text = $" $ {totalFactura: F2} "; //total de la venta $
+                lblTotalFactura.Text = $"${totalFactura:F2}"; //total de la venta $
             }
         }
     }

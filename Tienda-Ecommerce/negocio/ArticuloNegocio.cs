@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace negocio
 {
     public class ArticuloNegocio
-    {      
+    {
         public List<Articulo> ArticulosDestacados()
-        {   
+        {
             List<Articulo> ListaArtDestacados = new List<Articulo>();
             AccesoDatos cn = new AccesoDatos();
 
@@ -159,7 +159,7 @@ namespace negocio
 
             try
             {
-                cn.setearConsulta(consulta);                
+                cn.setearConsulta(consulta);
                 cn.ejecutarLectura();
 
                 if (cn.Lector.Read())
@@ -202,29 +202,31 @@ namespace negocio
             try
             {
                 datos.setearProcedimiento("NuevoArticulo");
-                datos.setearParametro("@Art_Descripcion", nuevoArt.Descripcion);
+                datos.setearParametro("@Art_Descripcion", nuevoArt.Descripcion ?? "");
                 datos.setearParametro("@Art_IdCategoria", nuevoArt.IdCategoria);
                 datos.setearParametro("@Art_IdMarca", nuevoArt.IdMarca);
                 datos.setearParametro("@Art_Proveedor", nuevoArt.IdProveedor);
-                datos.setearParametro("@Art_Nombre", nuevoArt.Nombre);
+                datos.setearParametro("@Art_Nombre", nuevoArt.Nombre ?? "");
                 datos.setearParametro("@Art_Stock", nuevoArt.Stock);
-                datos.setearParametro("@Art_UrlImagen", nuevoArt.UrlImagen);
+                datos.setearParametro("@Art_UrlImagen", nuevoArt.UrlImagen ?? "");
                 datos.setearParametro("@Art_Precio", nuevoArt.Precio);
                 datos.setearParametro("@Art_StockMinimo", nuevoArt.StockMinimo);
                 datos.setearParametro("@Art_Estado", nuevoArt.Estado);
-                
-                datos.ejecutarAccion();
 
+                datos.ejecutarAccion();
+            }
+            catch (FormatException ex)
+            {
+                throw new Exception("Ocurrió un error en el formato de datos: " + ex.Message);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al guardar el artículo: " + ex.Message);
             }
             finally
             {
                 datos.cerrarConexion();
             }
-
         }
 
         public void ModificarArticulo(Articulo editarArticulo)
