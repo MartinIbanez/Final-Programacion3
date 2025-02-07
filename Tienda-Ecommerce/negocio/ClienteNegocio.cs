@@ -61,16 +61,16 @@ namespace negocio
             try
             {
                 datos.setearProcedimiento("NuevoCliente");
-                datos.setearParametro("@Dni", nuevo.Dni); 
-                datos.setearParametro("@Nombre", nuevo.Nombre);
-                datos.setearParametro("@Apellido", nuevo.Apellido);
-                datos.setearParametro("@Direccion", nuevo.Direccion);
-                datos.setearParametro("@Provincia", nuevo.Provincia);
-                datos.setearParametro("@CodPostal", nuevo.CodPostal);
-                datos.setearParametro("@Email", nuevo.Email);
-                datos.setearParametro("@Pass", nuevo.Password);
-                datos.setearParametro("@Estado", nuevo.Estado);
-                datos.setearParametro("@Tipo", nuevo.Tipo);
+                datos.setearParametro("@dni", nuevo.Dni); 
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@apellido", nuevo.Apellido);
+                datos.setearParametro("@direccion", nuevo.Direccion);
+                datos.setearParametro("@provincia", nuevo.Provincia);
+                datos.setearParametro("@codPostal", nuevo.CodPostal);
+                datos.setearParametro("@email", nuevo.Email);
+                datos.setearParametro("@pass", nuevo.Password);
+                datos.setearParametro("@estado", nuevo.Estado);
+                datos.setearParametro("@tipo", nuevo.Tipo);
 
                 return datos.ejecutarAccionScalar().ToString();
             }

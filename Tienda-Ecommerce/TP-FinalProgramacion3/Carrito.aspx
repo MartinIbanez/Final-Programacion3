@@ -40,9 +40,9 @@
             cursor: pointer;
         }
 
-        .quantity-btn:hover {
-            background-color: #f0f0f0;
-        }
+            .quantity-btn:hover {
+                background-color: #f0f0f0;
+            }
 
         .cart-btn {
             margin-top: 20px;
@@ -54,6 +54,7 @@
     </style>
 </head>
 <body>
+
     <form id="form1" runat="server">
         <div class="cart-container">
             <h2 class="cart-header">Tu Carrito</h2>
@@ -66,9 +67,9 @@
                             <tr>
                                 <th>PRODUCTO</th>
                                 <th>DESCRIPCION</th>
-                                <th>CANTIDAD</th>
-                                <th>PRECIO</th>
-                                <th>TOTAL</th>
+                                <th> CANTIDAD</th>
+                                <th>PRECIO unit.</th>
+                                <th>SUB TOTAL</th>
                                 <th>ACCION</th>
                             </tr>
                         </thead>
@@ -84,6 +85,7 @@
                             <div class="d-flex align-items-center">
                                 <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=decrementar" class="quantity-btn">-</a>
                                 <input type="text" value="<%# Eval("Cantidad") %>" readonly class="form-control text-center mx-2" style="width: 60px;" />
+
                                 <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=incrementar" class="quantity-btn">+</a>
                             </div>
                         </td>
@@ -108,10 +110,7 @@
                             <span>Subtotal:</span>
                             <asp:Label ID="lblSubtotal" runat="server" Text="$0.00" CssClass="cart-summary"></asp:Label>
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <span>IVA (21%):</span>
-                            <asp:Label ID="lblIva" runat="server" Text="$0.00" CssClass="cart-summary"></asp:Label>
-                        </div>
+                        
                         <div class="d-flex justify-content-between mb-3">
                             <span>Total:</span>
                             <asp:Label ID="lblTotal" runat="server" Text="$0.00" CssClass="cart-summary"></asp:Label>

@@ -14,12 +14,71 @@ namespace TP_FinalProgramacion3
         public List<Articulo> articulos { get; set; }
         public CultureInfo pesos = new CultureInfo("es-AR");
         public int cantidadArticulos = 0;
-        private decimal ivaPorcentaje = 0.21m;
+        //private decimal ivaPorcentaje = 0.21m;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
+            {
                 CargarCarrito();
+            }
+
+            if (Request.QueryString["accion"] != null)
+            {
+                string accion = Request.QueryString["accion"];
+
+                int idArticulo = Convert.ToInt32(Request.QueryString["id"]);
+                List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
+
+
+                if (carrito != null)
+                {
+                    List<Articulo> ListAux = new List<Articulo>();
+                    if (accion == "incrementar")
+                    {
+
+                        foreach (Articulo aux in carrito)
+                        {
+                            if (aux.IdArticulo == idArticulo)
+                            {
+                                aux.Cantidad++;
+                            }
+                            ListAux.Add(aux);
+                        }
+
+                    }
+                    else if (accion == "decrementar")
+                    {
+                        foreach (Articulo aux in carrito)
+                        {
+                            if (aux.IdArticulo == idArticulo)
+                            {
+                                if (aux.Cantidad > 1)
+                                {
+                                    aux.Cantidad--;
+                                }
+
+                            }
+                            ListAux.Add(aux);
+                        }
+
+                    }
+                    else if (accion == "eliminar")
+                    {
+                        foreach (Articulo aux in carrito)
+                        {
+                            if (aux.IdArticulo != idArticulo)
+                            {
+                                ListAux.Add(aux);
+                            }
+
+                        }                      
+
+                    }
+                    Session["Carrito"] = ListAux;
+
+                    Response.Redirect("Carrito.aspx");
+
+                }
             }
         }
 
@@ -36,12 +95,12 @@ namespace TP_FinalProgramacion3
                     subtotal += articulo.Precio * articulo.Cantidad;
                 }
 
-                decimal iva = subtotal * ivaPorcentaje; // 21% de IVA
-                decimal total = subtotal + iva;
+                //decimal iva = subtotal * ivaPorcentaje; // 21% de IVA
+                decimal total = subtotal;
 
                 // Asignar los valores a los labels
                 lblSubtotal.Text = $"${subtotal:F2}";
-                lblIva.Text = $"${iva:F2}";
+                //lblIva.Text = $"${iva:F2}";
                 lblTotal.Text = $"${total:F2}";
 
                 // Asignar los datos al Repeater
@@ -57,67 +116,7 @@ namespace TP_FinalProgramacion3
 
         protected void rptCarrito_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "Eliminar")
-            {
-                int idArticulo = Convert.ToInt32(e.CommandArgument);
-                List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
 
-                if (carrito != null)
-                {
-                    // Eliminar el artículo del carrito
-                    carrito.RemoveAll(a => a.IdArticulo == idArticulo);
-
-                    // Guardar el carrito actualizado en la sesión
-                    Session["Carrito"] = carrito;
-
-                    // Recargar la página para actualizar el carrito
-                    Response.Redirect("Carrito.aspx");
-                }
-            }
-            else if (e.CommandName == "Incrementar")
-            {
-                int idArticulo = Convert.ToInt32(e.CommandArgument);
-                List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
-               
-
-                if (carrito != null)
-                {
-                    // Incrementar la cantidad del artículo
-                    Articulo articulo = carrito.Find(a => a.IdArticulo == idArticulo);
-                    
-                    if (articulo != null)
-                    {
-                        articulo.Cantidad++;
-                    }
-
-                    // Guardar el carrito actualizado en la sesión
-                    Session["Carrito"] = carrito;
-
-                    // Recargar la página para actualizar el carrito
-                    Response.Redirect("Carrito.aspx");
-                }
-            }
-            else if (e.CommandName == "Decrementar")
-            {
-                int idArticulo = Convert.ToInt32(e.CommandArgument);
-                List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
-
-                if (carrito != null)
-                {
-                    // Decrementar la cantidad del artículo
-                    Articulo articulo = carrito.Find(a => a.IdArticulo == idArticulo);
-                    if (articulo != null && articulo.Cantidad > 1)
-                    {
-                        articulo.Cantidad--;
-                    }
-
-                    // Guardar el carrito actualizado en la sesión
-                    Session["Carrito"] = carrito;
-
-                    // Recargar la página para actualizar el carrito
-                    Response.Redirect("Carrito.aspx");
-                }
-            }
         }
     }
 }

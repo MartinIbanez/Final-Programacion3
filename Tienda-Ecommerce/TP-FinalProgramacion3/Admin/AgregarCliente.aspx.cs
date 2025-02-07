@@ -66,8 +66,8 @@ namespace TP_FinalProgramacion3.Admin
                     CodPostal = txtCodigoPostal.Text,
                     Email = txtEmail.Text,
                     Password = txtPassword.Text,
-                    Estado = bool.Parse(ddlEstado.SelectedValue),  
-                    Tipo = bool.Parse(ddlTipoCliente.SelectedValue)
+                    Estado = ddlEstado.SelectedValue == "1",  // Convertir a booleano
+                    Tipo = ddlTipoCliente.SelectedValue == "1"  // Convertir a booleano
 
                 };
 

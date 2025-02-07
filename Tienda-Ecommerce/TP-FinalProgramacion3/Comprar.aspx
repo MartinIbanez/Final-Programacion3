@@ -69,7 +69,7 @@
             
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Forma de pago</option>
-                    <option value="1">Efectivo al retirar</option>
+                    <option value="1">Efectivo</option>
                     <option value="2">Tarjeta de Credito</option>
                     <option value="3">Tarjeta de Debito</option>
                 </select>

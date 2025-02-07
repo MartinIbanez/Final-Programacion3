@@ -97,8 +97,8 @@
                                 <div class="col-md-6">
                                     <label for="ddlEstado" class="form-label">Estado</label>
                                     <asp:DropDownList ID="ddlEstado" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="Activo" Value="true"></asp:ListItem>
-                                        <asp:ListItem Text="Inactivo" Value="false"></asp:ListItem>
+                                        <asp:ListItem Text="Activo" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Inactivo" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
 
@@ -106,8 +106,8 @@
                                 <div class="col-md-6">
                                     <label for="ddlTipoCliente" class="form-label">Tipo de Cliente</label>
                                     <asp:DropDownList ID="ddlTipoCliente" runat="server" CssClass="form-select">
-                                        <asp:ListItem Text="Administrador" Value="true"></asp:ListItem>
-                                        <asp:ListItem Text="Cliente" Value="false"></asp:ListItem>
+                                        <asp:ListItem Text="Administrador" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Cliente" Value="0"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
