@@ -66,14 +66,14 @@
 
             <!-- Sección de Forma de Pago -->
             <h4 class="mt-4">Metodo de Pago</h4>
-            
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Forma de pago</option>
-                    <option value="1">Efectivo</option>
-                    <option value="2">Tarjeta de Credito</option>
-                    <option value="3">Tarjeta de Debito</option>
-                </select>
-           
+
+            <asp:DropDownList ID="formaPagoVenta" runat="server" CssClass="form-select">
+                <asp:ListItem Text="Forma de pago" Value="" Selected="True" />
+                <asp:ListItem Text="Efectivo" Value="Efectivo" />
+                <asp:ListItem Text="Tarjeta de Crédito" Value="Credito" />
+                <asp:ListItem Text="Tarjeta de Débito" Value="Debito" />
+            </asp:DropDownList>
+
 
             <div class="mt-4 text-end">
                 <asp:Button ID="btnConfirmarCompra" runat="server" Text="Confirmar Compra" CssClass="btn btn-success" OnClick="btnConfirmarCompra_Click" />

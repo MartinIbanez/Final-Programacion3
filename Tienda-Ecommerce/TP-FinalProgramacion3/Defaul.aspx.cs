@@ -16,6 +16,10 @@ namespace TP_FinalProgramacion3
             // Código que se ejecuta al cargar la página
             CargarArtDestacados();
 
+            Session["UsuarioLogin"] = null;
+            // Redirige al login
+            Response.Redirect("Login.aspx");
+
         }
 
         protected void btnExample_Click(object sender, EventArgs e)

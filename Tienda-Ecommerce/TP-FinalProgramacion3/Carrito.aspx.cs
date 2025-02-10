@@ -12,9 +12,7 @@ namespace TP_FinalProgramacion3
     public partial class Carrito : System.Web.UI.Page
     {
         public List<Articulo> articulos { get; set; }
-        public CultureInfo pesos = new CultureInfo("es-AR");
-        public int cantidadArticulos = 0;
-        //private decimal ivaPorcentaje = 0.21m;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -88,22 +86,14 @@ namespace TP_FinalProgramacion3
 
             if (carrito != null && carrito.Count > 0)
             {
-                // Calcular el subtotal, IVA y total
-                decimal subtotal = 0;
+                decimal total = 0;
                 foreach (var articulo in carrito)
                 {
-                    subtotal += articulo.Precio * articulo.Cantidad;
+                    total += articulo.Precio * articulo.Cantidad;
                 }
+               
+                lblTotal.Text = total.ToString("C2", new CultureInfo("es-AR"));
 
-                //decimal iva = subtotal * ivaPorcentaje; // 21% de IVA
-                decimal total = subtotal;
-
-                // Asignar los valores a los labels
-                lblSubtotal.Text = $"${subtotal:F2}";
-                //lblIva.Text = $"${iva:F2}";
-                lblTotal.Text = $"${total:F2}";
-
-                // Asignar los datos al Repeater
                 rptCarrito.DataSource = carrito;
                 rptCarrito.DataBind();
             }

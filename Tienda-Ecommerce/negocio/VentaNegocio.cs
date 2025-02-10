@@ -66,11 +66,93 @@ namespace negocio
             {
                 cn.cerrarConexion();
             }
+        }
+
+        public string ultimoNumFacura()
+        {
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta("SELECT TOP 1 Vta_NroFactura FROM Ventas ORDER BY Vta_NroFactura DESC");
+                cn.ejecutarLectura();
+                string numFactura = "";
+                while (cn.Lector.Read())
+                {
+                    numFactura = cn.Lector["Vta_NroFactura"].ToString();
+                };
+
+                return numFactura;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+        }
+
+        public bool IngresarVenta(string dni, string metodoPago)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "INSERT INTO Ventas (Vta_DNI, Vta_MetodoPago) VALUES (@dni, @metodoPago)";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@dni", dni);
+                datos.setearParametro("@metodoPago", metodoPago);
+
+                datos.ejecutarAccion();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al ingresar la venta: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 
+        public bool IngresarDetalleVenta(string numFact, int idArt, decimal precio, int cantidad)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "insert into Detalle_Ventas (DV_NroFactura,DV_IdArticulo ,DV_Precio ,DV_Cantidad) values (@NroFactura ,@idArticulo,@precio,@cantidad)";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@NroFactura", numFact);
+                datos.setearParametro("@idArticulo", idArt);
+                datos.setearParametro("@precio", precio);
+                datos.setearParametro("@cantidad", cantidad);
+                datos.ejecutarAccion();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al ingresar la venta: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
     }
 }
+
 
 

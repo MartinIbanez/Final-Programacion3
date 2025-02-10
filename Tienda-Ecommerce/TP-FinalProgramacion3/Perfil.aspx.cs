@@ -24,7 +24,8 @@ namespace TP_FinalProgramacion3
                     lblProvincia.Text = usuario.Provincia;
                     lblCodPostal.Text = usuario.CodPostal;
                     lblEmail.Text = usuario.Email;
-                    lblPassword.Text = usuario.Password; 
+                    lblPassword.Text ="******";
+
                 }
                 else
                 {

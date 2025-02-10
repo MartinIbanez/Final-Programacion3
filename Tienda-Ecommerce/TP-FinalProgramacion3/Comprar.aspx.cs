@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -51,7 +52,7 @@ namespace TP_FinalProgramacion3
 
         private void CargarCliente()
         {
-        
+
             Cliente usuarioLogin = Session["usuarioLogin"] as Cliente;
 
             if (usuarioLogin != null)
@@ -71,8 +72,25 @@ namespace TP_FinalProgramacion3
 
         protected void btnConfirmarCompra_Click(object sender, EventArgs e)
         {
-            Session["MensajeCompra"] = "COMPRA REALIZADA CON EXITO. MUCHAS GRACIAS";
-            Response.Redirect("FacturaElectronica.aspx");
+            List<Articulo> carrito = Session["Carrito"] as List<Articulo>;
+            VentaNegocio ventNeg = new VentaNegocio();
+            if (carrito != null && carrito.Count > 0)
+            {
+                string formaPago = formaPagoVenta.SelectedValue;
+                Cliente objCli = (Cliente)Session["usuarioLogin"];
+                string dni = objCli.Dni;
+                if (ventNeg.IngresarVenta(dni, formaPago))
+                {
+                    string numFactura = ventNeg.ultimoNumFacura();
+                    foreach (Articulo art in carrito)
+                    {
+                        ventNeg.IngresarDetalleVenta(numFactura, art.IdArticulo, art.Precio, art.Cantidad);
+
+                    }
+                    Session["MensajeCompra"] = "COMPRA REALIZADA CON EXITO. MUCHAS GRACIAS";
+                    Response.Redirect("FacturaElectronica.aspx");
+                }
+            }
         }
     }
 }

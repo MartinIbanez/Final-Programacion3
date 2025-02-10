@@ -89,8 +89,8 @@
                                 <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=incrementar" class="quantity-btn">+</a>
                             </div>
                         </td>
-                        <td>$<%# Eval("Precio", "{0:F2}") %></td>
-                        <td>$<%# Eval("Precio", "{0:F2}") %></td>
+                        <td>$<%# Convert.ToDecimal(Eval("Precio")).ToString("N2", new System.Globalization.CultureInfo("es-AR")) %></td>
+                        <td>$<%# (Convert.ToInt32(Eval("Cantidad")) * Convert.ToDecimal(Eval("Precio"))).ToString("N2", new System.Globalization.CultureInfo("es-AR")) %></td>
                         <td>
                             <a href="Carrito.aspx?id=<%# Eval("IdArticulo") %>&accion=eliminar" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
@@ -106,10 +106,7 @@
             <div class="mt-4">
                 <div class="row">
                     <div class="col-md-6 offset-md-6">
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal:</span>
-                            <asp:Label ID="lblSubtotal" runat="server" Text="$0.00" CssClass="cart-summary"></asp:Label>
-                        </div>
+                        
                         
                         <div class="d-flex justify-content-between mb-3">
                             <span>Total:</span>

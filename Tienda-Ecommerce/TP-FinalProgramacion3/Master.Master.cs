@@ -14,5 +14,14 @@ namespace TP_FinalProgramacion3
         {
             
         }
+        protected void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Eliminar todos los datos de la sesión
+            Session.Clear();
+            Session.Abandon();
+
+            // Redirigir a la página de Login
+            Response.Redirect("Login.aspx");
+        }
     }
 }
