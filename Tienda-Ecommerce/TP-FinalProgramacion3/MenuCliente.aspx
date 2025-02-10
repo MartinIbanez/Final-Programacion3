@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Login.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">CERRAR SESION
+                    <a href="MenuCliente.aspx?cerrar=1" target="_top" class="block hover:bg-blue-700 p-2 rounded">CERRAR SESION
                     </a>
                 </li>
             </ul>

@@ -4,7 +4,7 @@
     <style>
         iframe {
             width: 100%;
-            height: calc(100vh - 64px); 
+            height: calc(100vh - 64px);
             border: none;
         }
     </style>
@@ -38,6 +38,10 @@
                 </li>
                 <li>
                     <a href="/Admin/AdminVentas.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">DETALLE DE VENTAS
+                    </a>
+                </li>
+                <li>
+                        <a href="MenuAdmin.aspx?cerrar=1" target="_top" class="block hover:bg-blue-700 p-2 rounded">CERRAR SESION
                     </a>
                 </li>
             </ul>

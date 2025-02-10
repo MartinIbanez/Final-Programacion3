@@ -11,6 +11,11 @@ namespace TP_FinalProgramacion3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["cerrar"] != null)
+            {
+                Session.Remove("usuarioLogin");
+                Response.Redirect("Login.aspx");
+            }
 
         }
     }
