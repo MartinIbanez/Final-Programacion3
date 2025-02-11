@@ -195,6 +195,20 @@ namespace negocio
             return articulo;
         }
 
+        public List<Articulo> FiltrarProductos(string marca, string categoria, decimal precioMin, decimal precioMax)
+        { 
+            List<Articulo> todosLosProductos = ListaArticulos();
+
+            return todosLosProductos.FindAll(p =>
+                (string.IsNullOrEmpty(marca) || p.IdMarca.ToString() == marca) &&
+                (string.IsNullOrEmpty(categoria) || p.IdCategoria.ToString() == categoria) &&
+                p.Precio >= precioMin &&
+                p.Precio <= precioMax
+            );
+        }
+
+
+
         //Metodos para el ABM de Articulos
         public void NuevoArticulo(Articulo nuevoArt)
         {

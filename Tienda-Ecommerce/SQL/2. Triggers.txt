@@ -1,0 +1,14 @@
+CREATE TRIGGER TRG_ActualizarMontoVenta
+ON Detalle_Ventas
+AFTER INSERT
+AS
+BEGIN
+    UPDATE Ventas
+    SET Vta_Monto = Vta_Monto + (
+        SELECT SUM(i.DV_Precio * i.DV_Cantidad)
+        FROM inserted i
+        WHERE Ventas.Vta_NroFactura = i.DV_NroFactura
+    )
+    WHERE Vta_NroFactura IN (SELECT DV_NroFactura FROM inserted);
+END;
+GO
