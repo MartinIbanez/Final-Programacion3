@@ -114,6 +114,14 @@ namespace TP_FinalProgramacion3
                 Response.Redirect("~/Carrito.aspx");
             }
         }
+        protected void btnBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            ddlMarca.SelectedIndex = -1;
+            ddlCategoria.SelectedIndex = -1;
+            txtPrecioMin.Text = string.Empty;
+            txtPrecioMax.Text = string.Empty;
+            CargarProductos();
+        }
 
         private Articulo ObtenerArticuloPorId(int idArticulo)
         {

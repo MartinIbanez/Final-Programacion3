@@ -45,6 +45,9 @@
                         <div>
                             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="btn btn-primary w-100" OnClick="btnFiltrar_Click" />
                         </div>
+                        <div class="mt-2">
+                            <asp:Button ID="btnBorrarFiltros" runat="server" Text="Borrar Filtros" CssClass="btn btn-secondary w-100" OnClick="btnBorrarFiltros_Click" />
+                        </div>
                     </div>
                 </div>
 
