@@ -116,9 +116,9 @@ namespace TP_FinalProgramacion3
         }
         protected void btnBorrarFiltros_Click(object sender, EventArgs e)
         {
-            ddlMarca.SelectedIndex = -1;
-            ddlCategoria.SelectedIndex = -1;
-            txtPrecioMin.Text = string.Empty;
+            ddlMarca.SelectedIndex = 0;
+            ddlCategoria.SelectedIndex = 0;
+            txtPrecioMin.Text = "";
             txtPrecioMax.Text = string.Empty;
             CargarProductos();
         }

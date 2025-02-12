@@ -13,7 +13,7 @@ namespace TP_FinalProgramacion3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Aquí puedes manejar eventos de carga de la página si es necesario.
+            
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace TP_FinalProgramacion3
                 user.Email = txtEmail.Text;
                 user.Password = txtPassword.Text;
 
-                string idDni=clienteAlta.NuevoCliente (user);
+                clienteAlta.NuevoCliente (user);
 
 
             }

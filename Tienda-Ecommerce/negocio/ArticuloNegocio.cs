@@ -248,17 +248,22 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearProcedimiento("editarArticulo");
-                datos.setearParametro("@Art_Descripcion", editarArticulo.Descripcion);
-                datos.setearParametro("@Art_IdCategoria", editarArticulo.IdCategoria);
-                datos.setearParametro("@Art_IdMarca", editarArticulo.IdMarca);
-                datos.setearParametro("@Art_Proveedor", editarArticulo.IdProveedor);
-                datos.setearParametro("@Art_Nombre", editarArticulo.Nombre);
-                datos.setearParametro("@Art_Stock", editarArticulo.Stock);
-                datos.setearParametro("@Art_UrlImagen", editarArticulo.UrlImagen);
-                datos.setearParametro("@Art_Precio", editarArticulo.Precio);
-                datos.setearParametro("@Art_StockMinimo", editarArticulo.StockMinimo);
-                datos.setearParametro("@Art_Estado", editarArticulo.Estado);
+                string consulta = "UPDATE Articulos SET Art_Descripcion = @descripcion, Art_IdCategoria = @idCat, " +
+                    "Art_IdMarca = @idMarca,Art_Proveedor = @idProv,Art_Nombre = @nombre,Art_Stock = @stock," +
+                    "Art_UrlImagen = @url,Art_Precio = @precio,Art_StockMinimo = @stockMin, Art_Estado = 1 " +
+                    "WHERE IdArticulo = @idArt;";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@descripcion", editarArticulo.Descripcion);
+                datos.setearParametro("@idCat", editarArticulo.IdCategoria);
+                datos.setearParametro("@idMarca", editarArticulo.IdMarca);
+                datos.setearParametro("@idProv", editarArticulo.IdProveedor);
+                datos.setearParametro("@nombre", editarArticulo.Nombre);
+                datos.setearParametro("@stock", editarArticulo.Stock);
+                datos.setearParametro("@url", editarArticulo.UrlImagen);
+                datos.setearParametro("@precio", editarArticulo.Precio);
+                datos.setearParametro("@stockMin", editarArticulo.StockMinimo);
+                datos.setearParametro("@idArt", editarArticulo.IdArticulo);
 
                 datos.ejecutarAccion();
             }
@@ -274,20 +279,27 @@ namespace negocio
 
         public void EliminarArticulo(int idArticulo)
         {
-            AccesoDatos cn = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                cn.setearProcedimiento("EliminarArticulo");
-                cn.setearParametro("@IdArticulo", idArticulo);
-                cn.ejecutarAccion();
+                string consulta = "delete from Articulos where IdArticulo = @id";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@id", idArticulo);
+
+                datos.ejecutarAccion();
+
+                return;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al eliminar Articulo", ex);
+                Console.WriteLine("Error al eliminar: " + ex.Message);
+                return;
             }
             finally
             {
-                cn.cerrarConexion();
+                datos.cerrarConexion();
             }
         }
 

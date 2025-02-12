@@ -68,7 +68,7 @@ namespace negocio
             }
         }
 
-        public string ultimoNumFacura()
+        public string ultimoNumFactura()
         {
             AccesoDatos cn = new AccesoDatos();
 

@@ -14,17 +14,15 @@ namespace TP_FinalProgramacion3.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false; // El ID es solo lectura
-            CargarCategorias();
-            CargarMarcas();
-            CargarProveedores();
-            
 
             try
             {
                 if (!IsPostBack)
                 {
                     CargarCategorias();
-                    
+                    CargarMarcas();
+                    CargarProveedores();
+
                     if (Request.QueryString["IdArticulo"] != null)
                     {
                         int idArticulo = int.Parse(Request.QueryString["IdArticulo"]);
@@ -34,15 +32,14 @@ namespace TP_FinalProgramacion3.Admin
                         if (artAux != null)
                         {
                             txtId.Text = artAux.IdArticulo.ToString();
-                            txtNombre.Text = artAux.Nombre; 
+                            txtNombre.Text = artAux.Nombre;
                             txtDescripcion.Text = artAux.Descripcion;
-                            ddlCategoria.SelectedValue = artAux.IdCategoria.ToString(); 
-                            ddlProveedor.SelectedValue = artAux.IdProveedor.ToString(); 
+                            ddlCategoria.SelectedValue = artAux.IdCategoria.ToString();
+                            ddlProveedor.SelectedValue = artAux.IdProveedor.ToString();
                             txtStock.Text = artAux.Stock.ToString();
                             txtStockMinimo.Text = artAux.StockMinimo.ToString();
-                            txtUrlImagen.Text = artAux.UrlImagen; 
-                            txtPrecio.Text = artAux.Precio.ToString("F2"); 
-                            ddlEstado.SelectedValue = artAux.Estado ? "True" : "False"; 
+                            txtUrlImagen.Text = artAux.UrlImagen;
+                            txtPrecio.Text = artAux.Precio.ToString("F2");
                         }
                     }
                 }
@@ -63,6 +60,7 @@ namespace TP_FinalProgramacion3.Admin
         {
             try
             {
+
                 ArticuloNegocio articuloNegocio = new ArticuloNegocio();
                 Articulo articulo = new Articulo
                 {
@@ -70,11 +68,12 @@ namespace TP_FinalProgramacion3.Admin
                     Descripcion = txtDescripcion.Text,
                     IdCategoria = int.Parse(ddlCategoria.SelectedValue),
                     IdProveedor = int.Parse(ddlProveedor.SelectedValue),
+                    IdMarca = int.Parse(ddlMarca.SelectedValue),
                     Stock = int.Parse(txtStock.Text),
                     StockMinimo = int.Parse(txtStockMinimo.Text),
                     UrlImagen = txtUrlImagen.Text,
                     Precio = decimal.Parse(txtPrecio.Text),
-                    Estado = bool.Parse(ddlEstado.SelectedValue)
+                    Estado = true
                 };
 
                 if (string.IsNullOrEmpty(txtId.Text)) // Si el ID está vacío, es un nuevo artículo
@@ -96,7 +95,7 @@ namespace TP_FinalProgramacion3.Admin
             }
         }
 
-        
+
         private void CargarCategorias()
         {
             try
@@ -143,7 +142,7 @@ namespace TP_FinalProgramacion3.Admin
         {
             try
             {
-                ProveedorNegocio provNegocio= new ProveedorNegocio();
+                ProveedorNegocio provNegocio = new ProveedorNegocio();
                 List<Proveedores> proveedores = provNegocio.ProveedoresActivos();
 
                 ddlProveedor.DataSource = proveedores;

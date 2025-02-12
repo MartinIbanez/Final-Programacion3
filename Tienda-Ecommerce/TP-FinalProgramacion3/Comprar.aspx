@@ -74,7 +74,6 @@
                 <asp:ListItem Text="Tarjeta de Débito" Value="Debito" />
             </asp:DropDownList>
 
-
             <div class="mt-4 text-end">
                 <asp:Button ID="btnConfirmarCompra" runat="server" Text="Confirmar Compra" CssClass="btn btn-success" OnClick="btnConfirmarCompra_Click" />
                 <asp:Button ID="btnCancelar" runat="server" Text="Volver al carrito" CssClass="btn btn-secondary" PostBackUrl="Carrito.aspx" />

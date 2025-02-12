@@ -13,15 +13,15 @@ namespace TP_FinalProgramacion3.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             try
             {
                 if (!IsPostBack)
                 {
-                    
+
                     if (Request.QueryString["dni"] != null)
                     {
-                        string dniCliente = Request.QueryString["dni"]; 
+                        string dniCliente = Request.QueryString["dni"];
                         ClienteNegocio clienteNegocio = new ClienteNegocio();
                         Cliente cliente = clienteNegocio.ClientesListado().FirstOrDefault(c => c.Dni == dniCliente);
 
@@ -55,10 +55,20 @@ namespace TP_FinalProgramacion3.Admin
         {
             try
             {
+                bool est = false;
+                bool estado = false;
+                if (ddlTipoCliente.SelectedValue == "1")
+                {
+                    est = true;
+                }
+                if (ddlEstado.SelectedValue=="1")
+                {
+                    estado = true;
+                }
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
                 Cliente cliente = new Cliente
                 {
-                    Dni = txtDNI.Text, 
+                    Dni = txtDNI.Text,
                     Nombre = txtNombre.Text,
                     Apellido = txtApellido.Text,
                     Direccion = txtDireccion.Text,
@@ -66,18 +76,17 @@ namespace TP_FinalProgramacion3.Admin
                     CodPostal = txtCodigoPostal.Text,
                     Email = txtEmail.Text,
                     Password = txtPassword.Text,
-                    Estado = ddlEstado.SelectedValue == "1",  // Convertir a booleano
-                    Tipo = ddlTipoCliente.SelectedValue == "1"  // Convertir a booleano
-
+                    Estado= estado,
+                    Tipo = est
                 };
-
+                bool nuevo = false;
                 if (Request.QueryString["dni"] == null) // Nuevo 
                 {
-                    clienteNegocio.NuevoCliente(cliente);
+                    nuevo = clienteNegocio.NuevoCliente(cliente);
                 }
                 else // edito cliente
                 {
-                    cliente.Dni = Request.QueryString["dni"]; 
+                    cliente.Dni = Request.QueryString["dni"];
                     clienteNegocio.ModificarCliente(cliente);
                 }
 

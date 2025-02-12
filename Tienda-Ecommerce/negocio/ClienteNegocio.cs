@@ -55,13 +55,16 @@ namespace negocio
             }
         }
 
-        public string NuevoCliente(Cliente nuevo)
+        public bool NuevoCliente(Cliente nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                datos.setearProcedimiento("NuevoCliente");
-                datos.setearParametro("@dni", nuevo.Dni); 
+                string consulta = "insert into clientes values(@dni,@nombre,@apellido,@direccion,@provincia,@codPostal,@email,@pass,@estado,@tipo)";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@dni", nuevo.Dni);
                 datos.setearParametro("@nombre", nuevo.Nombre);
                 datos.setearParametro("@apellido", nuevo.Apellido);
                 datos.setearParametro("@direccion", nuevo.Direccion);
@@ -69,14 +72,17 @@ namespace negocio
                 datos.setearParametro("@codPostal", nuevo.CodPostal);
                 datos.setearParametro("@email", nuevo.Email);
                 datos.setearParametro("@pass", nuevo.Password);
-                datos.setearParametro("@estado", nuevo.Estado);
+                datos.setearParametro("@estado", 1);
                 datos.setearParametro("@tipo", nuevo.Tipo);
 
-                return datos.ejecutarAccionScalar().ToString();
+                datos.ejecutarAccion();
+
+                return true;
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine("Error al ingresar el usuario: " + ex.Message);
+                return false;
             }
             finally
             {

@@ -81,7 +81,7 @@ namespace TP_FinalProgramacion3
                 string dni = objCli.Dni;
                 if (ventNeg.IngresarVenta(dni, formaPago))
                 {
-                    string numFactura = ventNeg.ultimoNumFacura();
+                    string numFactura = ventNeg.ultimoNumFactura();
                     foreach (Articulo art in carrito)
                     {
                         ventNeg.IngresarDetalleVenta(numFactura, art.IdArticulo, art.Precio, art.Cantidad);
