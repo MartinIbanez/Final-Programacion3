@@ -11,7 +11,7 @@ namespace TP_FinalProgramacion3
 {
 
 
-    public partial class VerCompras
+    public partial class verDetalleVenta
     {
 
         /// <summary>
@@ -33,12 +33,30 @@ namespace TP_FinalProgramacion3
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// Control rptDetalle.
+        /// Control lblNumFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptDetalle;
+        protected global::System.Web.UI.WebControls.Label lblNumFactura;
+
+        /// <summary>
+        /// Control rptDetallesVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDetallesVentas;
+
+        /// <summary>
+        /// Control volverHistorial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button volverHistorial;
     }
 }

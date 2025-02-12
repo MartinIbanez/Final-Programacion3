@@ -151,6 +151,46 @@ namespace negocio
             }
         }
 
+        public List<DetalleVenta> ListaDetalleVenta(int numFactura)
+        {
+            List<DetalleVenta> ListaDetalle = new List<DetalleVenta>();
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta("select DV_NroFactura,DV_IdArticulo,Art_Nombre,DV_Precio,DV_Cantidad from Detalle_Ventas join Articulos on DV_IdArticulo = IdArticulo where DV_NroFactura = @numFact");
+                cn.setearParametro("@numFact", numFactura);
+                cn.ejecutarLectura();
+
+                while (cn.Lector.Read())
+                {
+                    DetalleVenta VentaAux = new DetalleVenta();
+                    {
+                        VentaAux.NroFactura = cn.Lector["DV_NroFactura"].ToString();
+                        VentaAux.IdArticulo = Convert.ToInt32(cn.Lector["DV_IdArticulo"]);
+                        VentaAux.NombreArticulo = cn.Lector["Art_Nombre"].ToString();
+                        VentaAux.Precio = (decimal)cn.Lector["DV_Precio"];
+                        VentaAux.Cantidad = Convert.ToInt32(cn.Lector["DV_Cantidad"]);
+
+                        ListaDetalle.Add(VentaAux);
+                    }
+
+                };
+
+                return ListaDetalle;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+        }
+
     }
 }
 

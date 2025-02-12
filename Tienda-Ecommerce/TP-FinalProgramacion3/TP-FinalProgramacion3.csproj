@@ -93,6 +93,7 @@
     <Content Include="Productos.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="VerCompras.aspx" />
+    <Content Include="verDetalleVenta.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -268,6 +269,13 @@
     </Compile>
     <Compile Include="VerCompras.aspx.designer.cs">
       <DependentUpon>VerCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="verDetalleVenta.aspx.cs">
+      <DependentUpon>verDetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verDetalleVenta.aspx.designer.cs">
+      <DependentUpon>verDetalleVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
