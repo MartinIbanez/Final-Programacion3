@@ -24,17 +24,28 @@ namespace TP_FinalProgramacion3
             VentaNegocio venNeg = new VentaNegocio();
             try
             {
-                // Obtenemos la lista de artículos
-                List<Venta> listaVenta = venNeg.ListaVentas();
+                if (Session["UsuarioLogin"] != null)
+                {
+                    Cliente usuario = Session["UsuarioLogin"] as Cliente;
 
-                // Enlazamos la lista al control repeater
-                rptDetalle.DataSource = listaVenta;
-                rptDetalle.DataBind();
+                    List<Venta> listaVenta;
+                    if (usuario.Tipo) 
+                    {
+                        listaVenta = venNeg.ListaVentas();
+                    }
+                    else 
+                    {
+                        listaVenta = venNeg.VentasPorCliente(usuario.Dni);
+                    }
+
+                    rptDetalle.DataSource = listaVenta;
+                    rptDetalle.DataBind();
+                }
+                
             }
             catch (Exception ex)
             {
-                // Manejo de errores
-                lblError.Text = "Ocurrió un error al cargar los artículos: " + ex.Message;
+                lblError.Text = "Ocurrió un error al cargar las compras: " + ex.Message;
                 lblError.Visible = true;
             }
         }
@@ -43,7 +54,7 @@ namespace TP_FinalProgramacion3
         {
             try
             {
-                int numFactura = int.Parse(e.CommandArgument.ToString()); // Obtiene el ID de la marca
+                int numFactura = int.Parse(e.CommandArgument.ToString()); 
 
                 if (e.CommandName == "Detalle")
                 {

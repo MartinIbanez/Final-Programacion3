@@ -13,21 +13,14 @@ namespace TP_FinalProgramacion3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Código que se ejecuta al cargar la página
             CargarArtDestacados();
 
             Session["UsuarioLogin"] = null;
-            // Redirige al login
-            Response.Redirect("Login.aspx");
+
+            //Response.Redirect("Login.aspx");
 
         }
-
-        protected void btnExample_Click(object sender, EventArgs e)
-        {
-            // Ejemplo de acción al hacer clic en el botón
-            Response.Write("<script>alert('¡Botón clickeado!');</script>");
-        }
-
+   
         protected void CargarArtDestacados()
         {
             ArticuloNegocio obj = new ArticuloNegocio();

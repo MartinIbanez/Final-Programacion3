@@ -191,6 +191,43 @@ namespace negocio
 
         }
 
+        public List<Venta> VentasPorCliente(string dniCliente)
+        {
+            List<Venta> ListaVentas = new List<Venta>();
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta("SELECT Vta_NroFactura, Vta_DNI, Vta_Fecha, Vta_Monto, Vta_MetodoPago FROM Ventas WHERE Vta_DNI = @dniCliente");
+                cn.setearParametro("@dniCliente", dniCliente);
+                cn.ejecutarLectura();
+
+                while (cn.Lector.Read())
+                {
+                    Venta VentaAux = new Venta
+                    {
+                        NroFactura = cn.Lector["Vta_NroFactura"].ToString(),
+                        Dni = cn.Lector["Vta_DNI"].ToString(),
+                        Fecha = (DateTime)cn.Lector["Vta_Fecha"],
+                        Monto = (decimal)cn.Lector["Vta_Monto"],
+                        MetodoPago = cn.Lector["Vta_MetodoPago"].ToString()
+                    };
+
+                    ListaVentas.Add(VentaAux);
+                }
+
+                return ListaVentas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+        }
     }
 }
 

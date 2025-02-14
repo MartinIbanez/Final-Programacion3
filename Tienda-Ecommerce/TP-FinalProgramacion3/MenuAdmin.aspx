@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/Admin/AdminVentas.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">DETALLE DE VENTAS
+                    <a href="VerCompras.aspx" target="iframeContent" class="block hover:bg-blue-700 p-2 rounded">DETALLE DE VENTAS
                     </a>
                 </li>
                 <li>
