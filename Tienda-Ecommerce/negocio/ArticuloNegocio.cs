@@ -303,5 +303,33 @@ namespace negocio
             }
         }
 
+        public int StockActual(int idArticulo)
+        {
+            AccesoDatos cn = new AccesoDatos();
+            int stock = 0;
+
+            try
+            {
+                cn.setearConsulta("SELECT Art_Stock FROM Articulos WHERE IdArticulo = @idArticulo");
+                cn.setearParametro("@idArticulo", idArticulo);
+                cn.ejecutarLectura();
+
+                if (cn.Lector.Read())
+                {
+                    stock = (int)cn.Lector["Art_Stock"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error", ex);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return stock;
+        }
+
     }
 }

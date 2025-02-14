@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,7 +13,7 @@ namespace TP_FinalProgramacion3
     public partial class Carrito : System.Web.UI.Page
     {
         public List<Articulo> articulos { get; set; }
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,14 +32,20 @@ namespace TP_FinalProgramacion3
                 if (carrito != null)
                 {
                     List<Articulo> ListAux = new List<Articulo>();
+
                     if (accion == "incrementar")
                     {
+                        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                        int stock = articuloNegocio.StockActual(idArticulo);
 
                         foreach (Articulo aux in carrito)
                         {
                             if (aux.IdArticulo == idArticulo)
                             {
-                                aux.Cantidad++;
+                                if (aux.Cantidad < stock)
+                                {
+                                    aux.Cantidad++;
+                                }
                             }
                             ListAux.Add(aux);
                         }
@@ -69,7 +76,7 @@ namespace TP_FinalProgramacion3
                                 ListAux.Add(aux);
                             }
 
-                        }                      
+                        }
 
                     }
                     Session["Carrito"] = ListAux;
@@ -91,7 +98,7 @@ namespace TP_FinalProgramacion3
                 {
                     total += articulo.Precio * articulo.Cantidad;
                 }
-               
+
                 lblTotal.Text = total.ToString("C2", new CultureInfo("es-AR"));
 
                 rptCarrito.DataSource = carrito;
