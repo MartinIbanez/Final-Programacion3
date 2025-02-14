@@ -39,15 +39,15 @@
                 </div>
                 <div class="col-md-12">
                     <label for="txtDireccion" class="form-label">Dirección de entrega</label>
-                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" ></asp:TextBox>
                 </div>
                 <div class="col-md-6">
                     <label for="txtProvincia" class="form-label">Provincia</label>
-                    <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" ></asp:TextBox>
                 </div>
                 <div class="col-md-6">
                     <label for="txtCodigoPostal" class="form-label">Código Postal</label>
-                    <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtCodigoPostal" runat="server" CssClass="form-control" ></asp:TextBox>
                 </div>
             </div>
 

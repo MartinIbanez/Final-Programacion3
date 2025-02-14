@@ -12,3 +12,15 @@ BEGIN
     WHERE Vta_NroFactura IN (SELECT DV_NroFactura FROM inserted);
 END;
 GO
+
+CREATE TRIGGER ActualizarStock
+ON Detalle_Ventas
+AFTER INSERT
+AS
+BEGIN
+    -- Actualiza el stock restando la cantidad vendida
+    UPDATE Articulos
+    SET Art_Stock = Art_Stock - d.DV_Cantidad
+    FROM Articulos a
+    INNER JOIN inserted d ON a.IdArticulo = d.DV_IdArticulo;
+END;
