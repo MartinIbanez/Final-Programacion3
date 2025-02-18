@@ -34,14 +34,13 @@ namespace TP_FinalProgramacion3
 
                 clienteAlta.NuevoCliente (user);
 
-
             }
             catch (Exception ex) 
             {
                 Session.Add("error",ex.ToString());
 
             }
-
+       
         }
     }
 }

@@ -108,7 +108,7 @@ namespace TP_FinalProgramacion3
                     }
                 }
 
-                // Guardar el carrito actualizado en la sesión
+                // Guardo el carrito actualizado
                 Session["Carrito"] = carrito;
 
                 Response.Redirect("~/Carrito.aspx");

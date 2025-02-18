@@ -64,8 +64,8 @@
                                             <h5 class="card-title text-primary"><%# Eval("Nombre") %></h5>
                                             <p class="card-text text-muted"><%# Eval("NombreMarca") %></p>
                                             <p class="text-secondary d-flex">
-                                                <span class="me-3"><%# Eval("NombreCategoria")+ " - " %></span>
-                                                <span><%# Eval("Descripcion") %></span>
+                                                <span class="me-3"><%# Eval("NombreCategoria")+" -"%></span>
+                                                <span><%#Eval("Descripcion") %></span>
                                             </p>
 
                                             <p class="fw-bold text-primary">$<%# Eval("Precio") %></p>

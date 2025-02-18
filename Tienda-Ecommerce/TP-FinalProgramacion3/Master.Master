@@ -28,21 +28,21 @@
     <!-- Header -->
     <header class="bg-blue-800 shadow-lg">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
-            <a href="Defaul.aspx" class="text-white text-2xl font-bold">UTN - ECOMMERCE DEPORTES</a>
+            <a href="Defaul.aspx" class="text-white text-2xl font-bold">UTN - ECOMMERCE</a>
             <nav class="hidden md:flex space-x-8">
                 <!-- Opción Productos -->
-                
+
                 <% 
                     if (Session["usuarioLogin"] != null)
                     {
                         dominio.Cliente usuarioLogin = (dominio.Cliente)Session["usuarioLogin"];
-                        if (usuarioLogin.Tipo == false) 
+                        if (usuarioLogin.Tipo == false)
                         {
                 %>
-                 <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
+                <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
                 <% 
+                        }
                     }
-                }
                 %>
 
                 <!-- si es admin, muestro opc clientes y admin -->
@@ -50,10 +50,10 @@
                     if (Session["usuarioLogin"] != null)
                     {
                         dominio.Cliente usuarioLogin = (dominio.Cliente)Session["usuarioLogin"];
-                        if (usuarioLogin.Tipo == true) 
+                        if (usuarioLogin.Tipo == true)
                         {
                 %>
-                 <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
+                <a href="MenuCliente.aspx" class="text-gray-200 hover:text-white transition">Clientes</a>
                 <a href="MenuAdmin.aspx" class="text-gray-200 hover:text-white transition">Administrador</a>
                 <% 
                         }
@@ -65,7 +65,10 @@
                     {
                         dominio.Cliente usuarioLogin = (dominio.Cliente)Session["usuarioLogin"];
                 %>
-                <p><%=usuarioLogin.Nombre + " " + usuarioLogin.Apellido %></p>
+                <p class="text-blue-800 font-bold border border-blue-500 px-3 py-1 rounded-md bg-blue-100">
+                    <%= usuarioLogin.Nombre + " " + usuarioLogin.Apellido %>
+                </p>
+
                 <%}
                     else
                     {
@@ -88,9 +91,9 @@
     <footer class="bg-blue-800 text-white py-8">
         <div class="container mx-auto flex flex-col md:flex-row justify-between">
             <div>
-                <h2 class="text-xl font-bold">Ropa Deportiva</h2>
+                <h2 class="text-xl font-bold">UTN Deportes FRGP</h2>
                 <p class="mt-4 text-sm text-gray-300">
-                    La mejor tienda online para ropa deportiva. Calidad y diseño al mejor precio.
+                    La mejor tienda online de ropa deportiva. Calidad y diseño al mejor precio.
                 </p>
             </div>
             <div class="grid grid-cols-2 gap-4 md:gap-8">
