@@ -56,7 +56,7 @@
                                     <tr>
                                         <td><%# Eval("NroFactura") %></td>
                                         <td><%# Eval("Dni") %></td>
-                                        <td><%# Eval("Fecha") %></td>
+                                        <td><%# Convert.ToDateTime(Eval("Fecha")).ToString("dd/MM/yyyy") %></td>
                                         <td><%# String.Format("{0:C}", Eval("Monto")) %></td>
                                         <td><%# Eval("MetodoPago") %></td>
                                         <td>

@@ -207,8 +207,6 @@ namespace negocio
             );
         }
 
-
-
         //Metodos para el ABM de Articulos
         public void NuevoArticulo(Articulo nuevoArt)
         {
