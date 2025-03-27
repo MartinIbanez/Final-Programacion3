@@ -61,3 +61,10 @@ C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion
 C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\obj\Debug\TP-Final.B0BAE8B6.Up2Date
 C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\obj\Debug\TP-FinalProgramacion3.dll
 C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\obj\Debug\TP-FinalProgramacion3.pdb
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\MercadoPago.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\Newtonsoft.Json.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\nunit.framework.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\ObjectDumper.dll
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\Newtonsoft.Json.xml
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\nunit.framework.pdb
+C:\Users\marti\Desktop\Final-Programacion3\Tienda-Ecommerce\TP-FinalProgramacion3\bin\nunit.framework.xml

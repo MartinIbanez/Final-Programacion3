@@ -48,26 +48,6 @@ namespace negocio
 
         }
 
-        public void RegistrarVenta(Venta ventas)
-        {
-            AccesoDatos cn = new AccesoDatos();
-
-            try
-            {
-                cn.setearProcedimiento("RegistroVenta");
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                cn.cerrarConexion();
-            }
-        }
-
         public string ultimoNumFactura()
         {
             AccesoDatos cn = new AccesoDatos();

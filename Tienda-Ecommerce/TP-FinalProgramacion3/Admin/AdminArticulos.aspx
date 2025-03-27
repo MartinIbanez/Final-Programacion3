@@ -49,9 +49,9 @@
                                     <tr>
                                         <td><%# Eval("IdArticulo") %></td>
                                         <td><%# Eval("Descripcion") %></td>
-                                        <td><%# Eval("IdCategoria") %></td>
-                                        <td><%# Eval("IdMarca") %></td>
-                                        <td><%# Eval("IdProveedor") %></td>
+                                        <td><%# Eval("NombreCategoria") %></td>
+                                        <td><%# Eval("NombreMarca") %></td>
+                                        <td><%# Eval("NombreProveedor") %></td>
                                         <td><%# Eval("Nombre") %></td>
                                         <td><%# Eval("Stock") %></td>
                                         <td>

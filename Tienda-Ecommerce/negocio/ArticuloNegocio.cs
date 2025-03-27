@@ -82,6 +82,10 @@ namespace negocio
                     string nombreMarca = BuscarNombreMarca(idMarca);
                     ArticuloAux.NombreMarca = nombreMarca;
 
+                    int idProveedor = ArticuloAux.IdProveedor;
+                    string nombreProveedor = BuscarNombreProveedor(idProveedor);
+                    ArticuloAux.NombreProveedor = nombreProveedor;
+
                     ListaArticulos.Add(ArticuloAux);
                 }
 
@@ -103,8 +107,10 @@ namespace negocio
             AccesoDatos cn = new AccesoDatos();
 
             try
-            {
-                cn.setearConsulta($"SELECT NombreCategoria FROM Categorias WHERE IdCategoria = {idCategoria}");
+            { 
+                cn.setearConsulta("SELECT NombreCategoria FROM Categorias WHERE IdCategoria = @id");
+                cn.setearParametro("@id", idCategoria);
+
                 cn.ejecutarLectura();
 
                 if (cn.Lector.Read())
@@ -137,6 +143,33 @@ namespace negocio
                 if (cn.Lector.Read())
                 {
                     nombreMarca = cn.Lector["DescripcionMarca"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return nombreMarca;
+        }
+
+        private string BuscarNombreProveedor(int idProveedor)
+        {
+            string nombreMarca = "";
+            AccesoDatos cn = new AccesoDatos();
+
+            try
+            {
+                cn.setearConsulta($"SELECT PR_Nombre FROM Proveedores WHERE Id_Proveedores = {idProveedor}");
+                cn.ejecutarLectura();
+
+                if (cn.Lector.Read())
+                {
+                    nombreMarca = cn.Lector["PR_Nombre"].ToString();
                 }
             }
             catch (Exception ex)
